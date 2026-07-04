@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tatra Flora Quiz</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;padding:1rem;background:#f0f9ff}
+.card{background:#fff;border-radius:0.75rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin-bottom:1rem;overflow:hidden}
+.card img{width:100%;height:200px;object-fit:cover}
+.card>div{padding:1rem}
+.btn{padding:0.75rem 1.5rem;border-radius:0.5rem;border:none;cursor:pointer;font-weight:500}
+.btn-primary{background:#4f46e5;color:#fff}
+.btn-secondary{background:#f3f4f6;color:#374151}
+.correct{background:#d1fae5;color:#065f46;padding:0.25rem 0.5rem;border-radius:9999px;font-size:0.75rem}
+.wrong{background:#fee2e2;color:#991b1b;padding:0.25rem 0.5rem;border-radius:9999px;font-size:0.75rem}
+.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:100}
+.modal-content{background:#fff;border-radius:1rem;padding:1.5rem;max-width:42rem;width:100%;max-height:90vh;overflow-y:auto}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1rem 0}
+</style>
+</head>
+<body>
+<div id="app">
+  <div style="min-height:100vh;padding:1rem">
+    <div style="max-width:56rem;margin:0 auto">
+      <header style="display:flex;justify-content:space-between;margin-bottom:2rem">
+        <div>
+          <h1>🌿 Quiz: Flora Tatr</h1>
+          <p id="score">0/0</p>
+        </div>
+      </header>
+      <div class="card" id="quiz-card">
+        <img id="plant-image" src="" style="width:100%;height:300px;object-fit:cover;border-radius:0.5rem" />
+        <div style="padding:1rem">
+          <h2 id="question">Jaka to roślina?</h2>
+          <input type="text" id="answer-input" placeholder="Wpisz nazwę polską..." style="width:100%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" />
+          <div style="display:flex;gap:1rem">
+            <button onclick="checkAnswer()" class="btn btn-primary">Sprawdź</button>
+            <button onclick="showStudy()" class="btn btn-secondary">Przewodnik</button>
+          </div>
+        </div>
+      </div>
+      <div id="study-mode" style="display:none">
+        <header style="margin-bottom:2rem">
+          <h1 style="font-size:1.5rem;font-weight:700">📚 Przewodnik po florze Tatr</h1>
+          <button onclick="showQuiz()" class="btn btn-primary">Wróć do quizu</button>
+        </header>
+        <div id="plants-grid" style="display:grid;gap:1rem"></div>
+      </div>
+      <footer style="text-align:center;color:#666;font-size:0.75rem;margin-top:2rem">
+        Quiz flora Tatr - <span id="plant-count">2</span> rośliny
+      </footer>
+    </div>
+  </div>
+  <div id="plant-modal" class="modal" style="display:none">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-latin" style="font-style:italic"></p>
+      <img id="modal-image" style="width:100%;margin:1rem 0;border-radius:0.5rem" />
+      <p id="modal-description"></p>
+      <div class="grid2">
+        <div><h4>Siedlisko:</h4><p id="modal-habitat"></p></div>
+        <div><h4>Okres:</h4><p id="modal-bloom"></p></div>
+        <div><h4>Występowanie:</h4><p id="modal-altitude"></p></div>
+        <div><h4>Strefy:</h4><p id="modal-zones"></p></div>
+      </div>
+      <h4>Cechy:</h4>
+      <ul id="modal-characteristics" style="list-style-type:disc;list-style-position:inside"></ul>
+      <button onclick="closeModal()" class="btn btn-primary">Zamknij</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const plants = [
+  {
+    id: 1,
+    n: "Arcydzięgiel litwor",
+    l: "Angelica archangelica",
+    d: "Okazała roślina dorastająca do 2,5 m wysokości. Łodyga gruba, naga, bruzdowana. Liście duże, 3-4-krotnie pierzaste. Kwiaty zebrane w duże, kuliste baldachy złożone, zielonkawo-żółte. Rośnie w miejscach wilgotnych, na brzegach potoków, w ziołoroślach wysokogórskich.",
+    h: "Ziołorośla, utrwalone piargi, brzegi potoków",
+    b: "VII-VIII",
+    a: "700-2600m",
+    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
+    i: [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Angelica_archangelica_001.jpg/800px-Angelica_archangelica_001.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Angelica_archangelica_Blatt_001.jpg/800px-Angelica_archangelica_Blatt_001.jpg"
+    ],
+    c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone, od spodu sinozielone"]
+  },
+  {
+    id: 2,
+    n: "Aster alpejski",
+    l: "Aster alpinus",
+    d: "Bylina o wzniesionym, kępiastym pokroju, osiągająca 10-20 cm wysokości. Liście odziomkowe łopatkowe, liście łodygowe lancetowate. Kwiaty języczkowe fioletowe, rurkowate żółte, zebrane w koszyczki. Rośnie na skalnych półkach, w szczelinach skał, na żwirku wapiennym.",
+    h: "Murawy, na podłożu zasobnym w węglan wapnia",
+    b: "VII-VIII",
+    a: "700-2600m",
+    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
+    i: [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Aster_alpinus_2007-06-22.jpg/800px-Aster_alpinus_2007-06-22.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Aster_alpinus_Bl%C3%BCte.jpg/800px-Aster_alpinus_Bl%C3%BCte.jpg"
+    ],
+    c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna i ciepłolubna"]
+  }
+];
+
+let currentPlant = null;
+let score = 0;
+let attempts = 0;
+
+function showQuiz() {
+  document.getElementById('quiz-card').style.display = 'block';
+  document.getElementById('study-mode').style.display = 'none';
+  nextPlant();
+}
+
+function showStudy() {
+  document.getElementById('quiz-card').style.display = 'none';
+  document.getElementById('study-mode').style.display = 'block';
+  renderPlantsGrid();
+}
+
+function nextPlant() {
+  currentPlant = plants[Math.floor(Math.random() * plants.length)];
+  document.getElementById('plant-image').src = currentPlant.i[0];
+  document.getElementById('answer-input').value = '';
+  document.getElementById('question').textContent = 'Jaka to roślina?';
+  document.getElementById('score').textContent = score + '/' + attempts;
+}
+
+function checkAnswer() {
+  const userAnswer = document.getElementById('answer-input').value.trim();
+  if (!currentPlant || !userAnswer) return;
+
+  attempts++;
+  document.getElementById('score').textContent = score + '/' + attempts;
+
+  if (userAnswer.toLowerCase() === currentPlant.n.toLowerCase()) {
+    score++;
+    document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
+  } else {
+    document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
+  }
+
+  document.getElementById('answer-input').style.display = 'none';
+
+  setTimeout(() => {
+    nextPlant();
+    document.getElementById('answer-input').style.display = 'block';
+  }, 2000);
+}
+
+function renderPlantsGrid() {
+  const grid = document.getElementById('plants-grid');
+  grid.innerHTML = '';
+  plants.forEach(plant => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.onclick = () => showPlantDetails(plant);
+    card.innerHTML = `
+      <img src="${plant.i[0]}" alt="${plant.n}">
+      <div>
+        <h3>${plant.n}</h3>
+        <p style="font-size:0.875rem;color:#666">${plant.l}</p>
+        <p style="font-size:0.875rem;color:#2563eb;margin-top:0.5rem">Kliknij</p>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function showPlantDetails(plant) {
+  document.getElementById('modal-title').textContent = plant.n;
+  document.getElementById('modal-latin').textContent = plant.l;
+  document.getElementById('modal-image').src = plant.i[0];
+  document.getElementById('modal-description').textContent = plant.d;
+  document.getElementById('modal-habitat').textContent = plant.h;
+  document.getElementById('modal-bloom').textContent = plant.b;
+  document.getElementById('modal-altitude').textContent = plant.a;
+  document.getElementById('modal-zones').textContent = plant.z.join(', ');
+  const charList = document.getElementById('modal-characteristics');
+  charList.innerHTML = '';
+  plant.c.forEach(char => {
+    const li = document.createElement('li');
+    li.textContent = char;
+    charList.appendChild(li);
+  });
+  document.getElementById('plant-modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('plant-modal').style.display = 'none';
+}
+
+// Initialize
+showQuiz();
+</script>
+</body>
+</html>
