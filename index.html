@@ -8,7 +8,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;padding:0;background:#f0f9ff;min-height:100vh;display:flex;flex-direction:column;overflow-y:auto}
 .container{flex:1;max-width:56rem;margin:0 auto;width:100%;padding:1rem;box-sizing:border-box;display:flex;flex-direction:column;overflow-y:auto}
 .card{background:#fff;border-radius:0.75rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin-bottom:1rem;overflow:hidden;flex:1;display:flex;flex-direction:column}
-.card-image-container{height:200px;display:flex;align-items:center;justify-content:center;background:#f8f9fa;border-radius:0.5rem;flex-shrink:0}
+.card-image-container{height:300px;display:flex;align-items:center;justify-content:center;background:#f8f9fa;border-radius:0.5rem;flex-shrink:0}
 .card-content{padding:1rem;flex:1;display:flex;flex-direction:column}
 .card img{width:100%;max-height:100%;object-fit:contain}
 .btn{padding:0.75rem 1.5rem;border-radius:0.5rem;border:none;cursor:pointer;font-weight:500}
@@ -264,7 +264,7 @@ function renderPlantsGrid() {
     card.onclick = () => showPlantDetails(plant);
     const imgUrl = getWikiUrl(plant.i[0]);
     card.innerHTML = `
-      <div class="card-image-container" style="height:140px">
+      <div class="card-image-container" style="height:200px">
         <img src="${imgUrl}" alt="${plant.n}" style="max-width:100%;max-height:100%;object-fit:contain" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'">
       </div>
       <div class="card-content">
