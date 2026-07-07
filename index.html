@@ -30,7 +30,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0
         </div>
       </header>
       <div class="card" id="quiz-card">
-        <img id="plant-image" src="" style="width:100%;height:300px;object-fit:cover;border-radius:0.5rem" />
+        <img id="plant-image" src="" style="width:100%;height:300px;object-fit:cover;border-radius:0.5rem" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'" />
         <div style="padding:1rem">
           <h2 id="question">Jaka to roślina?</h2>
           <input type="text" id="answer-input" placeholder="Wpisz nazwę polską..." style="width:100%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" />
@@ -53,7 +53,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0
     <div class="modal-content">
       <h2 id="modal-title"></h2>
       <p id="modal-latin" style="font-style:italic"></p>
-      <img id="modal-image" style="width:100%;margin:1rem 0;border-radius:0.5rem" />
+      <img id="modal-image" style="width:100%;margin:1rem 0;border-radius:0.5rem" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'" />
       <p id="modal-description"></p>
       <div class="grid2">
         <div><h4>Siedlisko:</h4><p id="modal-habitat"></p></div>
@@ -74,7 +74,7 @@ const plants = [
     id: 1,
     n: "Arcydzięgiel litwor",
     l: "Angelica archangelica",
-    d: "Okazała roślina dorastająca do 2,5 m wysokości. Łodyga gruba, naga, bruzdowana. Liście duże, 3-4-krotnie pierzaste. Kwiaty zebrane w duże, kuliste baldachy złożone, zielonkawo-żółte. Rośnie w miejscach wilgotnych, na brzegach potoków, w ziołoroślach wysokogórskich.",
+    d: "Okazała roślina dorastająca do 2,5 m wysokości. Łodyga gruba, naga, bruzdowana. Liście duże, 3-4-krotnie pierzaste. Kwiaty zebrane w duże, kuliste baldachy złocone, zielonkawo-żółte. Rośnie w miejscach wilgotnych, na brzegach potoków, w ziołoroślach wysokogórskich.",
     h: "Ziołorośla, utrwalone piargi, brzegi potoków",
     b: "VII-VIII",
     a: "700-2600m",
@@ -96,7 +96,7 @@ const plants = [
     z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
     i: [
       "https://upload.wikimedia.org/wikipedia/commons/5/5a/Aster_alpinus_2007-06-22.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/c/cf/Angelica_archangelica_%281118596627%29.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/4/4e/Aster_alpinus_Blume.jpg"
     ],
     c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna"]
   }
@@ -156,7 +156,7 @@ function renderPlantsGrid() {
     card.className = 'card';
     card.onclick = () => showPlantDetails(plant);
     card.innerHTML = `
-      <img src="${plant.i[0]}" alt="${plant.n}">
+      <img src="${plant.i[0]}" alt="${plant.n}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'">
       <div>
         <h3>${plant.n}</h3>
         <p style="font-size:0.875rem;color:#666">${plant.l}</p>
