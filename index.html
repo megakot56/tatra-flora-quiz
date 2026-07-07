@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tatra Flora Quiz</title>
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;padding:1rem;background:#f0f9ff}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;padding:0;background:#f0f9ff;min-height:100vh;display:flex;flex-direction:column}
+.container{flex:1;max-width:56rem;margin:0 auto;width:100%;padding:1rem;box-sizing:border-box}
 .card{background:#fff;border-radius:0.75rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin-bottom:1rem;overflow:hidden}
 .card img{width:100%;max-height:300px;object-fit:contain;background:#f8f9fa}
 .card>div{padding:1rem}
@@ -19,36 +20,41 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1rem 0}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:0.5rem;margin:1rem 0}
 .gallery img{width:100%;height:100px;object-fit:cover;border-radius:0.25rem}
+@media (max-width: 768px) {
+  .container{padding:0.5rem}
+  .card img{max-height:200px}
+  .modal-content{max-width:95vw;padding:1rem}
+}
 </style>
 </head>
 <body>
-<div id="app">
-  <div style="min-height:100vh;padding:1rem">
-    <div style="max-width:56rem;margin:0 auto">
-      <header style="display:flex;justify-content:space-between;margin-bottom:2rem">
-        <div>
-          <h1>🌿 Quiz: Flora Tatr</h1>
-          <p id="score">0/0</p>
+<div id="app" style="flex:1;display:flex;flex-direction:column">
+  <div class="container">
+    <header style="display:flex;justify-content:space-between;margin-bottom:2rem">
+      <div>
+        <h1>🌿 Quiz: Flora Tatr</h1>
+        <p id="score">0/0</p>
+      </div>
+    </header>
+    <div class="card" id="quiz-card">
+      <div style="height:300px;display:flex;align-items:center;justify-content:center;background:#f8f9fa;border-radius:0.5rem">
+        <img id="plant-image" src="" style="max-width:100%;max-height:100%;object-fit:contain" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'" />
+      </div>
+      <div style="padding:1rem">
+        <h2 id="question">Jaka to roślina?</h2>
+        <input type="text" id="answer-input" placeholder="Wpisz nazwę polską..." style="width:100%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" onkeypress="if(event.key==='Enter') checkAnswer()" />
+        <div style="display:flex;gap:1rem">
+          <button onclick="checkAnswer()" class="btn btn-primary">Sprawdź</button>
+          <button onclick="showStudy()" class="btn btn-secondary">Przewodnik</button>
         </div>
+      </div>
+    </div>
+    <div id="study-mode" style="display:none">
+      <header style="margin-bottom:2rem">
+        <h1 style="font-size:1.5rem;font-weight:700">📚 Przewodnik po florze Tatr</h1>
+        <button onclick="showQuiz()" class="btn btn-primary">Wróć do quizu</button>
       </header>
-      <div class="card" id="quiz-card">
-        <img id="plant-image" src="" style="width:100%;max-height:300px;object-fit:contain;background:#f8f9fa;border-radius:0.5rem" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'" />
-        <div style="padding:1rem">
-          <h2 id="question">Jaka to roślina?</h2>
-          <input type="text" id="answer-input" placeholder="Wpisz nazwę polską..." style="width:100%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" onkeypress="if(event.key==='Enter') checkAnswer()" />
-          <div style="display:flex;gap:1rem">
-            <button onclick="checkAnswer()" class="btn btn-primary">Sprawdź</button>
-            <button onclick="showStudy()" class="btn btn-secondary">Przewodnik</button>
-          </div>
-        </div>
-      </div>
-      <div id="study-mode" style="display:none">
-        <header style="margin-bottom:2rem">
-          <h1 style="font-size:1.5rem;font-weight:700">📚 Przewodnik po florze Tatr</h1>
-          <button onclick="showQuiz()" class="btn btn-primary">Wróć do quizu</button>
-        </header>
-        <div id="plants-grid" style="display:grid;gap:1rem"></div>
-      </div>
+      <div id="plants-grid" style="display:grid;gap:1rem"></div>
     </div>
   </div>
   <div id="plant-modal" class="modal" style="display:none">
@@ -84,8 +90,8 @@ const plants = [
     i: [
       "https://upload.wikimedia.org/wikipedia/commons/a/af/Angelica_archangelica_flower.JPG",
       "https://upload.wikimedia.org/wikipedia/commons/3/31/Angelica_archangelica_002.JPG",
-      "https://upload.wikimedia.org/wikipedia/commons/4/4a/Angelica_archangelica_kz01.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/9/9c/Angelica_archangelica_001.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/d/dc/Angelica_archangelica_-_Jardin_des_Plantes_de_Paris.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/8/82/Angelica_archangelica_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-158.jpg"
     ],
     c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"]
   },
@@ -101,8 +107,8 @@ const plants = [
     i: [
       "https://upload.wikimedia.org/wikipedia/commons/b/be/Aster-alpinus.JPG",
       "https://upload.wikimedia.org/wikipedia/commons/f/f7/Aster_alpinus_001.JPG",
-      "https://upload.wikimedia.org/wikipedia/commons/5/5a/Aster_alpinus_2007-06-22.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/8/87/Aster_alpinus_%27Dunkle_Sch%C3%B6ne%27_flower_03.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/e/e3/Angelica_archangelica_ssp._litoralis_-_Meriputki_C_IMG_5947.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/9/9c/Vik-32-Angelica_archangelica-Arznei-Engelwurz-2018-gje.jpg"
     ],
     c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"]
   }
@@ -166,7 +172,9 @@ function renderPlantsGrid() {
     card.className = 'card';
     card.onclick = () => showPlantDetails(plant);
     card.innerHTML = `
-      <img src="${plant.i[0]}" alt="${plant.n}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'">
+      <div style="height:200px;display:flex;align-items:center;justify-content:center;background:#f8f9fa">
+        <img src="${plant.i[0]}" alt="${plant.n}" style="max-width:100%;max-height:100%;object-fit:contain" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'">
+      </div>
       <div>
         <h3>${plant.n}</h3>
         <p style="font-size:0.875rem;color:#666">${plant.l}</p>
