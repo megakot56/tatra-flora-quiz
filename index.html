@@ -28,6 +28,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0
   .gallery{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
 }
 
+/* Plants grid - multi-column layout for study mode */
+#plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Responsive adjustments for plants grid */
+@media (min-width: 1200px) {
+  #plants-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  #plants-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  #plants-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .container{padding:0.5rem}
@@ -78,7 +103,7 @@ input[type="text"]{
         <h1 style="font-size:1.5rem;font-weight:700">📚 Przewodnik po florze Tatr</h1>
         <button onclick="showQuiz()" class="btn btn-primary">Wróć do quizu</button>
       </header>
-      <div id="plants-grid" style="display:grid;gap:1rem"></div>
+      <div id="plants-grid"></div>
     </div>
   </div>
   <div id="plant-modal" class="modal" style="display:none">
