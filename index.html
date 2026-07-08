@@ -106,8 +106,8 @@ input[type="text"]{
       <div id="plants-grid"></div>
     </div>
   </div>
-  <div id="plant-modal" class="modal" style="display:none">
-    <div class="modal-content">
+  <div id="plant-modal" class="modal" style="display:none" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
       <h2 id="modal-title"></h2>
       <p id="modal-latin" style="font-style:italic"></p>
       <div class="gallery" id="modal-gallery"></div>
