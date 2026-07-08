@@ -126,13 +126,15 @@ input[type="text"]{
 </div>
 
 <script>
-// Function to get working image URL
+// Function to get working image URL with fallback to thumbnails
 function getWikiUrl(filename) {
   // If it's a local image (starts with images/), use relative path
   if (filename.startsWith('images/')) {
     return filename;
   }
-  // Otherwise, use Wikimedia Commons
+  
+  // For Wikimedia Commons, use the original URL
+  // The onerror handler in HTML will show a placeholder if it fails
   return `https://upload.wikimedia.org/wikipedia/commons/${filename}`;
 }
 
@@ -214,12 +216,11 @@ const plants = [
     a: "1200-2500m",
     z: ["regiel górny", "kosodrzewina", "hale", "turnie"],
     i: [
-      "5/5a/Pulsatilla_alpina_001.jpg",
-      "8/87/Pulsatilla_alpina_2009-06-14.jpg",
-      "3/3e/Pulsatilla_alpina_sl01.jpg",
-      "f/f4/Pulsatilla_alpina_1.jpg"
+      "images/sasanka_alpejska_1.jpg",
+      "images/sasanka_alpejska_2.jpg",
+      "images/sasanka_alpejska_3.jpg"
     ],
-    c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowych", "Liście owłosione", "Roślina wiosennokwitnąca"]
+    c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"]
   },
 
 ];
@@ -304,7 +305,7 @@ function renderPlantsGrid() {
     card.onclick = () => showPlantDetails(plant);
     const imgUrl = getWikiUrl(plant.i[0]);
     card.innerHTML = `
-      <img src="${imgUrl}" alt="${plant.n}" style="width:100%;max-height:400px;object-fit:contain;background:#f8f9fa" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EImage not available%3C/text%3E%3C/svg%3E'">
+      <img src="${imgUrl}" alt="${plant.n}" style="width:100%;max-height:400px;object-fit:contain;background:#f8f9fa" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23666%22 font-family=%22Arial%22 font-size=%2214%22%3ENo image%3C/text%3E%3C/svg%3E'"; this.style.background='%23f8f9fa'">
       <div>
         <h3>${plant.n}</h3>
         <p style="font-size:0.875rem;color:#666">${plant.l}</p>
