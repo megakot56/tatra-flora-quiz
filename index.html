@@ -84,24 +84,24 @@ input[type="text"]{
 <div id="app" style="flex:1;display:flex;flex-direction:column">
   <div class="container" id="main-container">
     <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem">
-      <h1 style="margin:0">🌿 Quiz: Flora Tatr</h1>
+      <h1 style="margin:0">f33f Quiz: Flora Tatr</h1>
       <span id="score" style="font-size:1.25rem;font-weight:500">0/0</span>
     </header>
     <div class="card" id="quiz-card">
       <img id="plant-image" src="" style="width:100%;max-height:600px;object-fit:contain;background:#f8f9fa;border-radius:0.5rem" />
       <div style="padding:1rem">
-        <h2 id="question">Jaka to roślina?</h2>
-        <input type="text" id="answer-input" placeholder="Wpisz nazwę polską..." style="width:50%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" onkeypress="if(event.key==='Enter') checkAnswer()" />
+        <h2 id="question">Jaka to roblina?</h2>
+        <input type="text" id="answer-input" placeholder="Wpisz nazw9 polsk5..." style="width:50%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" onkeypress="if(event.key==='Enter') checkAnswer()" />
         <div style="display:flex;gap:1rem">
-          <button onclick="checkAnswer()" class="btn btn-primary">Sprawdź</button>
+          <button onclick="checkAnswer()" class="btn btn-primary">Sprawd</button>
           <button onclick="showStudy()" class="btn btn-secondary">Przewodnik</button>
         </div>
       </div>
     </div>
     <div id="study-mode" style="display:none">
       <header style="margin-bottom:2rem">
-        <h1 style="font-size:1.5rem;font-weight:700">📚 Przewodnik po florze Tatr</h1>
-        <button onclick="showQuiz()" class="btn btn-primary">Wróć do quizu</button>
+        <h1 style="font-size:1.5rem;font-weight:700">f4da Przewodnik po florze Tatr</h1>
+        <button onclick="showQuiz()" class="btn btn-primary">Wr3 do quizu</button>
       </header>
       <div id="plants-grid"></div>
     </div>
@@ -115,7 +115,7 @@ input[type="text"]{
       <div class="grid2">
         <div><h4>Siedlisko:</h4><p id="modal-habitat"></p></div>
         <div><h4>Okres:</h4><p id="modal-bloom"></p></div>
-        <div><h4>Występowanie:</h4><p id="modal-altitude"></p></div>
+        <div><h4>Wystpowanie:</h4><p id="modal-altitude"></p></div>
         <div><h4>Strefy:</h4><p id="modal-zones"></p></div>
       </div>
       <h4>Cechy:</h4>
@@ -139,69 +139,86 @@ function getWikiUrl(filename) {
 const plants = [
   {
     id: 1,
-    n: "Arcydzięgiel litwor",
+    n: "Arcydzi9giel litwor",
     l: "Angelica archangelica",
-    d: "Okazała roślina dorastająca do 2,5 m wysokości. Łodyga gruba, naga, bruzdowana. Liście duże, 3-4-krotnie pierzaste. Kwiaty zebrane w duże, kuliste baldachy złocone, zielonkawo-żółte. Rośnie w miejscach wilgotnych, na brzegach potoków, w ziołoroślach wysokogórskich.",
-    h: "Ziołorośla, utrwalone piargi, brzegi potoków",
+    d: "Okaza2a roblina dorastaj5ca do 2,5 m wysokobci. 01odyga gruba, naga, bruzdowana. Libcie duce, 3-4-krotnie pierzaste. Kwiaty zebrane w duce, kuliste baldachy z2ocone, zielonkawo-te. Robnie w miejscach wilgotnych, na brzegach potok3w, w zio2oroblach wysokog3rskich.",
+    h: "Zio2orobla, utrwalone piargi, brzegi potok3w",
     b: "VII-VIII",
     a: "700-2600m",
-    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
+    z: ["regiel dolny", "regiel g3rny", "kosodrzewina", "hale", "turnie"],
     i: [
       "a/af/Angelica_archangelica_flower.JPG",
       "3/31/Angelica_archangelica_002.JPG",
       "d/dc/Angelica_archangelica_-_Jardin_des_Plantes_de_Paris.JPG",
-      "8/82/Angelica_archangelica_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-158.jpg"
+      "8/82/Angelica_archangelica_-_K%C3%B3hler%E2%80%93s_Medizinal-Pflanzen-158.jpg"
     ],
-    c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"]
+    c: ["Roblina dwuletnia i bylina", "Kwiaty zielonkawo-te", "Libcie ciemnozielone", "01odyga bruzdowana"]
   },
   {
     id: 2,
     n: "Aster alpejski",
     l: "Aster alpinus",
-    d: "Bylina o wzniesionym, kępiastym pokroju, osiągająca 10-20 cm wysokości. Liście odziomkowe łopatkowe, liście łodygowe lancetowate. Kwiaty języczkowe fioletowe, rurkowate żółte, zebrane w koszyczki. Rośnie na skalnych półkach, w szczelinach skał, na żwirku wapiennym.",
-    h: "Murawy, na podłożu zasobnym w węglan wapnia",
+    d: "Bylina o wzniesionym, k9piastym pokroju, osi5gaj5ca 10-20 cm wysokobci. Libcie odziomkowe 2opatkowe, libcie 2odygowe lancetowate. Kwiaty j9zyczkowe fioletowe, rurkowate te, zebrane w koszyczki. Robnie na skalnych p35kach, w szczelinach ska2, na wirku wapiennym.",
+    h: "Murawy, na pod2ocu zasobnym w w9glan wapnia",
     b: "VII-VIII",
     a: "700-2600m",
-    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
+    z: ["regiel dolny", "regiel g3rny", "kosodrzewina", "hale", "turnie"],
     i: [
       "b/be/Aster-alpinus.JPG",
       "f/f7/Aster_alpinus_001.JPG",
       "5/5a/Aster_alpinus_2007-06-22.jpg",
       "8/87/Aster_alpinus_%27Dunkle_Sch%C3%B6ne%27_flower_03.jpg"
     ],
-    c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"]
+    c: ["Bylina z grubym, rozga29zionym k25czem", "Kwiaty fioletowe z tym brodkiem", "Roblina wapieniolubna", "Niska, k9pkowa"]
   },
   {
     id: 3,
     n: "Szafran spiski",
     l: "Crocus scepusiensis",
-    d: "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
+    d: "Niska roblina cebulowa osi5gaj5ca 5-15 cm wysokobci. Libcie w5skie, trawiaste, wyrastaj5ce bezpobrednio z cebuli. Kwiaty pojedyncze, fioletowe z bia2ymi paskami, z tym gard2em, pojawiaj5 si9 wczesn5 wiosn5. Robnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
     h: "Murawy, trawiaste zbocza, tereny skaliste",
     b: "III-IV",
     a: "800-2000m",
-    z: ["regiel dolny", "regiel górny", "kosodrzewina"],
+    z: ["regiel dolny", "regiel g3rny", "kosodrzewina"],
     i: ["images/szafran_spiski_1.jpg",
       "images/szafran_spiski_2.jpeg",
       "images/szafran_spiski_3.jpeg",
       "images/szafran_spiski_4.jpeg"],
-    c: ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Tatr Zachodnich"]
+    c: ["Roblina cebulowa", "Kwiaty fioletowe z bia2ymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Tatr Zachodnich"]
   },
   {
     id: 4,
     n: "Obuwik pospolity",
     l: "Cypripedium calceolus",
-    d: "Bylina z rodziny storczykowatych, osiągająca 20-60 cm wysokości. Charakterystyczne kwiaty w kształcie pantofelka, żółte z brązowymi żyłkami. Liście szerokoeliptyczne, owłosione. Rośnie w cienistych lasach, na wilgotnych glebach wapiennych. Jedna z najpiękniejszych i najrzadszych roślin tatrzańskich.",
-    h: "Cieniste lasy liściaste i mieszane, wilgotne gleby wapienne",
+    d: "Bylina z rodziny storczykowatych, osi5gaj5ca 20-60 cm wysokobci. Charakterystyczne kwiaty w kszta2cie pantofelka, te z br5zowymi y2kami. Libcie szerokoeliptyczne, ow2osione. Robnie w cienistych lasach, na wilgotnych glebach wapiennych. Jedna z najpi9kniejszych i najrzadszych roblin tatrza4skich.",
+    h: "Cieniste lasy libciaste i mieszane, wilgotne gleby wapienne",
     b: "V-VI",
     a: "500-1800m",
-    z: ["regiel dolny", "regiel górny"],
+    z: ["regiel dolny", "regiel g3rny"],
     i: [
       "0/07/Cypripedium_calceolus_03-09.jpg",
       "2/26/Cypripedium_calceolus_TK_2021-05-29_2.jpg",
       "f/f0/Cypripedium_calceolus_-_Steiermark.jpg",
       "9/9f/1971._Calceolus_speciosum.jpg"
     ],
-    c: ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"]
+    c: ["Kwiat w kszta2cie pantofelka", "Roblina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"]
+  },
+  {
+    id: 5,
+    n: "Dziewi9si2 bez2odygowy",
+    l: "Carlina acaulis",
+    d: "Bylina o charakterystycznym pokroju z rozet5 lici u nasady. 01odyga kwiatowa bardzo skr2cona, niemal niewidoczna. Libcie duce, kolczasto z5bate, bia2o ow2osione od spodu. Kwiatostan w formie duego koszyczka z bia2ymi lub toymi kwiatami rurkowatymi, otoczony zielonymi, kolczastymi listkami okrywy. Robnie na halach, murawach i skalistych zboczach. Gatunek wapieniolubny, charakterystyczny dla pi9tra alpejskiego.",
+    h: "Hale, murawy, skaliste zbocza, tereny wapienne",
+    b: "VII-IX",
+    a: "1200-2500m",
+    z: ["kosodrzewina", "hale", "turnie"],
+    i: [
+      "5/5e/Carlina_acaulis_001.jpg",
+      "9/9a/Carlina_acaulis_Blatt.jpg",
+      "c/c4/Carlina_acaulis_2021-07-24_01.jpg",
+      "d/d3/Carlina_acaulis_subsp._acaulis_002.jpg"
+    ],
+    c: ["Rozeta liciowa u nasady", "Libcie kolczasto z5bate, bia2o ow2osione od spodu", "Kwiatostan koszyczkowy z bia2ymi kwiatami", "Roblina wapieniolubna", "01odyga kwiatowa skr2cona"]
   }
 ];
 
@@ -248,7 +265,7 @@ function nextPlant() {
   const imgUrl = getWikiUrl(currentPlant.i[randomImageIndex]);
   document.getElementById('plant-image').src = imgUrl;
   document.getElementById('answer-input').value = '';
-  document.getElementById('question').textContent = 'Jaka to roślina?';
+  document.getElementById('question').textContent = 'Jaka to roblina?';
   document.getElementById('score').textContent = score + '/' + attempts;
   document.getElementById('answer-input').style.display = 'block';
   document.getElementById('answer-input').focus();
@@ -263,9 +280,9 @@ function checkAnswer() {
 
   if (userAnswer.toLowerCase() === currentPlant.n.toLowerCase()) {
     score++;
-    document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
+    document.getElementById('question').innerHTML = '<span class="correct">\u2713 Poprawna odpowied\u017a!</span> ' + currentPlant.n;
   } else {
-    document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
+    document.getElementById('question').innerHTML = '<span class="wrong">\u2717 Spr\u00f3buj ponownie</span> ' + currentPlant.n;
   }
 
   document.getElementById('answer-input').style.display = 'none';
@@ -289,7 +306,7 @@ function renderPlantsGrid() {
       <div>
         <h3>${plant.n}</h3>
         <p style="font-size:0.875rem;color:#666">${plant.l}</p>
-        <p style="font-size:0.875rem;color:#2563eb;margin-top:0.5rem">Kliknij, aby zobaczyć więcej</p>
+        <p style="font-size:0.875rem;color:#2563eb;margin-top:0.5rem">Kliknij, aby zobaczy\u0107 wi\u0119cej</p>
       </div>
     `;
     grid.appendChild(card);
