@@ -101,8 +101,13 @@ input[type="text"]{
 </div>
 
 <script>
-// Function to get working Wikimedia Commons URL
+// Function to get working image URL
 function getWikiUrl(filename) {
+  // If it's a local image (starts with images/), use relative path
+  if (filename.startsWith('images/')) {
+    return filename;
+  }
+  // Otherwise, use Wikimedia Commons
   return `https://upload.wikimedia.org/wikipedia/commons/${filename}`;
 }
 
