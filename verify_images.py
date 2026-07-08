@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Skrypt do weryfikacji obrazów z Wikimedia Commons przed dodaniem nowej rośliny.
+Skrypt do weryfikacji lokalnych obrazów przed dodaniem nowej rośliny.
 Użycie: python verify_images.py <ścieżka_do_pliku> [--check-all]
 
 Przykład:
@@ -66,28 +66,17 @@ def extract_plants_from_file(filepath):
 
 
 def check_image_url(image_path):
-    """Sprawdź, czy obraz istnieje na Wikimedia Commons"""
+    """Sprawdź, czy lokalny obraz istnieje"""
     if image_path.startswith('images/'):
-        # Lokalny obraz - sprawdź, czy plik istnieje
+        # Lokalny obraz - sprawdź, czy plik istnieje i ma rozmiar > 0
         import os
-        if os.path.exists(image_path):
+        if os.path.exists(image_path) and os.path.getsize(image_path) > 0:
             return True, "local"
         else:
-            return False, "local file missing"
+            return False, "local file missing or empty"
     
-    url = f"{WIKI_COMMONS_BASE}{image_path}"
-    
-    try:
-        # Wikimedia blokuje HEAD requesty, użyj GET z stream=True
-        response = requests.get(url, stream=True, timeout=10)
-        
-        # Sprawdź, czy odpowiedź jest pomyślna
-        if response.status_code == 200:
-            return True, "wiki"
-        else:
-            return False, f"HTTP {response.status_code}"
-    except requests.exceptions.RequestException as e:
-        return False, str(e)
+    # Tylko lokalne obrazy są obsługiwane
+    return False, "only local images (images/) are supported"
 
 
 def verify_plants(plants, plant_name=None):

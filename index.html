@@ -126,16 +126,17 @@ input[type="text"]{
 </div>
 
 <script>
-// Function to get working image URL with fallback to thumbnails
+// Function to get image URL - ONLY local images supported
 function getWikiUrl(filename) {
-  // If it's a local image (starts with images/), use relative path
+  // Only local images are supported (in images/ folder)
+  // This ensures we don't have issues with external sources
   if (filename.startsWith('images/')) {
     return filename;
   }
   
-  // For Wikimedia Commons, use the original URL
-  // The onerror handler in HTML will show a placeholder if it fails
-  return `https://upload.wikimedia.org/wikipedia/commons/${filename}`;
+  // Fallback: if somehow a non-local path is used, return placeholder
+  console.warn('Non-local image path detected:', filename);
+  return 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23666%22 font-family=%22Arial%22 font-size=%2214%22%3ENo image%3C/text%3E%3C/svg%3E';
 }
 
 const plants = [
@@ -149,10 +150,10 @@ const plants = [
     a: "700-2600m",
     z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
     i: [
-      "a/af/Angelica_archangelica_flower.JPG",
-      "3/31/Angelica_archangelica_002.JPG",
-      "d/dc/Angelica_archangelica_-_Jardin_des_Plantes_de_Paris.JPG",
-      "8/82/Angelica_archangelica_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-158.jpg"
+      "images/arcydziegiel_litwor_1.jpg",
+      "images/arcydziegiel_litwor_2.jpg",
+      "images/arcydziegiel_litwor_3.jpg",
+      "images/arcydziegiel_litwor_4.jpg"
     ],
     c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"]
   },
@@ -166,10 +167,10 @@ const plants = [
     a: "700-2600m",
     z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
     i: [
-      "b/be/Aster-alpinus.JPG",
-      "f/f7/Aster_alpinus_001.JPG",
-      "5/5a/Aster_alpinus_2007-06-22.jpg",
-      "8/87/Aster_alpinus_%27Dunkle_Sch%C3%B6ne%27_flower_03.jpg"
+      "images/aster_alpejski_1.jpg",
+      "images/aster_alpejski_2.jpg",
+      "images/aster_alpejski_3.jpg",
+      "images/aster_alpejski_4.jpg"
     ],
     c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"]
   },
@@ -198,10 +199,10 @@ const plants = [
     a: "500-1800m",
     z: ["regiel dolny", "regiel górny"],
     i: [
-      "0/07/Cypripedium_calceolus_03-09.jpg",
-      "2/26/Cypripedium_calceolus_TK_2021-05-29_2.jpg",
-      "f/f0/Cypripedium_calceolus_-_Steiermark.jpg",
-      "9/9f/1971._Calceolus_speciosum.jpg"
+      "images/obuwik_pospolity_1.jpg",
+      "images/obuwik_pospolity_2.jpg",
+      "images/obuwik_pospolity_3.jpg",
+      "images/obuwik_pospolity_4.jpg"
     ],
     c: ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"]
   }
