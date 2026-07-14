@@ -179,7 +179,6 @@ input[type="text"]{
   </div>
   <div id="plant-modal" class="modal" style="display:none" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <div id="answer-result" style="display:none; margin:1rem 0; text-align:center;"></div>
       <h2 id="modal-title"></h2>
       <p id="modal-latin" style="font-style:italic"></p>
       <div class="gallery" id="modal-gallery"></div>
@@ -212,6 +211,15 @@ function getWikiUrl(filename) {
   return 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23666%22 font-family=%22Arial%22 font-size=%2214%22%3ENo image%3C/text%3E%3C/svg%3E';
 }
 
+
+// Related plants for answer options (Tatra plants that are related to each other)
+const relatedPlantsMap = {
+  "Arcydziegiel litwor": ["Aster alpejski", "Sasanka alpejska", "Obuwik pospolity"],
+  "Aster alpejski": ["Arcydziegiel litwor", "Sasanka alpejska", "Szafran spiski"],
+  "Szafran spiski": ["Aster alpejski", "Sasanka alpejska", "Arcydziegiel litwor"],
+  "Obuwik pospolity": ["Arcydziegiel litwor", "Aster alpejski", "Sasanka alpejska"],
+  "Sasanka alpejska": ["Aster alpejski", "Arcydziegiel litwor", "Szafran spiski"]
+};
 
 // Related plants for answer options (Tatra plants that are related to each other)
 const relatedPlantsMap = {
@@ -265,7 +273,7 @@ const plants = [
     id: 3,
     n: "Szafran spiski",
     l: "Crocus scepusiensis",
-    d: "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Karpat Zachodnich.",
+    d: "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
     h: "Murawy, trawiaste zbocza, tereny skaliste",
     b: "III-IV",
     a: "800-2000m",
@@ -308,7 +316,8 @@ const plants = [
     i: [
       "images/sasanka_alpejska_1.jpg",
       "images/sasanka_alpejska_2.jpg",
-      "images/sasanka_alpejska_3.jpg"
+      "images/sasanka_alpejska_3.jpg",
+      "images/sasanka_alpejska_4.jpg"
     ],
     c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"],
     pL: false
@@ -317,7 +326,7 @@ const plants = [
     id: 6,
     n: "Dziewięćsił bezłodygowy",
     l: "Carlina acaulis",
-    d: "Bylina z rodziny astrowatych, charakterystyczna budową. Liście odziomkowe, duże, kolczaste, biało owłosione od spodu. Kwiaty różowe, zebrane w duże koszyczki na szczycie łodygi. Rośnie na murawach, w ziołoroślach i na skalistych zboczach. Gatunek pospolity w Tatrach.",
+    d: "Bylina z rodziny astrowatych, charakterystyczna budowa. Liście odziomkowe, duże, kolczaste, biało owłosione od spodu. Kwiaty różowe, zebrane w duże koszyczki na szczycie łodygi. Rośnie na murawach, w ziołoroślach i na skalistych zboczach. Gatunek pospolity w Tatrach.",
     h: "Murawy, ziołorośla, skaliste zbocza",
     b: "VII-IX",
     a: "1000-2300m",
@@ -356,6 +365,94 @@ let currentPlant = null;
 let score = 0;
 let attempts = 0;
 let selectedOption = null;
+let selectedOption = null;
+
+
+function toggleAnswerOptions() {
+  const checkbox = document.getElementById('not-member-checkbox');
+  const optionsContainer = document.getElementById('answer-options-container');
+  const textInput = document.getElementById('answer-input');
+  
+  if (checkbox.checked) {
+    optionsContainer.style.display = 'block';
+    textInput.style.display = 'none';
+    generateAnswerOptions();
+  } else {
+    optionsContainer.style.display = 'none';
+    textInput.style.display = 'block';
+    selectedOption = null;
+    updateAnswerOptions();
+  }
+}
+
+function generateAnswerOptions() {
+  if (!currentPlant) return;
+  
+  const optionsContainer = document.getElementById('answer-options');
+  optionsContainer.innerHTML = '';
+  
+  const relatedPlants = relatedPlantsMap[currentPlant.n] || [];
+  const wrongAnswers = [];
+  const allPlants = plants.filter(p => p.n !== currentPlant.n);
+  
+  for (const relatedName of relatedPlants) {
+    const relatedPlant = allPlants.find(p => p.n === relatedName);
+    if (relatedPlant && wrongAnswers.length < 3) {
+      wrongAnswers.push(relatedPlant.n);
+    }
+  }
+  
+  while (wrongAnswers.length < 3 && allPlants.length > 0) {
+    const randomPlant = allPlants[Math.floor(Math.random() * allPlants.length)];
+    if (!wrongAnswers.includes(randomPlant.n)) {
+      wrongAnswers.push(randomPlant.n);
+    }
+  }
+  
+  const allOptions = [currentPlant.n, ...wrongAnswers];
+  const shuffledOptions = shuffleArray(allOptions);
+  
+  shuffledOptions.forEach((option, index) => {
+    const optionElement = document.createElement('div');
+    optionElement.className = 'answer-option';
+    optionElement.textContent = option;
+    optionElement.onclick = () => selectAnswerOption(option, optionElement);
+    optionsContainer.appendChild(optionElement);
+  });
+}
+
+function shuffleArray(array) {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
+
+function selectAnswerOption(option, element) {
+  const allOptions = document.querySelectorAll('.answer-option');
+  allOptions.forEach(opt => {
+    opt.classList.remove('selected');
+  });
+  element.classList.add('selected');
+  selectedOption = option;
+}
+
+function updateAnswerOptions() {
+  if (!currentPlant) return;
+  
+  const options = document.querySelectorAll('.answer-option');
+  options.forEach(opt => {
+    if (opt.textContent === currentPlant.n) {
+      opt.classList.add('correct-answer');
+      opt.classList.remove('wrong-answer', 'selected');
+    } else {
+      opt.classList.add('wrong-answer');
+      opt.classList.remove('correct-answer', 'selected');
+    }
+  });
+}
 
 
 function toggleAnswerOptions() {
@@ -546,7 +643,7 @@ function checkAnswer() {
 
   // Show plant details in modal after checking answer
   setTimeout(() => {
-    showPlantDetails(currentPlant, isCorrect);
+    showPlantDetails(currentPlant);
   }, 500);
 }
 
