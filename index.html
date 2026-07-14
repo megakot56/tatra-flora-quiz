@@ -179,6 +179,7 @@ input[type="text"]{
   </div>
   <div id="plant-modal" class="modal" style="display:none" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
+      <div id="answer-result" style="display:none; margin:1rem 0; text-align:center;"></div>
       <h2 id="modal-title"></h2>
       <p id="modal-latin" style="font-style:italic"></p>
       <div class="gallery" id="modal-gallery"></div>
@@ -264,7 +265,7 @@ const plants = [
     id: 3,
     n: "Szafran spiski",
     l: "Crocus scepusiensis",
-    d: "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
+    d: "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Karpat Zachodnich.",
     h: "Murawy, trawiaste zbocza, tereny skaliste",
     b: "III-IV",
     a: "800-2000m",
@@ -273,7 +274,7 @@ const plants = [
       "images/szafran_spiski_2.jpeg",
       "images/szafran_spiski_3.jpeg",
       "images/szafran_spiski_4.jpeg"],
-    c: ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Tatr Zachodnich"],
+    c: ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Karpat Zachodnich"],
     pL: false
   },
   {
@@ -426,6 +427,12 @@ function selectAnswerOption(option, element) {
   });
   element.classList.add('selected');
   selectedOption = option;
+  
+  // Auto-check: od razu sprawdź odpowiedź po wyborze
+  const checkbox = document.getElementById('not-member-checkbox');
+  if (checkbox.checked) {
+    checkAnswer();
+  }
 }
 
 function updateAnswerOptions() {
@@ -539,7 +546,7 @@ function checkAnswer() {
 
   // Show plant details in modal after checking answer
   setTimeout(() => {
-    showPlantDetails(currentPlant);
+    showPlantDetails(currentPlant, isCorrect);
   }, 500);
 }
 
@@ -563,9 +570,23 @@ function renderPlantsGrid() {
   });
 }
 
-function showPlantDetails(plant) {
+function showPlantDetails(plant, isCorrect = null) {
   document.getElementById('modal-title').textContent = plant.n;
   document.getElementById('modal-latin').textContent = plant.l;
+  
+  // Pokaż informację o poprawności odpowiedzi
+  const resultDiv = document.getElementById('answer-result');
+  if (resultDiv) {
+    if (isCorrect === true) {
+      resultDiv.innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span>';
+      resultDiv.style.display = 'block';
+    } else if (isCorrect === false) {
+      resultDiv.innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span>';
+      resultDiv.style.display = 'block';
+    } else {
+      resultDiv.style.display = 'none';
+    }
+  }
   document.getElementById('modal-description').textContent = plant.d;
   document.getElementById('modal-habitat').textContent = plant.h;
   document.getElementById('modal-bloom').textContent = plant.b;
@@ -599,6 +620,7 @@ function showPlantDetails(plant) {
 
 function closeModal() {
   document.getElementById('plant-modal').style.display = 'none';
+  document.getElementById('answer-result').style.display = 'none';
   // Continue to next plant after closing modal
   setTimeout(() => {
     nextPlant();
