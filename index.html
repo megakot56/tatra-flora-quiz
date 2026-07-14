@@ -78,6 +78,62 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0
 input[type="text"]{
   font-size: 16px !important;
 }
+
+/* Answer options grid */
+.answer-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.answer-option {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.answer-option:hover {
+  background: #f8f9fa;
+  border-color: #4f46e5;
+}
+
+.answer-option.selected {
+  background: #4f46e5;
+  color: #fff;
+  border-color: #4f46e5;
+}
+
+.answer-option.correct-answer {
+  background: #d1fae5;
+  border-color: #065f46;
+  color: #065f46;
+}
+
+.answer-option.wrong-answer {
+  background: #fee2e2;
+  border-color: #991b1b;
+  color: #991b1b;
+}
+
+/* Checkbox styling */
+.not-member-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.not-member-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -91,7 +147,21 @@ input[type="text"]{
       <img id="plant-image" src="" style="width:100%;max-height:600px;object-fit:contain;background:#f8f9fa;border-radius:0.5rem" />
       <div style="padding:1rem">
         <h2 id="question">Jaka to roślina?</h2>
+        
+        <!-- Checkbox for non-members -->
+        <div class="not-member-checkbox">
+          <input type="checkbox" id="not-member-checkbox" onchange="toggleAnswerOptions()" />
+          <label for="not-member-checkbox">NIE jestem członkiem koła botanicznego</label>
+        </div>
+        
+        <!-- Standard text input -->
         <input type="text" id="answer-input" placeholder="Wpisz nazwę polską..." style="width:50%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" onkeypress="if(event.key==='Enter') checkAnswer()" />
+        
+        <!-- Answer options (hidden by default) -->
+        <div id="answer-options-container" style="display: none;">
+          <div class="answer-options" id="answer-options"></div>
+        </div>
+        
         <div style="display:flex;gap:1rem">
           <button onclick="checkAnswer()" class="btn btn-primary">Sprawdź</button>
           <button onclick="showStudy()" class="btn btn-secondary">Przewodnik</button>
@@ -138,6 +208,16 @@ function getWikiUrl(filename) {
   console.warn('Non-local image path detected:', filename);
   return 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23666%22 font-family=%22Arial%22 font-size=%2214%22%3ENo image%3C/text%3E%3C/svg%3E';
 }
+
+
+// Related plants for answer options (Tatra plants that are related to each other)
+const relatedPlantsMap = {
+  "Arcydziegiel litwor": ["Aster alpejski", "Sasanka alpejska", "Obuwik pospolity"],
+  "Aster alpejski": ["Arcydziegiel litwor", "Sasanka alpejska", "Szafran spiski"],
+  "Szafran spiski": ["Aster alpejski", "Sasanka alpejska", "Arcydziegiel litwor"],
+  "Obuwik pospolity": ["Arcydziegiel litwor", "Aster alpejski", "Sasanka alpejska"],
+  "Sasanka alpejska": ["Aster alpejski", "Arcydziegiel litwor", "Szafran spiski"]
+};
 
 const plants = [
   {
@@ -229,6 +309,94 @@ const plants = [
 let currentPlant = null;
 let score = 0;
 let attempts = 0;
+let selectedOption = null;
+
+
+function toggleAnswerOptions() {
+  const checkbox = document.getElementById('not-member-checkbox');
+  const optionsContainer = document.getElementById('answer-options-container');
+  const textInput = document.getElementById('answer-input');
+  
+  if (checkbox.checked) {
+    optionsContainer.style.display = 'block';
+    textInput.style.display = 'none';
+    generateAnswerOptions();
+  } else {
+    optionsContainer.style.display = 'none';
+    textInput.style.display = 'block';
+    selectedOption = null;
+    updateAnswerOptions();
+  }
+}
+
+function generateAnswerOptions() {
+  if (!currentPlant) return;
+  
+  const optionsContainer = document.getElementById('answer-options');
+  optionsContainer.innerHTML = '';
+  
+  const relatedPlants = relatedPlantsMap[currentPlant.n] || [];
+  const wrongAnswers = [];
+  const allPlants = plants.filter(p => p.n !== currentPlant.n);
+  
+  for (const relatedName of relatedPlants) {
+    const relatedPlant = allPlants.find(p => p.n === relatedName);
+    if (relatedPlant && wrongAnswers.length < 3) {
+      wrongAnswers.push(relatedPlant.n);
+    }
+  }
+  
+  while (wrongAnswers.length < 3 && allPlants.length > 0) {
+    const randomPlant = allPlants[Math.floor(Math.random() * allPlants.length)];
+    if (!wrongAnswers.includes(randomPlant.n)) {
+      wrongAnswers.push(randomPlant.n);
+    }
+  }
+  
+  const allOptions = [currentPlant.n, ...wrongAnswers];
+  const shuffledOptions = shuffleArray(allOptions);
+  
+  shuffledOptions.forEach((option, index) => {
+    const optionElement = document.createElement('div');
+    optionElement.className = 'answer-option';
+    optionElement.textContent = option;
+    optionElement.onclick = () => selectAnswerOption(option, optionElement);
+    optionsContainer.appendChild(optionElement);
+  });
+}
+
+function shuffleArray(array) {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
+
+function selectAnswerOption(option, element) {
+  const allOptions = document.querySelectorAll('.answer-option');
+  allOptions.forEach(opt => {
+    opt.classList.remove('selected');
+  });
+  element.classList.add('selected');
+  selectedOption = option;
+}
+
+function updateAnswerOptions() {
+  if (!currentPlant) return;
+  
+  const options = document.querySelectorAll('.answer-option');
+  options.forEach(opt => {
+    if (opt.textContent === currentPlant.n) {
+      opt.classList.add('correct-answer');
+      opt.classList.remove('wrong-answer', 'selected');
+    } else {
+      opt.classList.add('wrong-answer');
+      opt.classList.remove('correct-answer', 'selected');
+    }
+  });
+}
 
 // Mobile keyboard handling
 function adjustLayoutForKeyboard() {
@@ -272,24 +440,57 @@ function nextPlant() {
   document.getElementById('question').textContent = 'Jaka to roślina?';
   document.getElementById('score').textContent = score + '/' + attempts;
   document.getElementById('answer-input').style.display = 'block';
+  document.getElementById('not-member-checkbox').checked = false;
+  document.getElementById('answer-options-container').style.display = 'none';
+  selectedOption = null;
   document.getElementById('answer-input').focus();
 }
 
 function checkAnswer() {
+  const checkbox = document.getElementById('not-member-checkbox');
   const userAnswer = document.getElementById('answer-input').value.trim();
-  if (!currentPlant || !userAnswer) return;
+  
+  if (!currentPlant) return;
 
   attempts++;
   document.getElementById('score').textContent = score + '/' + attempts;
 
-  if (userAnswer.toLowerCase() === currentPlant.n.toLowerCase()) {
-    score++;
-    document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
+  let isCorrect = false;
+  
+  if (checkbox.checked) {
+    if (selectedOption === currentPlant.n) {
+      isCorrect = true;
+      score++;
+      document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
+      updateAnswerOptions();
+    } else if (selectedOption) {
+      document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
+      updateAnswerOptions();
+    } else {
+      document.getElementById('question').innerHTML = '<span class="wrong">✗ Wybierz odpowiedź</span> ' + currentPlant.n;
+      return;
+    }
   } else {
-    document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
+    if (!userAnswer) return;
+    
+    if (userAnswer.toLowerCase() === currentPlant.n.toLowerCase()) {
+      isCorrect = true;
+      score++;
+      document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
+    } else {
+      document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
+    }
   }
 
-  document.getElementById('answer-input').style.display = 'none';
+  if (checkbox.checked) {
+    const allOptions = document.querySelectorAll('.answer-option');
+    allOptions.forEach(opt => {
+      opt.style.cursor = 'not-allowed';
+      opt.onclick = null;
+    });
+  } else {
+    document.getElementById('answer-input').style.display = 'none';
+  }
 
   // Show plant details in modal after checking answer
   setTimeout(() => {
