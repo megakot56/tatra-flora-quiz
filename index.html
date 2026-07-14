@@ -188,6 +188,7 @@ input[type="text"]{
         <div><h4>Okres:</h4><p id="modal-bloom"></p></div>
         <div><h4>Występowanie:</h4><p id="modal-altitude"></p></div>
         <div><h4>Strefy:</h4><p id="modal-zones"></p></div>
+        <div><h4>Podłoże:</h4><p id="modal-limestone"></p></div>
       </div>
       <h4>Cechy:</h4>
       <ul id="modal-characteristics" style="list-style-type:disc;list-style-position:inside"></ul>
@@ -238,7 +239,8 @@ const plants = [
       "images/arcydziegiel_litwor_3.jpg",
       "images/arcydziegiel_litwor_4.jpg"
     ],
-    c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"]
+    c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"],
+    pL: false
   },
   {
     id: 2,
@@ -255,7 +257,8 @@ const plants = [
       "images/aster_alpejski_3.jpg",
       "images/aster_alpejski_4.jpg"
     ],
-    c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"]
+    c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"],
+    pL: true
   },
   {
     id: 3,
@@ -270,7 +273,8 @@ const plants = [
       "images/szafran_spiski_2.jpeg",
       "images/szafran_spiski_3.jpeg",
       "images/szafran_spiski_4.jpeg"],
-    c: ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Tatr Zachodnich"]
+    c: ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Tatr Zachodnich"],
+    pL: false
   },
   {
     id: 4,
@@ -288,6 +292,7 @@ const plants = [
       "images/obuwik_pospolity_4.jpg"
     ],
     c: ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"]
+    pL: true
   }
 ,
   {
@@ -304,7 +309,8 @@ const plants = [
       "images/sasanka_alpejska_2.jpg",
       "images/sasanka_alpejska_3.jpg"
     ],
-    c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"]
+    c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"],
+    pL: false
   },
   {
     id: 6,
@@ -321,7 +327,8 @@ const plants = [
       "images/dziewiecsil_bezlodygowy_3.jpg",
       "images/dziewiecsil_bezlodygowy_4.jpg"
     ],
-    c: ["Liście kolczaste", "Kwiaty różowe", "Bylina wieloletnia", "Odporna na suszę"]
+    c: ["Liście kolczaste", "Kwiaty różowe", "Bylina wieloletnia", "Odporna na suszę"],
+    pL: true
   },
   {
     id: 7,
@@ -338,7 +345,8 @@ const plants = [
       "images/lilia_zlotoglow_3.jpg",
       "images/lilia_zlotoglow_4.jpg"
     ],
-    c: ["Kwiaty dzwonkowate purpurowo-czerwone", "Roślina cebulowa", "Chroniona", "Wilgociolubna"]
+    c: ["Kwiaty dzwonkowate purpurowo-czerwone", "Roślina cebulowa", "Chroniona", "Wilgociolubna"],
+    pL: true
   },
 
 ];
@@ -563,6 +571,7 @@ function showPlantDetails(plant) {
   document.getElementById('modal-bloom').textContent = plant.b;
   document.getElementById('modal-altitude').textContent = plant.a;
   document.getElementById('modal-zones').textContent = plant.z.join(', ');
+  document.getElementById('modal-limestone').textContent = plant.pL ? 'Woli podłoże wapienne' : 'Spotykana głównie na granicie i wapieniu';
   
   // Render gallery with all plant images
   const gallery = document.getElementById('modal-gallery');
