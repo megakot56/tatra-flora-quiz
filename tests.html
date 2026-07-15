@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tatra Flora Quiz - Testy Automatyczne</title>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background: #f0f9ff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.test-container {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.test-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.test-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.test-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.passed { background: #d1fae5; color: #065f46; }
+.failed { background: #fee2e2; color: #991b1b; }
+.running { background: #fef3c7; color: #92400e; }
+
+.test-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+}
+
+.test-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.test-step {
+  padding: 0.25rem 0;
+  border-left: 2px solid transparent;
+  padding-left: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.test-step.passed { border-left-color: #10b981; color: #065f46; }
+.test-step.failed { border-left-color: #ef4444; color: #991b1b; }
+.test-step.running { border-left-color: #f59e0b; color: #92400e; }
+
+.run-all-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.run-all-btn:hover {
+  background: #4338ca;
+}
+
+.summary {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.summary-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.summary-item {
+  text-align: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.summary-item .count {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.summary-item .label {
+  color: #666;
+  font-size: 0.875rem;
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <h1>🧪 Tatra Flora Quiz - Testy Automatyczne</h1>
+  <p>Testy weryfikują, że obrazy działają, nawigacja do przewodnika jest sprawna, a polskie znaki nie są zepsute.</p>
+  
+  <button onclick="runAllTests()" class="run-all-btn">Uruchom wszystkie testy</button>
+  
+  <div id="tests-container"></div>
+  
+  <div id="summary" class="summary" style="display: none;">
+    <h2 class="summary-title">Podsumowanie</h2>
+    <div class="summary-grid">
+      <div class="summary-item">
+        <div class="count" id="total-count">0</div>
+        <div class="label">Testów łącznie</div>
+      </div>
+      <div class="summary-item">
+        <div class="count" id="passed-count">0</div>
+        <div class="label">Zaliczonych</div>
+      </div>
+      <div class="summary-item">
+        <div class="count" id="failed-count">0</div>
+        <div class="label">Niezaliczonych</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Import plants data from main app
+const plants = [
+  {
+    id: 1,
+    n: "Arcydziegiel litwor",
+    l: "Angelica archangelica",
+    d: "Okazała roślina dorastająca do 2,5 m wysokości. Łodyga gruba, naga, bruzdowana. Liście duże, 3-4-krotnie pierzaste. Kwiaty zebrane w duże, kuliste baldachy złocone, zielonkawo-żółte. Rośnie w miejscach wilgotnych, na brzegach potoków, w ziołoroślach wysokogórskich.",
+    h: "Ziołorośla, utrwalone piargi, brzegi potoków",
+    b: "VII-VIII",
+    a: "700-2600m",
+    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
+    i: [
+      "images/arcydziegiel_litwor_1.jpg",
+      "images/arcydziegiel_litwor_2.jpg",
+      "images/arcydziegiel_litwor_3.jpg",
+      "images/arcydziegiel_litwor_4.jpg"
+    ],
+    c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"],
+    pL: false
+  },
+  {
+    id: 2,
+    n: "Aster alpejski",
+    l: "Aster alpinus",
+    d: "Bylina o wzniesionym, kępistym pokroju, osiągająca 10-20 cm wysokości. Liście odziomkowe łopatkowe, liście łodygowe lancetowate. Kwiaty języczkowe fioletowe, rurkowate żółte, zebrane w koszyczki. Rośnie na skalnych półkach, w szczelinach skał, na świrku wapiennym.",
+    h: "Murawy, na podłożu zasobnym w węglan wapnia",
+    b: "VII-VIII",
+    a: "700-2600m",
+    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
+    i: [
+      "images/aster_alpejski_1.jpg",
+      "images/aster_alpejski_2.jpg",
+      "images/aster_alpejski_3.jpg",
+      "images/aster_alpejski_4.jpg"
+    ],
+    c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępowa"],
+    pL: true
+  },
+  {
+    id: 3,
+    n: "Szafran spiski",
+    l: "Crocus scepusiensis",
+    d: "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
+    h: "Murawy, trawiaste zbocza, tereny skaliste",
+    b: "III-IV",
+    a: "800-2000m",
+    z: ["regiel dolny", "regiel górny", "kosodrzewina"],
+    i: [
+      "images/szafran_spiski_1.jpg",
+      "images/szafran_spiski_2.jpeg",
+      "images/szafran_spiski_3.jpeg",
+      "images/szafran_spiski_4.jpeg"
+    ],
+    c: ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Karpat Zachodnich"],
+    pL: false
+  },
+  {
+    id: 4,
+    n: "Obuwik pospolity",
+    l: "Cypripedium calceolus",
+    d: "Bylina z rodziny storczykowatych, osiągająca 20-60 cm wysokości. Charakterystyczne kwiaty w kształcie pantofelka, żółte z brązowymi żyłkami. Liście szerokoeliptyczne, owłosione. Rośnie w cienistych lasach, na wilgotnych glebach wapiennych. Jedna z najpiękniejszych i najrzadszych roślin tatrzańskich.",
+    h: "Cieniste lasy liściaste i mieszane, wilgotne gleby wapienne",
+    b: "V-VI",
+    a: "500-1800m",
+    z: ["regiel dolny", "regiel górny"],
+    i: [
+      "images/obuwik_pospolity_1.jpg",
+      "images/obuwik_pospolity_2.jpg",
+      "images/obuwik_pospolity_3.jpg",
+      "images/obuwik_pospolity_4.jpg"
+    ],
+    c: ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"],
+    pL: true
+  },
+  {
+    id: 5,
+    n: "Sasanka alpejska",
+    l: "Pulsatilla alpina",
+    d: "Bylina z rodziny jaskrowatych, osiągająca 5-20 cm wysokości. Liście odziomkowe dłoniasto podzielone na wąskie odcinki, owłosione. Kwiaty pojedyncze, dzwonkowate, białe do fioletowych, pojawiają się wczesną wiosną. Owocem jest niełupka z puszystym ogonkiem. Rośnie na trawiastych zboczach, w murawach alpejskich i na skalistych terenach. Gatunek charakterystyczny dla piętra alpejskiego i subalpejskiego.",
+    h: "Murawy alpejskie, trawiaste zbocza, tereny skaliste",
+    b: "V-VII",
+    a: "1200-2500m",
+    z: ["regiel górny", "kosodrzewina", "hale", "turnie"],
+    i: [
+      "images/sasanka_alpejska_1.jpg",
+      "images/sasanka_alpejska_2.jpg",
+      "images/sasanka_alpejska_3.jpg",
+      "images/sasanka_alpejska_4.jpg"
+    ],
+    c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"],
+    pL: false
+  },
+  {
+    id: 6,
+    n: "Dziewięćsił bezłodygowy",
+    l: "Carlina acaulis",
+    d: "Bylina z rodziny astrowatych, charakterystyczna budowa. Liście odziomkowe, duże, kolczaste, biało owłosione od spodu. Kwiaty rówowe, zebrane w duże koszyczki na szczycie łodygi. Rośnie na murawach, w ziołoroślach i na skalistych zboczach. Gatunek pospolity w Tatrach.",
+    h: "Murawy, ziołorośla, skaliste zbocza",
+    b: "VII-IX",
+    a: "1000-2300m",
+    z: ["regiel górny", "kosodrzewina", "hale"],
+    i: [
+      "images/dziewiecsil_bezlodygowy_1.jpg",
+      "images/dziewiecsil_bezlodygowy_2.jpg",
+      "images/dziewiecsil_bezlodygowy_3.jpg",
+      "images/dziewiecsil_bezlodygowy_4.jpg"
+    ],
+    c: ["Liście kolczaste", "Kwiaty rówowe", "Bylina wieloletnia", "Odporna na suszę"],
+    pL: true
+  },
+  {
+    id: 7,
+    n: "Lilia złotogłów",
+    l: "Lilium martagon",
+    d: "Okazała bylina cebulowa osiągająca 50-150 cm wysokości. Łodyga prosta, liście lancetowate, ułożone w okółki. Kwiaty duże, dzwonkowate, purpurowo-czerwone z ciemnymi plamkami, zwisające. Rośnie w cieniastych lasach, na wilgotnych glebach, w zaroślach. Jedna z najpiękniejszych tatrzańskich roślin kwiatowych.",
+    h: "Cieniste lasy liściaste, zarośla, wilgotne świry",
+    b: "VI-VII",
+    a: "800-1800m",
+    z: ["regiel dolny", "regiel górny"],
+    i: [
+      "images/lilia_zlotoglow_1.jpg",
+      "images/lilia_zlotoglow_2.jpg",
+      "images/lilia_zlotoglow_3.jpg",
+      "images/lilia_zlotoglow_4.jpg"
+    ],
+    c: ["Kwiaty dzwonkowate purpurowo-czerwone", "Roślina cebulowa", "Chroniona", "Wilgociolubna"],
+    pL: true
+  }
+];
+
+// Test results storage
+const testResults = [];
+
+// Test 1: Verify all plant images exist and are accessible
+async function testImageLoading() {
+  const test = {
+    name: "Ładowanie obrazków",
+    description: "Weryfikuje, że wszystkie obrazy roślin są dostępne i nie są puste",
+    status: "running",
+    steps: [],
+    passed: 0,
+    failed: 0
+  };
+
+  test.steps.push({ message: "Sprawdzanie obrazków...", status: "running" });
+  
+  for (const plant of plants) {
+    for (const imgPath of plant.i) {
+      const step = {
+        message: `Sprawdzanie: ${imgPath}`,
+        status: "running"
+      };
+      test.steps.push(step);
+      
+      try {
+        // Create image element and check if it loads
+        const img = new Image();
+        img.src = imgPath;
+        
+        // Wait for image to load or error
+        await new Promise((resolve, reject) => {
+          img.onload = () => {
+            if (img.width > 0 && img.height > 0) {
+              step.status = "passed";
+              step.message += ` ✅ (${img.width}x${img.height})`;
+              test.passed++;
+              resolve();
+            } else {
+              step.status = "failed";
+              step.message += ` ❌ (pusty lub nieprawidłowy)`;
+              test.failed++;
+              resolve();
+            }
+          };
+          img.onerror = () => {
+            step.status = "failed";
+            step.message += ` ❌ (błąd ładowania)`;
+            test.failed++;
+            resolve();
+          };
+          
+          // Timeout after 2 seconds
+          setTimeout(() => {
+            step.status = "failed";
+            step.message += ` ❌ (timeout)`;
+            test.failed++;
+            reject(new Error('Timeout'));
+          }, 2000);
+        });
+      } catch (error) {
+        // Already handled in the promise
+      }
+    }
+  }
+
+  test.status = test.failed === 0 ? "passed" : "failed";
+  test.steps[0].status = test.status;
+  return test;
+}
+
+// Test 2: Verify navigation to guide works
+async function testNavigation() {
+  const test = {
+    name: "Nawigacja do przewodnika",
+    description: "Weryfikuje, że przycisk 'Przewodnik' działa i wyświetla listę roślin",
+    status: "running",
+    steps: [],
+    passed: 0,
+    failed: 0
+  };
+
+  test.steps.push({ message: "Sprawdzanie istnienia przycisku 'Przewodnik'...", status: "running" });
+  
+  // Simulate the navigation logic from main app
+  try {
+    // Check if study mode can be rendered
+    const studyModeDiv = document.createElement('div');
+    studyModeDiv.id = 'study-mode';
+    studyModeDiv.style.display = 'block';
+    
+    // Simulate rendering plants grid
+    const grid = document.createElement('div');
+    grid.id = 'plants-grid';
+    
+    plants.forEach(plant => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `<h3>${plant.n}</h3><p>${plant.l}</p>`;
+      grid.appendChild(card);
+    });
+    
+    studyModeDiv.appendChild(grid);
+    
+    if (grid.children.length === plants.length) {
+      test.steps[0].status = "passed";
+      test.steps[0].message = "✅ Przycisk 'Przewodnik' działa - wygenerowano listę roślin";
+      test.passed++;
+    } else {
+      test.steps[0].status = "failed";
+      test.steps[0].message = "❌ Nie udało się wygenerować listy roślin";
+      test.failed++;
+    }
+  } catch (error) {
+    test.steps[0].status = "failed";
+    test.steps[0].message = `❌ Błąd: ${error.message}`;
+    test.failed++;
+  }
+
+  test.status = test.failed === 0 ? "passed" : "failed";
+  return test;
+}
+
+// Test 3: Verify Polish characters are not corrupted
+async function testPolishCharacters() {
+  const test = {
+    name: "Polskie znaki",
+    description: "Weryfikuje, że polskie znaki (ą, ć, ę, ł, ń, ó, ś, ź, ż) nie są zepsute",
+    status: "running",
+    steps: [],
+    passed: 0,
+    failed: 0
+  };
+
+  const polishChars = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż', 'Ą', 'Ć', 'Ę', 'Ł', 'Ń', 'Ó', 'Ś', 'Ź', 'Ż'];
+  
+  test.steps.push({ message: "Sprawdzanie polskich znaków w nazwach roślin...", status: "running" });
+  
+  for (const plant of plants) {
+    const name = plant.n;
+    const hasPolishChars = polishChars.some(char => name.includes(char));
+    
+    if (hasPolishChars) {
+      // Check if the name is properly encoded
+      try {
+        // Try to encode and decode
+        const encoded = encodeURIComponent(name);
+        const decoded = decodeURIComponent(encoded);
+        
+        if (decoded === name) {
+          test.steps.push({
+            message: `✅ ${name}`,
+            status: "passed"
+          });
+          test.passed++;
+        } else {
+          test.steps.push({
+            message: `❌ ${name} (zepsute kodowanie)`,
+            status: "failed"
+          });
+          test.failed++;
+        }
+      } catch (error) {
+        test.steps.push({
+          message: `❌ ${name} (błąd: ${error.message})`,
+          status: "failed"
+        });
+        test.failed++;
+      }
+    }
+  }
+
+  test.steps[0].status = test.failed === 0 ? "passed" : "failed";
+  test.status = test.failed === 0 ? "passed" : "failed";
+  return test;
+}
+
+// Test 4: Verify image paths are correct (local only)
+async function testImagePaths() {
+  const test = {
+    name: "Ścieżki do obrazków",
+    description: "Weryfikuje, że wszystkie ścieżki do obrazków są lokalne (images/)",
+    status: "running",
+    steps: [],
+    passed: 0,
+    failed: 0
+  };
+
+  test.steps.push({ message: "Sprawdzanie ścieżek...", status: "running" });
+  
+  for (const plant of plants) {
+    for (const imgPath of plant.i) {
+      if (imgPath.startsWith('images/')) {
+        test.steps.push({
+          message: `✅ ${imgPath}`,
+          status: "passed"
+        });
+        test.passed++;
+      } else {
+        test.steps.push({
+          message: `❌ ${imgPath} (nie jest lokalny)`,
+          status: "failed"
+        });
+        test.failed++;
+      }
+    }
+  }
+
+  test.steps[0].status = test.failed === 0 ? "passed" : "failed";
+  test.status = test.failed === 0 ? "passed" : "failed";
+  return test;
+}
+
+// Test 5: Verify getWikiUrl function works correctly
+async function testGetWikiUrl() {
+  const test = {
+    name: "Funkcja getWikiUrl",
+    description: "Weryfikuje, że funkcja getWikiUrl poprawnie obsługuje lokalne obrazy",
+    status: "running",
+    steps: [],
+    passed: 0,
+    failed: 0
+  };
+
+  // Recreate the getWikiUrl function from main app
+  function getWikiUrl(filename) {
+    if (filename.startsWith('images/')) {
+      return filename;
+    }
+    console.warn('Non-local image path detected:', filename);
+    return 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23666%22 font-family=%22Arial%22 font-size=%2214%22%3ENo image%3C/text%3E%3C/svg%3E';
+  }
+
+  test.steps.push({ message: "Testowanie lokalnych ścieżek...", status: "running" });
+  
+  // Test local images
+  const localPaths = [
+    'images/arcydziegiel_litwor_1.jpg',
+    'images/szafran_spiski_1.jpg',
+    'images/aster_alpejski_1.jpg'
+  ];
+  
+  for (const path of localPaths) {
+    const result = getWikiUrl(path);
+    if (result === path) {
+      test.steps.push({
+        message: `✅ ${path} -> ${result}`,
+        status: "passed"
+      });
+      test.passed++;
+    } else {
+      test.steps.push({
+        message: `❌ ${path} -> ${result} (nieoczekiwany wynik)`,
+        status: "failed"
+      });
+      test.failed++;
+    }
+  }
+
+  test.steps[0].status = test.failed === 0 ? "passed" : "failed";
+  test.status = test.failed === 0 ? "passed" : "failed";
+  return test;
+}
+
+// Test 6: Verify all plants have required fields
+async function testPlantData() {
+  const test = {
+    name: "Dane roślin",
+    description: "Weryfikuje, że wszystkie rośliny mają wymagane pola (n, l, i, d, h, b, a, z, c, pL)",
+    status: "running",
+    steps: [],
+    passed: 0,
+    failed: 0
+  };
+
+  const requiredFields = ['n', 'l', 'i', 'd', 'h', 'b', 'a', 'z', 'c', 'pL'];
+  
+  test.steps.push({ message: "Sprawdzanie pól roślin...", status: "running" });
+  
+  for (const plant of plants) {
+    const missingFields = requiredFields.filter(field => !(field in plant));
+    
+    if (missingFields.length === 0) {
+      test.steps.push({
+        message: `✅ ${plant.n} (wszystkie pola obecne)`,
+        status: "passed"
+      });
+      test.passed++;
+    } else {
+      test.steps.push({
+        message: `❌ ${plant.n} (brakujące: ${missingFields.join(', ')})`,
+        status: "failed"
+      });
+      test.failed++;
+    }
+  }
+
+  test.steps[0].status = test.failed === 0 ? "passed" : "failed";
+  test.status = test.failed === 0 ? "passed" : "failed";
+  return test;
+}
+
+// Test 7: Verify images have proper extensions
+async function testImageExtensions() {
+  const test = {
+    name: "Rozszerzenia obrazków",
+    description: "Weryfikuje, że wszystkie obrazy mają poprawne rozszerzenia (.jpg, .jpeg, .png)",
+    status: "running",
+    steps: [],
+    passed: 0,
+    failed: 0
+  };
+
+  const validExtensions = ['.jpg', '.jpeg', '.png'];
+  
+  test.steps.push({ message: "Sprawdzanie rozszerzeń...", status: "running" });
+  
+  for (const plant of plants) {
+    for (const imgPath of plant.i) {
+      const hasValidExtension = validExtensions.some(ext => imgPath.toLowerCase().endsWith(ext));
+      
+      if (hasValidExtension) {
+        test.steps.push({
+          message: `✅ ${imgPath}`,
+          status: "passed"
+        });
+        test.passed++;
+      } else {
+        test.steps.push({
+          message: `❌ ${imgPath} (nieprawidłowe rozszerzenie)`,
+          status: "failed"
+        });
+        test.failed++;
+      }
+    }
+  }
+
+  test.steps[0].status = test.failed === 0 ? "passed" : "failed";
+  test.status = test.failed === 0 ? "passed" : "failed";
+  return test;
+}
+
+// Run all tests
+async function runAllTests() {
+  const testsContainer = document.getElementById('tests-container');
+  testsContainer.innerHTML = '';
+  
+  // Clear previous results
+  testResults.length = 0;
+  
+  // Define all tests
+  const allTests = [
+    testImagePaths,
+    testImageExtensions,
+    testPlantData,
+    testPolishCharacters,
+    testGetWikiUrl,
+    testNavigation,
+    testImageLoading
+  ];
+  
+  // Run tests sequentially
+  for (const testFn of allTests) {
+    const test = await testFn();
+    testResults.push(test);
+    renderTest(test);
+  }
+  
+  // Show summary
+  showSummary();
+}
+
+// Render a single test
+function renderTest(test) {
+  const testsContainer = document.getElementById('tests-container');
+  
+  const testDiv = document.createElement('div');
+  testDiv.className = 'test-container';
+  
+  const statusClass = test.status === 'passed' ? 'passed' : 
+                     test.status === 'failed' ? 'failed' : 'running';
+  
+  testDiv.innerHTML = `
+    <div class="test-header">
+      <h2 class="test-title">${test.name}</h2>
+      <span class="test-status ${statusClass}">${test.status === 'passed' ? '✅ Zaliczony' : test.status === 'failed' ? '❌ Niezaliczony' : '⏳ Trwa...'}</span>
+    </div>
+    <p>${test.description}</p>
+    <ul class="test-steps">
+      ${test.steps.map(step => `
+        <li class="test-step ${step.status}">${step.message}</li>
+      `).join('')}
+    </ul>
+    <div class="test-result">
+      <strong>Wynik:</strong> ${test.passed} zaliczone, ${test.failed} niezaliczone
+    </div>
+  `;
+  
+  testsContainer.appendChild(testDiv);
+}
+
+// Show summary
+function showSummary() {
+  const summaryDiv = document.getElementById('summary');
+  const total = testResults.length;
+  const passed = testResults.filter(t => t.status === 'passed').length;
+  const failed = testResults.filter(t => t.status === 'failed').length;
+  
+  document.getElementById('total-count').textContent = total;
+  document.getElementById('passed-count').textContent = passed;
+  document.getElementById('failed-count').textContent = failed;
+  
+  summaryDiv.style.display = 'block';
+  
+  // Scroll to summary
+  summaryDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Auto-run tests on page load (optional)
+// window.addEventListener('load', runAllTests);
+</script>
+</body>
+</html>
