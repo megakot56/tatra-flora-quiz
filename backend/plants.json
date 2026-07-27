@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "name": "Arcydziegiel litwor",
+    "latin": "Angelica archangelica",
+    "description": "Okazała roślina dorastająca do 2,5 m wysokości. Łodyga gruba, naga, bruzdowana. Liście duże, 3-4-krotnie pierzaste. Kwiaty zebrane w duże, kuliste baldachy złocone, zielonkawo-żółte. Rośnie w miejscach wilgotnych, na brzegach potoków, w ziołoroślach wysokogórskich.",
+    "habitat": "Ziołorośla, utrwalone piargi, brzegi potoków",
+    "bloom": "VII-VIII",
+    "altitude": "700-2600m",
+    "zones": ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
+    "characteristics": ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"],
+    "prefers_limestone": false,
+    "images": [
+      "arcydziegiel_litwor_1.jpg",
+      "arcydziegiel_litwor_2.jpg",
+      "arcydziegiel_litwor_3.jpg",
+      "arcydziegiel_litwor_4.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Aster alpejski",
+    "latin": "Aster alpinus",
+    "description": "Bylina o wzniesionym, kępiastym pokroju, osiągająca 10-20 cm wysokości. Liście odziomkowe łopatkowe, liście łodygowe lancetowate. Kwiaty języczkowe fioletowe, rurkowate żółte, zebrane w koszyczki. Rośnie na skalnych półkach, w szczelinach skał, na żwirku wapiennym.",
+    "habitat": "Murawy, na podłożu zasobnym w węglan wapnia",
+    "bloom": "VII-VIII",
+    "altitude": "700-2600m",
+    "zones": ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
+    "characteristics": ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"],
+    "prefers_limestone": true,
+    "images": [
+      "aster_alpejski_1.jpg",
+      "aster_alpejski_2.jpg",
+      "aster_alpejski_3.jpg",
+      "aster_alpejski_4.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Szafran spiski",
+    "latin": "Crocus scepusiensis",
+    "description": "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
+    "habitat": "Murawy, trawiaste zbocza, tereny skaliste",
+    "bloom": "III-IV",
+    "altitude": "800-2000m",
+    "zones": ["regiel dolny", "regiel górny", "kosodrzewina"],
+    "characteristics": ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Karpat Zachodnich"],
+    "prefers_limestone": false,
+    "images": [
+      "szafran_spiski_1.jpg",
+      "szafran_spiski_2.jpeg",
+      "szafran_spiski_3.jpeg",
+      "szafran_spiski_4.jpeg"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Obuwik pospolity",
+    "latin": "Cypripedium calceolus",
+    "description": "Bylina z rodziny storczykowatych, osiągająca 20-60 cm wysokości. Charakterystyczne kwiaty w kształcie pantofelka, żółte z brązowymi żyłkami. Liście szerokoeliptyczne, owłosione. Rośnie w cienistych lasach, na wilgotnych glebach wapiennych. Jedna z najpiękniejszych i najrzadszych roślin tatrzańskich.",
+    "habitat": "Cieniste lasy liściaste i mieszane, wilgotne gleby wapienne",
+    "bloom": "V-VI",
+    "altitude": "500-1800m",
+    "zones": ["regiel dolny", "regiel górny"],
+    "characteristics": ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"],
+    "prefers_limestone": true,
+    "images": [
+      "obuwik_pospolity_1.jpg",
+      "obuwik_pospolity_2.jpg",
+      "obuwik_pospolity_3.jpg",
+      "obuwik_pospolity_4.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Sasanka alpejska",
+    "latin": "Pulsatilla alpina",
+    "description": "Bylina z rodziny jaskrowatych, osiągająca 5-20 cm wysokości. Liście odziomkowe dłoniasto podzielone na wąskie odcinki, owłosione. Kwiaty pojedyncze, dzwonkowate, białe do fioletowych, pojawiają się wczesną wiosną. Owocem jest niełupka z puszystym ogonkiem. Rośnie na trawiastych zboczach, w murawach alpejskich i na skalistych terenach. Gatunek charakterystyczny dla piętra alpejskiego i subalpejskiego.",
+    "habitat": "Murawy alpejskie, trawiaste zbocza, tereny skaliste",
+    "bloom": "V-VII",
+    "altitude": "1200-2500m",
+    "zones": ["regiel górny", "kosodrzewina", "hale", "turnie"],
+    "characteristics": ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"],
+    "prefers_limestone": false,
+    "images": [
+      "sasanka_alpejska_1.jpg",
+      "sasanka_alpejska_2.jpg",
+      "sasanka_alpejska_3.jpg",
+      "sasanka_alpejska_4.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Dziewięćsił bezłodygowy",
+    "latin": "Carlina acaulis",
+    "description": "Bylina z rodziny astrowatych, charakterystyczna budowa. Liście odziomkowe, duże, kolczaste, biało owłosione od spodu. Kwiaty różowe, zebrane w duże koszyczki na szczycie łodygi. Rośnie na murawach, w ziołoroślach i na skalistych zboczach. Gatunek pospolity w Tatrach.",
+    "habitat": "Murawy, ziołorośla, skaliste zbocza",
+    "bloom": "VII-IX",
+    "altitude": "1000-2300m",
+    "zones": ["regiel górny", "kosodrzewina", "hale"],
+    "characteristics": ["Liście kolczaste", "Kwiaty różowe", "Bylina wieloletnia", "Odporna na suszę"],
+    "prefers_limestone": true,
+    "images": [
+      "dziewiecsil_bezlodygowy_1.jpg",
+      "dziewiecsil_bezlodygowy_2.jpg",
+      "dziewiecsil_bezlodygowy_3.jpg",
+      "dziewiecsil_bezlodygowy_4.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Lilia złotogłów",
+    "latin": "Lilium martagon",
+    "description": "Okazała bylina cebulowa osiągająca 50-150 cm wysokości. Łodyga prosta, liście lancetowate, ułożone w okółki. Kwiaty duże, dzwonkowate, purpurowo-czerwone z ciemnymi plamkami, zwisające. Rośnie w cienistych lasach, na wilgotnych glebach, w zaroślach. Jedna z najpiękniejszych tatrzańskich roślin kwiatowych.",
+    "habitat": "Cieniste lasy liściaste, zarośla, wilgotne żwiry",
+    "bloom": "VI-VII",
+    "altitude": "800-1800m",
+    "zones": ["regiel dolny", "regiel górny"],
+    "characteristics": ["Kwiaty dzwonkowate purpurowo-czerwone", "Roślina cebulowa", "Chroniona", "Wilgociolubna"],
+    "prefers_limestone": true,
+    "images": [
+      "lilia_zlotoglow_1.jpg",
+      "lilia_zlotoglow_2.jpg",
+      "lilia_zlotoglow_3.jpg",
+      "lilia_zlotoglow_4.jpg"
+    ]
+  }
+]

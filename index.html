@@ -1,644 +1,84 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Tatra Flora Quiz</title>
-<style>
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;padding:0;background:#f0f9ff;min-height:100vh;display:flex;flex-direction:column}
-.container{flex:1;max-width:56rem;margin:0 auto;width:100%;padding:1rem;box-sizing:border-box}
-.card{background:#fff;border-radius:0.75rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin-bottom:1rem;overflow:hidden}
-.card img{width:100%;max-height:400px;object-fit:contain;background:#f8f9fa}
-.card>div{padding:1rem}
-.btn{padding:0.75rem 1.5rem;border-radius:0.5rem;border:none;cursor:pointer;font-weight:500}
-.btn-primary{background:#4f46e5;color:#fff}
-.btn-secondary{background:#f3f4f6;color:#374151}
-.correct{background:#d1fae5;color:#065f46;padding:0.25rem 0.5rem;border-radius:9999px;font-size:0.75rem}
-.wrong{background:#fee2e2;color:#991b1b;padding:0.25rem 0.5rem;border-radius:9999px;font-size:0.75rem}
-.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:100}
-.modal-content{background:#fff;border-radius:1rem;padding:1.5rem;max-width:42rem;width:100%;max-height:90vh;overflow-y:auto}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1rem 0}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.75rem;margin:1rem 0}
-.gallery img{width:100%;height:150px;object-fit:cover;border-radius:0.25rem}
-
-/* Desktop and iPad - larger images */
-@media (min-width: 769px) {
-  .card img{max-height:600px}
-  .gallery img{height:180px}
-  .gallery{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
-}
-
-/* Plants grid - multi-column layout for study mode */
-#plants-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  width: 100%;
-}
-
-/* Responsive adjustments for plants grid */
-@media (min-width: 1200px) {
-  #plants-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-}
-@media (max-width: 768px) {
-  #plants-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  }
-}
-@media (max-width: 480px) {
-  #plants-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .container{padding:0.5rem}
-  .card img{max-height:300px}
-  .modal-content{max-width:95vw;padding:1rem}
-  #answer-input{padding:0.875rem;font-size:1rem}
-  body{padding-bottom: env(safe-area-inset-bottom, 0)}
-}
-
-/* iPhone specific */
-@media (max-width: 400px) {
-  .card img{max-height:250px}
-  .container{padding:0.5rem 0.25rem}
-}
-
-/* Focus state */
-#answer-input:focus{
-  outline: 2px solid #4f46e5;
-  outline-offset: 1px;
-}
-
-/* Prevent zoom on mobile */
-input[type="text"]{
-  font-size: 16px !important;
-}
-
-
-/* Answer options grid */
-.answer-options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  margin: 1rem 0;
-}
-
-.answer-option {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  background: #fff;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.2s;
-}
-
-.answer-option:hover {
-  background: #f8f9fa;
-  border-color: #4f46e5;
-}
-
-.answer-option.selected {
-  background: #4f46e5;
-  color: #fff;
-  border-color: #4f46e5;
-}
-
-.answer-option.correct-answer {
-  background: #d1fae5;
-  border-color: #065f46;
-  color: #065f46;
-}
-
-.answer-option.wrong-answer {
-  background: #fee2e2;
-  border-color: #991b1b;
-  color: #991b1b;
-}
-
-/* Checkbox styling */
-.not-member-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 1rem 0;
-  font-size: 0.875rem;
-}
-
-.not-member-checkbox input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Quiz: Flora Tatr</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app" style="flex:1;display:flex;flex-direction:column">
-  <div class="container" id="main-container">
-    <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem">
-      <h1 style="margin:0">🌿 Quiz: Flora Tatr</h1>
-      <span id="score" style="font-size:1.25rem;font-weight:500">0/0</span>
-    </header>
-    <div class="card" id="quiz-card">
-      <img id="plant-image" src="" style="width:100%;max-height:600px;object-fit:contain;background:#f8f9fa;border-radius:0.5rem" />
-      <div style="padding:1rem">
-        <h2 id="question">Jaka to roślina?</h2>
-        
-        <!-- Checkbox for non-members -->
-        <div class="not-member-checkbox">
-          <input type="checkbox" id="not-member-checkbox" onchange="toggleAnswerOptions()" />
-          <label for="not-member-checkbox">NIE jestem członkiem koła botanicznego</label>
+    <div id="app">
+        <!-- Quiz Mode -->
+        <div id="quiz-mode" class="mode active">
+            <header>
+                <h1>🌿 Quiz: Flora Tatr</h1>
+                <div class="score-display">
+                    <span id="score">0/0</span>
+                </div>
+            </header>
+            
+            <div class="quiz-container">
+                <div class="plant-card">
+                    <div class="plant-image-container">
+                        <img id="plant-image" src="" alt="Roślina">
+                    </div>
+                    <h2 id="question">Jaka to roślina?</h2>
+                    
+                    <div class="options-container" id="options-container">
+                        <!-- Options will be inserted here by JS -->
+                    </div>
+                    
+                    <div class="feedback" id="feedback"></div>
+                    
+                    <div class="controls">
+                        <button id="check-btn" class="btn btn-primary">Sprawdź</button>
+                        <button id="next-btn" class="btn btn-secondary" style="display: none;">Następne</button>
+                        <button id="study-btn" class="btn btn-secondary">Przewodnik</button>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <!-- Standard text input -->
-        <input type="text" id="answer-input" placeholder="Wpisz nazwę polską..." style="width:50%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" onkeypress="if(event.key==='Enter') checkAnswer()" />
-        
-        <!-- Answer options (hidden by default) -->
-        <div id="answer-options-container" style="display: none;">
-          <div class="answer-options" id="answer-options"></div>
+        <!-- Study Mode -->
+        <div id="study-mode" class="mode">
+            <header>
+                <h1>📚 Przewodnik po florze Tatr</h1>
+                <button id="back-to-quiz" class="btn btn-primary">Wróć do quizu</button>
+            </header>
+            <div class="plants-grid" id="plants-grid">
+                <!-- Plants will be inserted here by JS -->
+            </div>
         </div>
         
-        <div style="display:flex;gap:1rem">
-          <button onclick="checkAnswer()" class="btn btn-primary">Sprawdź</button>
-          <button onclick="showStudy()" class="btn btn-secondary">Przewodnik</button>
+        <!-- Plant Modal -->
+        <div id="plant-modal" class="modal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <h2 id="modal-title"></h2>
+                <p id="modal-latin" class="latin-name"></p>
+                <div class="modal-gallery" id="modal-gallery"></div>
+                <p id="modal-description"></p>
+                <div class="modal-details">
+                    <div><strong>Siedlisko:</strong> <span id="modal-habitat"></span></div>
+                    <div><strong>Okres kwitnienia:</strong> <span id="modal-bloom"></span></div>
+                    <div><strong>Występowanie:</strong> <span id="modal-altitude"></span></div>
+                    <div><strong>Strefy:</strong> <span id="modal-zones"></span></div>
+                    <div><strong>Podłoże:</strong> <span id="modal-limestone"></span></div>
+                </div>
+                <div class="modal-characteristics">
+                    <h4>Cechy:</h4>
+                    <ul id="modal-characteristics-list"></ul>
+                </div>
+            </div>
         </div>
-      </div>
+        
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Ładowanie...</p>
+        </div>
     </div>
-    <div id="study-mode" style="display:none">
-      <header style="margin-bottom:2rem">
-        <h1 style="font-size:1.5rem;font-weight:700">📚 Przewodnik po florze Tatr</h1>
-        <button onclick="showQuiz()" class="btn btn-primary">Wróć do quizu</button>
-      </header>
-      <div id="plants-grid"></div>
-    </div>
-  </div>
-  <div id="plant-modal" class="modal" style="display:none" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <h2 id="modal-title"></h2>
-      <p id="modal-latin" style="font-style:italic"></p>
-      <div class="gallery" id="modal-gallery"></div>
-      <p id="modal-description"></p>
-      <div class="grid2">
-        <div><h4>Siedlisko:</h4><p id="modal-habitat"></p></div>
-        <div><h4>Okres:</h4><p id="modal-bloom"></p></div>
-        <div><h4>Występowanie:</h4><p id="modal-altitude"></p></div>
-        <div><h4>Strefy:</h4><p id="modal-zones"></p></div>
-        <div><h4>Podłoże:</h4><p id="modal-limestone"></p></div>
-      </div>
-      <h4>Cechy:</h4>
-      <ul id="modal-characteristics" style="list-style-type:disc;list-style-position:inside"></ul>
-      <button onclick="closeModal()" class="btn btn-primary">Zamknij</button>
-    </div>
-  </div>
-</div>
-
-<script>
-// Function to get image URL - ONLY local images supported
-function getWikiUrl(filename) {
-  // Only local images are supported (in images/ folder)
-  // This ensures we don't have issues with external sources
-  if (filename.startsWith('images/')) {
-    return '/' + filename;
-  }
-  
-  // Fallback: if somehow a non-local path is used, return placeholder
-  console.warn('Non-local image path detected:', filename);
-  return 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23666%22 font-family=%22Arial%22 font-size=%2214%22%3ENo image%3C/text%3E%3C/svg%3E';
-}
-
-
-// Related plants for answer options (Tatra plants that are related to each other)
-const relatedPlantsMap = {
-  "Arcydziegiel litwor": ["Aster alpejski", "Sasanka alpejska", "Obuwik pospolity"],
-  "Aster alpejski": ["Arcydziegiel litwor", "Sasanka alpejska", "Szafran spiski"],
-  "Szafran spiski": ["Aster alpejski", "Sasanka alpejska", "Arcydziegiel litwor"],
-  "Obuwik pospolity": ["Arcydziegiel litwor", "Aster alpejski", "Sasanka alpejska"],
-  "Sasanka alpejska": ["Aster alpejski", "Arcydziegiel litwor", "Szafran spiski"],
-  "Dziewięćsił bezłodygowy": ["Aster alpejski", "Sasanka alpejska", "Lilia złotogłów"],
-  "Lilia złotogłów": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Sasanka alpejska"]
-};
-
-const plants = [
-  {
-    id: 1,
-    n: "Arcydzięgiel litwor",
-    l: "Angelica archangelica",
-    d: "Okazała roślina dorastająca do 2,5 m wysokości. Łodyga gruba, naga, bruzdowana. Liście duże, 3-4-krotnie pierzaste. Kwiaty zebrane w duże, kuliste baldachy złocone, zielonkawo-żółte. Rośnie w miejscach wilgotnych, na brzegach potoków, w ziołoroślach wysokogórskich.",
-    h: "Ziołorośla, utrwalone piargi, brzegi potoków",
-    b: "VII-VIII",
-    a: "700-2600m",
-    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
-    i: [
-      "images/arcydziegiel_litwor_1.jpg",
-      "images/arcydziegiel_litwor_2.jpg",
-      "images/arcydziegiel_litwor_3.jpg",
-      "images/arcydziegiel_litwor_4.jpg"
-    ],
-    c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"],
-    pL: false
-  },
-  {
-    id: 2,
-    n: "Aster alpejski",
-    l: "Aster alpinus",
-    d: "Bylina o wzniesionym, kępiastym pokroju, osiągająca 10-20 cm wysokości. Liście odziomkowe łopatkowe, liście łodygowe lancetowate. Kwiaty języczkowe fioletowe, rurkowate żółte, zebrane w koszyczki. Rośnie na skalnych półkach, w szczelinach skał, na żwirku wapiennym.",
-    h: "Murawy, na podłożu zasobnym w węglan wapnia",
-    b: "VII-VIII",
-    a: "700-2600m",
-    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
-    i: [
-      "images/aster_alpejski_1.jpg",
-      "images/aster_alpejski_2.jpg",
-      "images/aster_alpejski_3.jpg",
-      "images/aster_alpejski_4.jpg"
-    ],
-    c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"],
-    pL: true
-  },
-  {
-    id: 3,
-    n: "Szafran spiski",
-    l: "Crocus scepusiensis",
-    d: "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
-    h: "Murawy, trawiaste zbocza, tereny skaliste",
-    b: "III-IV",
-    a: "800-2000m",
-    z: ["regiel dolny", "regiel górny", "kosodrzewina"],
-    i: ["images/szafran_spiski_1.jpg",
-      "images/szafran_spiski_2.jpeg",
-      "images/szafran_spiski_3.jpeg",
-      "images/szafran_spiski_4.jpeg"],
-    c: ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Karpat Zachodnich"],
-    pL: false
-  },
-  {
-    id: 4,
-    n: "Obuwik pospolity",
-    l: "Cypripedium calceolus",
-    d: "Bylina z rodziny storczykowatych, osiągająca 20-60 cm wysokości. Charakterystyczne kwiaty w kształcie pantofelka, żółte z brązowymi żyłkami. Liście szerokoeliptyczne, owłosione. Rośnie w cienistych lasach, na wilgotnych glebach wapiennych. Jedna z najpiękniejszych i najrzadszych roślin tatrzańskich.",
-    h: "Cieniste lasy liściaste i mieszane, wilgotne gleby wapienne",
-    b: "V-VI",
-    a: "500-1800m",
-    z: ["regiel dolny", "regiel górny"],
-    i: [
-      "images/obuwik_pospolity_1.jpg",
-      "images/obuwik_pospolity_2.jpg",
-      "images/obuwik_pospolity_3.jpg",
-      "images/obuwik_pospolity_4.jpg"
-    ],
-    c: ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"]
-    , pL: true
-  }
-,
-  {
-    id: 5,
-    n: "Sasanka alpejska",
-    l: "Pulsatilla alpina",
-    d: "Bylina z rodziny jaskrowatych, osiągająca 5-20 cm wysokości. Liście odziomkowe dłoniasto podzielone na wąskie odcinki, owłosione. Kwiaty pojedyncze, dzwonkowate, białe do fioletowych, pojawiają się wczesną wiosną. Owocem jest niełupka z puszystym ogonkiem. Rośnie na trawiastych zboczach, w murawach alpejskich i na skalistych terenach. Gatunek charakterystyczny dla piętr alpejskiego i subalpejskiego.",
-    h: "Murawy alpejskie, trawiaste zbocza, tereny skaliste",
-    b: "V-VII",
-    a: "1200-2500m",
-    z: ["regiel górny", "kosodrzewina", "hale", "turnie"],
-    i: [
-      "images/sasanka_alpejska_1.jpg",
-      "images/sasanka_alpejska_2.jpg",
-      "images/sasanka_alpejska_3.jpg",
-      "images/sasanka_alpejska_4.jpg"
-    ],
-    c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"],
-    pL: false
-  },
-  {
-    id: 6,
-    n: "Dziewięćsił bezłodygowy",
-    l: "Carlina acaulis",
-    d: "Bylina z rodziny astrowatych, charakterystyczna budowa. Liście odziomkowe, duże, kolczaste, biało owłosione od spodu. Kwiaty różowe, zebrane w duże koszyczki na szczycie łodygi. Rośnie na murawach, w ziołoroślach i na skalistych zboczach. Gatunek pospolity w Tatrach.",
-    h: "Murawy, ziołorośla, skaliste zbocza",
-    b: "VII-IX",
-    a: "1000-2300m",
-    z: ["regiel górny", "kosodrzewina", "hale"],
-    i: [
-      "images/dziewiecsil_bezlodygowy_1.jpg",
-      "images/dziewiecsil_bezlodygowy_2.jpg",
-      "images/dziewiecsil_bezlodygowy_3.jpg",
-      "images/dziewiecsil_bezlodygowy_4.jpg"
-    ],
-    c: ["Liście kolczaste", "Kwiaty różowe", "Bylina wieloletnia", "Odporna na suszę"],
-    pL: true
-  },
-  {
-    id: 7,
-    n: "Lilia złotogłów",
-    l: "Lilium martagon",
-    d: "Okazała bylina cebulowa osiągająca 50-150 cm wysokości. Łodyga prosta, liście lancetowate, ułożone w okółki. Kwiaty duże, dzwonkowate, purpurowo-czerwone z ciemnymi plamkami, zwisające. Rośnie w cieniastych lasach, na wilgotnych glebach, w zaroślach. Jedna z najpiękniejszych tatrzańskich roślin kwiatowych.",
-    h: "Cieniste lasy liściaste, zarośla, wilgotne żwiry",
-    b: "VI-VII",
-    a: "800-1800m",
-    z: ["regiel dolny", "regiel górny"],
-    i: [
-      "images/lilia_zlotoglow_1.jpg",
-      "images/lilia_zlotoglow_2.jpg",
-      "images/lilia_zlotoglow_3.jpg",
-      "images/lilia_zlotoglow_4.jpg"
-    ],
-    c: ["Kwiaty dzwonkowate purpurowo-czerwone", "Roślina cebulowa", "Chroniona", "Wilgociolubna"],
-    pL: true
-  },
-
-];
-
-let currentPlant = null;
-let score = 0;
-let attempts = 0;
-let selectedOption = null;
-let selectedOption = null;
-
-
-function toggleAnswerOptions() {
-  const checkbox = document.getElementById('not-member-checkbox');
-  const optionsContainer = document.getElementById('answer-options-container');
-  const textInput = document.getElementById('answer-input');
-  
-  if (checkbox.checked) {
-    optionsContainer.style.display = 'block';
-    textInput.style.display = 'none';
-    generateAnswerOptions();
-  } else {
-    optionsContainer.style.display = 'none';
-    textInput.style.display = 'block';
-    selectedOption = null;
-    updateAnswerOptions();
-  }
-}
-
-function generateAnswerOptions() {
-  if (!currentPlant) return;
-  
-  const optionsContainer = document.getElementById('answer-options');
-  optionsContainer.innerHTML = '';
-  
-  const relatedPlants = relatedPlantsMap[currentPlant.n] || [];
-  const wrongAnswers = [];
-  const allPlants = plants.filter(p => p.n !== currentPlant.n);
-  
-  for (const relatedName of relatedPlants) {
-    const relatedPlant = allPlants.find(p => p.n === relatedName);
-    if (relatedPlant && wrongAnswers.length < 3) {
-      wrongAnswers.push(relatedPlant.n);
-    }
-  }
-  
-  while (wrongAnswers.length < 3 && allPlants.length > 0) {
-    const randomPlant = allPlants[Math.floor(Math.random() * allPlants.length)];
-    if (!wrongAnswers.includes(randomPlant.n)) {
-      wrongAnswers.push(randomPlant.n);
-    }
-  }
-  
-  const allOptions = [currentPlant.n, ...wrongAnswers];
-  const shuffledOptions = shuffleArray(allOptions);
-  
-  shuffledOptions.forEach((option, index) => {
-    const optionElement = document.createElement('div');
-    optionElement.className = 'answer-option';
-    optionElement.textContent = option;
-    optionElement.onclick = () => selectAnswerOption(option, optionElement);
-    optionsContainer.appendChild(optionElement);
-  });
-}
-
-function shuffleArray(array) {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-}
-
-function selectAnswerOption(option, element) {
-  const allOptions = document.querySelectorAll('.answer-option');
-  allOptions.forEach(opt => {
-    opt.classList.remove('selected');
-  });
-  element.classList.add('selected');
-  selectedOption = option;
-}
-
-function updateAnswerOptions() {
-  if (!currentPlant) return;
-  
-  const options = document.querySelectorAll('.answer-option');
-  options.forEach(opt => {
-    if (opt.textContent === currentPlant.n) {
-      opt.classList.add('correct-answer');
-      opt.classList.remove('wrong-answer', 'selected');
-    } else {
-      opt.classList.add('wrong-answer');
-      opt.classList.remove('correct-answer', 'selected');
-    }
-  });
-}
-
-
-    }
-  });
-}
-
-// Mobile keyboard handling
-function adjustLayoutForKeyboard() {
-  const container = document.getElementById('main-container');
-  const input = document.getElementById('answer-input');
-  
-  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    input.addEventListener('focus', function() {
-      setTimeout(() => {
-        container.style.paddingBottom = '200px';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 100);
-    });
     
-    input.addEventListener('blur', function() {
-      container.style.paddingBottom = '';
-    });
-  }
-}
-
-function showQuiz() {
-  document.getElementById('quiz-card').style.display = 'block';
-  document.getElementById('study-mode').style.display = 'none';
-  nextPlant();
-  adjustLayoutForKeyboard();
-}
-
-function showStudy() {
-  document.getElementById('quiz-card').style.display = 'none';
-  document.getElementById('study-mode').style.display = 'block';
-  renderPlantsGrid();
-}
-
-function nextPlant() {
-  currentPlant = plants[Math.floor(Math.random() * plants.length)];
-  // Randomly select one of the plant's images
-  const randomImageIndex = Math.floor(Math.random() * currentPlant.i.length);
-  const imgUrl = getWikiUrl(currentPlant.i[randomImageIndex]);
-  document.getElementById('plant-image').src = imgUrl;
-  document.getElementById('answer-input').value = '';
-  document.getElementById('question').textContent = 'Jaka to roślina?';
-  document.getElementById('score').textContent = score + '/' + attempts;
-  document.getElementById('answer-input').style.display = 'block';
-  document.getElementById('not-member-checkbox').checked = false;
-  document.getElementById('answer-options-container').style.display = 'none';
-  selectedOption = null;
-  document.getElementById('answer-input').focus();
-}
-
-function checkAnswer() {
-  const checkbox = document.getElementById('not-member-checkbox');
-  const userAnswer = document.getElementById('answer-input').value.trim();
-  
-  if (!currentPlant) return;
-
-  attempts++;
-  document.getElementById('score').textContent = score + '/' + attempts;
-
-  let isCorrect = false;
-  
-  if (checkbox.checked) {
-    if (selectedOption === currentPlant.n) {
-      isCorrect = true;
-      score++;
-      document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
-      updateAnswerOptions();
-    } else if (selectedOption) {
-      document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
-      updateAnswerOptions();
-    } else {
-      document.getElementById('question').innerHTML = '<span class="wrong">✗ Wybierz odpowiedź</span> ' + currentPlant.n;
-      return;
-    }
-  } else {
-    if (!userAnswer) return;
-    
-    if (userAnswer.toLowerCase() === currentPlant.n.toLowerCase()) {
-      isCorrect = true;
-      score++;
-      document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
-    } else {
-      document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
-    }
-  }
-
-  if (checkbox.checked) {
-    const allOptions = document.querySelectorAll('.answer-option');
-    allOptions.forEach(opt => {
-      opt.style.cursor = 'not-allowed';
-      opt.onclick = null;
-    });
-  } else {
-    document.getElementById('answer-input').style.display = 'none';
-  }
-
-  // Show plant details in modal after checking answer
-  setTimeout(() => {
-    showPlantDetails(currentPlant);
-  }, 500);
-}
-
-function renderPlantsGrid() {
-  const grid = document.getElementById('plants-grid');
-  grid.innerHTML = '';
-  plants.forEach(plant => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.onclick = () => showPlantDetails(plant);
-    const imgUrl = getWikiUrl(plant.i[0]);
-    card.innerHTML = `
-      <img src="${imgUrl}" alt="${plant.n}" style="width:100%;max-height:400px;object-fit:contain;background:#f8f9fa" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23666%22 font-family=%22Arial%22 font-size=%2214%22%3ENo image%3C/text%3E%3C/svg%3E'"; this.style.background='%23f8f9fa'">
-      <div>
-        <h3>${plant.n}</h3>
-        <p style="font-size:0.875rem;color:#666">${plant.l}</p>
-        <p style="font-size:0.875rem;color:#2563eb;margin-top:0.5rem">Kliknij, aby zobaczyć więcej</p>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-}
-
-function showPlantDetails(plant, isCorrect = null) {
-  document.getElementById('modal-title').textContent = plant.n;
-  document.getElementById('modal-latin').textContent = plant.l;
-  
-  // Pokaż informację o poprawności odpowiedzi
-  const resultDiv = document.getElementById('answer-result');
-  if (resultDiv) {
-    if (isCorrect === true) {
-      resultDiv.innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span>';
-      resultDiv.style.display = 'block';
-    } else if (isCorrect === false) {
-      resultDiv.innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span>';
-      resultDiv.style.display = 'block';
-    } else {
-      resultDiv.style.display = 'none';
-    }
-  }
-  document.getElementById('modal-description').textContent = plant.d;
-  document.getElementById('modal-habitat').textContent = plant.h;
-  document.getElementById('modal-bloom').textContent = plant.b;
-  document.getElementById('modal-altitude').textContent = plant.a;
-  document.getElementById('modal-zones').textContent = plant.z.join(', ');
-  document.getElementById('modal-limestone').textContent = plant.pL ? 'Woli podłoże wapienne' : 'Spotykana głównie na granicie i wapieniu';
-  
-  // Render gallery with all plant images
-  const gallery = document.getElementById('modal-gallery');
-  gallery.innerHTML = '';
-  plant.i.forEach(imgPath => {
-    const img = document.createElement('img');
-    const imgUrl = getWikiUrl(imgPath);
-    img.src = imgUrl;
-    img.alt = plant.n;
-    img.onerror = function() {
-      this.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2212%22%3ENo img%3C/text%3E%3C/svg%3E';
-    };
-    gallery.appendChild(img);
-  });
-  
-  const charList = document.getElementById('modal-characteristics');
-  charList.innerHTML = '';
-  plant.c.forEach(char => {
-    const li = document.createElement('li');
-    li.textContent = char;
-    charList.appendChild(li);
-  });
-  document.getElementById('plant-modal').style.display = 'flex';
-}
-
-function closeModal() {
-  document.getElementById('plant-modal').style.display = 'none';
-  document.getElementById('answer-result').style.display = 'none';
-  // Continue to next plant after closing modal
-  setTimeout(() => {
-    nextPlant();
-  }, 300);
-}
-
-// Initialize
-showQuiz();
-
-// Handle keyboard visibility changes (iOS)
-window.visualViewport?.addEventListener('resize', function() {
-  const container = document.getElementById('main-container');
-  if (window.visualViewport.height < window.innerHeight * 0.7) {
-    container.style.paddingBottom = '150px';
-  } else {
-    container.style.paddingBottom = '';
-  }
-});
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
