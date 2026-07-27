@@ -141,22 +141,22 @@ input[type="text"]{
 <div id="app" style="flex:1;display:flex;flex-direction:column">
   <div class="container" id="main-container">
     <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem">
-      <h1 style="margin:0">f33f Quiz: Flora Tatr</h1>
+      <h1 style="margin:0">🌿 Quiz: Flora Tatr</h1>
       <span id="score" style="font-size:1.25rem;font-weight:500">0/0</span>
     </header>
     <div class="card" id="quiz-card">
       <img id="plant-image" src="" style="width:100%;max-height:600px;object-fit:contain;background:#f8f9fa;border-radius:0.5rem" />
       <div style="padding:1rem">
-        <h2 id="question">Jaka to roblina?</h2>
+        <h2 id="question">Jaka to roślina?</h2>
         
         <!-- Checkbox for non-members -->
         <div class="not-member-checkbox">
           <input type="checkbox" id="not-member-checkbox" onchange="toggleAnswerOptions()" />
-          <label for="not-member-checkbox">NIE jestem cz2onkiem ko2a botanicznego</label>
+          <label for="not-member-checkbox">NIE jestem członkiem koła botanicznego</label>
         </div>
         
         <!-- Standard text input -->
-        <input type="text" id="answer-input" placeholder="Wpisz nazw9 polsk5..." style="width:50%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" onkeypress="if(event.key==='Enter') checkAnswer()" />
+        <input type="text" id="answer-input" placeholder="Wpisz nazwę polską..." style="width:50%;padding:0.75rem;border:1px solid #ddd;border-radius:0.5rem;margin:1rem 0" onkeypress="if(event.key==='Enter') checkAnswer()" />
         
         <!-- Answer options (hidden by default) -->
         <div id="answer-options-container" style="display: none;">
@@ -164,15 +164,15 @@ input[type="text"]{
         </div>
         
         <div style="display:flex;gap:1rem">
-          <button onclick="checkAnswer()" class="btn btn-primary">Sprawd</button>
+          <button onclick="checkAnswer()" class="btn btn-primary">Sprawdź</button>
           <button onclick="showStudy()" class="btn btn-secondary">Przewodnik</button>
         </div>
       </div>
     </div>
     <div id="study-mode" style="display:none">
       <header style="margin-bottom:2rem">
-        <h1 style="font-size:1.5rem;font-weight:700">f4da Przewodnik po florze Tatr</h1>
-        <button onclick="showQuiz()" class="btn btn-primary">Wr207 do quizu</button>
+        <h1 style="font-size:1.5rem;font-weight:700">📚 Przewodnik po florze Tatr</h1>
+        <button onclick="showQuiz()" class="btn btn-primary">Wróć do quizu</button>
       </header>
       <div id="plants-grid"></div>
     </div>
@@ -186,9 +186,9 @@ input[type="text"]{
       <div class="grid2">
         <div><h4>Siedlisko:</h4><p id="modal-habitat"></p></div>
         <div><h4>Okres:</h4><p id="modal-bloom"></p></div>
-        <div><h4>Wyst9powanie:</h4><p id="modal-altitude"></p></div>
+        <div><h4>Występowanie:</h4><p id="modal-altitude"></p></div>
         <div><h4>Strefy:</h4><p id="modal-zones"></p></div>
-        <div><h4>Pod2oce:</h4><p id="modal-limestone"></p></div>
+        <div><h4>Podłoże:</h4><p id="modal-limestone"></p></div>
       </div>
       <h4>Cechy:</h4>
       <ul id="modal-characteristics" style="list-style-type:disc;list-style-position:inside"></ul>
@@ -219,133 +219,134 @@ const relatedPlantsMap = {
   "Szafran spiski": ["Aster alpejski", "Sasanka alpejska", "Arcydziegiel litwor"],
   "Obuwik pospolity": ["Arcydziegiel litwor", "Aster alpejski", "Sasanka alpejska"],
   "Sasanka alpejska": ["Aster alpejski", "Arcydziegiel litwor", "Szafran spiski"],
-  "Dziewi97si2 bez2odygowy": ["Aster alpejski", "Sasanka alpejska", "Lilia z2otog242w"],
-  "Lilia z2otog242w": ["Dziewi97si2 bez2odygowy", "Aster alpejski", "Sasanka alpejska"]
+  "Dziewięćsił bezłodygowy": ["Aster alpejski", "Sasanka alpejska", "Lilia złotogłów"],
+  "Lilia złotogłów": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Sasanka alpejska"]
 };
 
 const plants = [
   {
     id: 1,
-    n: "Arcydzie9giel litwor",
+    n: "Arcydzięgiel litwor",
     l: "Angelica archangelica",
-    d: "Okaza2a roblina dorastaj5ca do 2,5 m wysokobci. 1odyga gruba, naga, bruzdowana. Libcie duce, 3-4-krotnie pierzaste. Kwiaty zebrane w duce, kuliste baldachy z2ocone, zielonkawo-c2te. Robnie w miejscach wilgotnych, na brzegach potok2w, w zio2oroblach wysokog2rskich.",
-    h: "Zio2orobla, utrwalone piargi, brzegi potok2w",
+    d: "Okazała roślina dorastająca do 2,5 m wysokości. Łodyga gruba, naga, bruzdowana. Liście duże, 3-4-krotnie pierzaste. Kwiaty zebrane w duże, kuliste baldachy złocone, zielonkawo-żółte. Rośnie w miejscach wilgotnych, na brzegach potoków, w ziołoroślach wysokogórskich.",
+    h: "Ziołorośla, utrwalone piargi, brzegi potoków",
     b: "VII-VIII",
     a: "700-2600m",
-    z: ["regiel dolny", "regiel g2rny", "kosodrzewina", "hale", "turnie"],
+    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
     i: [
       "images/arcydziegiel_litwor_1.jpg",
       "images/arcydziegiel_litwor_2.jpg",
       "images/arcydziegiel_litwor_3.jpg",
       "images/arcydziegiel_litwor_4.jpg"
     ],
-    c: ["Roblina dwuletnia i bylina", "Kwiaty zielonkawo-c2te", "Libcie ciemnozielone", "1odyga bruzdowana"],
+    c: ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"],
     pL: false
   },
   {
     id: 2,
     n: "Aster alpejski",
     l: "Aster alpinus",
-    d: "Bylina o wzniesionym, k9piastym pokroju, osi5gaj5ca 10-20 cm wysokobci. Libcie odziomkowe 2opatkowe, libcie 2odygowe lancetowate. Kwiaty j9zyczkowe fioletowe, rurkowate c2te, zebrane w koszyczki. Robnie na skalnych p2kach, w szczelinach ska2, na wirku wapiennym.",
-    h: "Murawy, na pod2ocu zasobnym w w9glan wapnia",
+    d: "Bylina o wzniesionym, kępiastym pokroju, osiągająca 10-20 cm wysokości. Liście odziomkowe łopatkowe, liście łodygowe lancetowate. Kwiaty języczkowe fioletowe, rurkowate żółte, zebrane w koszyczki. Rośnie na skalnych półkach, w szczelinach skał, na żwirku wapiennym.",
+    h: "Murawy, na podłożu zasobnym w węglan wapnia",
     b: "VII-VIII",
     a: "700-2600m",
-    z: ["regiel dolny", "regiel g2rny", "kosodrzewina", "hale", "turnie"],
+    z: ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
     i: [
       "images/aster_alpejski_1.jpg",
       "images/aster_alpejski_2.jpg",
       "images/aster_alpejski_3.jpg",
       "images/aster_alpejski_4.jpg"
     ],
-    c: ["Bylina z grubym, rozga29zionym k25czem", "Kwiaty fioletowe z c2tym brodkiem", "Roblina wapieniolubna", "Niska, k9pkowa"],
+    c: ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"],
     pL: true
   },
   {
     id: 3,
     n: "Szafran spiski",
     l: "Crocus scepusiensis",
-    d: "Niska roblina cebulowa osi5gaj5ca 5-15 cm wysokobci. Libcie w5skie, trawiaste, wyrastaj5ce bezpobrednio z cebuli. Kwiaty pojedyncze, fioletowe z bia2ymi paskami, z c2tym gard2em, pojawiaj5 si9 wczesn5 wiosn5. Robnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
+    d: "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
     h: "Murawy, trawiaste zbocza, tereny skaliste",
     b: "III-IV",
     a: "800-2000m",
-    z: ["regiel dolny", "regiel g2rny", "kosodrzewina"],
+    z: ["regiel dolny", "regiel górny", "kosodrzewina"],
     i: ["images/szafran_spiski_1.jpg",
       "images/szafran_spiski_2.jpeg",
       "images/szafran_spiski_3.jpeg",
       "images/szafran_spiski_4.jpeg"],
-    c: ["Roblina cebulowa", "Kwiaty fioletowe z bia2ymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Karpat Zachodnich"],
+    c: ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Karpat Zachodnich"],
     pL: false
   },
   {
     id: 4,
     n: "Obuwik pospolity",
     l: "Cypripedium calceolus",
-    d: "Bylina z rodziny storczykowatych, osi5gaj5ca 20-60 cm wysokobci. Charakterystyczne kwiaty w kszta2cie pantofelka, c2te z br5zowymi y2kami. Libcie szerokoeliptyczne, ow2osione. Robnie w cienistych lasach, na wilgotnych glebach wapiennych. Jedna z najpi9kniejszych i najrzadszych roblin tatrza4skich.",
-    h: "Cieniste lasy libciaste i mieszane, wilgotne gleby wapienne",
+    d: "Bylina z rodziny storczykowatych, osiągająca 20-60 cm wysokości. Charakterystyczne kwiaty w kształcie pantofelka, żółte z brązowymi żyłkami. Liście szerokoeliptyczne, owłosione. Rośnie w cienistych lasach, na wilgotnych glebach wapiennych. Jedna z najpiękniejszych i najrzadszych roślin tatrzańskich.",
+    h: "Cieniste lasy liściaste i mieszane, wilgotne gleby wapienne",
     b: "V-VI",
     a: "500-1800m",
-    z: ["regiel dolny", "regiel g2rny"],
+    z: ["regiel dolny", "regiel górny"],
     i: [
       "images/obuwik_pospolity_1.jpg",
       "images/obuwik_pospolity_2.jpg",
       "images/obuwik_pospolity_3.jpg",
       "images/obuwik_pospolity_4.jpg"
     ],
-    c: ["Kwiat w kszta2cie pantofelka", "Roblina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"],
-    pL: true
-  },
+    c: ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"]
+    , pL: true
+  }
+,
   {
     id: 5,
     n: "Sasanka alpejska",
     l: "Pulsatilla alpina",
-    d: "Bylina z rodziny jaskrowatych, osi5gaj5ca 5-20 cm wysokobci. Libcie odziomkowe d2oniasto podzielone na w5skie odcinki, ow2osione. Kwiaty pojedyncze, dzwonkowate, bia2e do fioletowych, pojawiaj5 si9 wczesn5 wiosn5. Owocem jest nie2upka z puszystym ogonkiem. Robnie na trawiastych zboczach, w murawach alpejskich i na skalistych terenach. Gatunek charakterystyczny dla pi9tr alpejskiego i subalpejskiego.",
+    d: "Bylina z rodziny jaskrowatych, osiągająca 5-20 cm wysokości. Liście odziomkowe dłoniasto podzielone na wąskie odcinki, owłosione. Kwiaty pojedyncze, dzwonkowate, białe do fioletowych, pojawiają się wczesną wiosną. Owocem jest niełupka z puszystym ogonkiem. Rośnie na trawiastych zboczach, w murawach alpejskich i na skalistych terenach. Gatunek charakterystyczny dla piętr alpejskiego i subalpejskiego.",
     h: "Murawy alpejskie, trawiaste zbocza, tereny skaliste",
     b: "V-VII",
     a: "1200-2500m",
-    z: ["regiel g2rny", "kosodrzewina", "hale", "turnie"],
+    z: ["regiel górny", "kosodrzewina", "hale", "turnie"],
     i: [
       "images/sasanka_alpejska_1.jpg",
       "images/sasanka_alpejska_2.jpg",
       "images/sasanka_alpejska_3.jpg",
       "images/sasanka_alpejska_4.jpg"
     ],
-    c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate bia2e do fioletowe", "Libcie ow2osione", "Roblina wiosennokwitn5ca"],
+    c: ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"],
     pL: false
   },
   {
     id: 6,
-    n: "Dziewi97si2 bez2odygowy",
+    n: "Dziewięćsił bezłodygowy",
     l: "Carlina acaulis",
-    d: "Bylina z rodziny astrowatych, charakterystyczna budowa. Libcie odziomkowe, duce, kolczaste, bia2o ow2osione od spodu. Kwiaty r2owe, zebrane w duce koszyczki na szczycie 2odygi. Robnie na murawach, w zio2oroblach i na skalistych zboczach. Gatunek pospolity w Tatrach.",
-    h: "Murawy, zio2orobla, skaliste zbocza",
+    d: "Bylina z rodziny astrowatych, charakterystyczna budowa. Liście odziomkowe, duże, kolczaste, biało owłosione od spodu. Kwiaty różowe, zebrane w duże koszyczki na szczycie łodygi. Rośnie na murawach, w ziołoroślach i na skalistych zboczach. Gatunek pospolity w Tatrach.",
+    h: "Murawy, ziołorośla, skaliste zbocza",
     b: "VII-IX",
     a: "1000-2300m",
-    z: ["regiel g2rny", "kosodrzewina", "hale"],
+    z: ["regiel górny", "kosodrzewina", "hale"],
     i: [
       "images/dziewiecsil_bezlodygowy_1.jpg",
       "images/dziewiecsil_bezlodygowy_2.jpg",
       "images/dziewiecsil_bezlodygowy_3.jpg",
       "images/dziewiecsil_bezlodygowy_4.jpg"
     ],
-    c: ["Libcie kolczaste", "Kwiaty r2owe", "Bylina wieloletnia", "Odporna na susz9"],
+    c: ["Liście kolczaste", "Kwiaty różowe", "Bylina wieloletnia", "Odporna na suszę"],
     pL: true
   },
   {
     id: 7,
-    n: "Lilia z2otog242w",
+    n: "Lilia złotogłów",
     l: "Lilium martagon",
-    d: "Okaza2a bylina cebulowa osi5gaj5ca 50-150 cm wysokobci. 1odyga prosta, libcie lancetowate, u2ocone w ok2ki. Kwiaty duce, dzwonkowate, purpurowo-czerwone z ciemnymi plamkami, zwisaj5ce. Robnie w cieniastych lasach, na wilgotnych glebach, w zaroblach. Jedna z najpi9kniejszych tatrza4skich roblin kwiatowych.",
-    h: "Cieniste lasy libciaste, zarobla, wilgotne wiry",
+    d: "Okazała bylina cebulowa osiągająca 50-150 cm wysokości. Łodyga prosta, liście lancetowate, ułożone w okółki. Kwiaty duże, dzwonkowate, purpurowo-czerwone z ciemnymi plamkami, zwisające. Rośnie w cieniastych lasach, na wilgotnych glebach, w zaroślach. Jedna z najpiękniejszych tatrzańskich roślin kwiatowych.",
+    h: "Cieniste lasy liściaste, zarośla, wilgotne żwiry",
     b: "VI-VII",
     a: "800-1800m",
-    z: ["regiel dolny", "regiel g2rny"],
+    z: ["regiel dolny", "regiel górny"],
     i: [
       "images/lilia_zlotoglow_1.jpg",
       "images/lilia_zlotoglow_2.jpg",
       "images/lilia_zlotoglow_3.jpg",
       "images/lilia_zlotoglow_4.jpg"
     ],
-    c: ["Kwiaty dzwonkowate purpurowo-czerwone", "Roblina cebulowa", "Chroniona", "Wilgociolubna"],
+    c: ["Kwiaty dzwonkowate purpurowo-czerwone", "Roślina cebulowa", "Chroniona", "Wilgociolubna"],
     pL: true
   },
 
@@ -355,6 +356,8 @@ let currentPlant = null;
 let score = 0;
 let attempts = 0;
 let selectedOption = null;
+let selectedOption = null;
+
 
 function toggleAnswerOptions() {
   const checkbox = document.getElementById('not-member-checkbox');
@@ -425,12 +428,6 @@ function selectAnswerOption(option, element) {
   });
   element.classList.add('selected');
   selectedOption = option;
-  
-  // Auto-check: od razu sprawdz odpowiedz po wyborze
-  const checkbox = document.getElementById('not-member-checkbox');
-  if (checkbox.checked) {
-    checkAnswer();
-  }
 }
 
 function updateAnswerOptions() {
@@ -444,6 +441,11 @@ function updateAnswerOptions() {
     } else {
       opt.classList.add('wrong-answer');
       opt.classList.remove('correct-answer', 'selected');
+    }
+  });
+}
+
+
     }
   });
 }
@@ -487,7 +489,7 @@ function nextPlant() {
   const imgUrl = getWikiUrl(currentPlant.i[randomImageIndex]);
   document.getElementById('plant-image').src = imgUrl;
   document.getElementById('answer-input').value = '';
-  document.getElementById('question').textContent = 'Jaka to roblina?';
+  document.getElementById('question').textContent = 'Jaka to roślina?';
   document.getElementById('score').textContent = score + '/' + attempts;
   document.getElementById('answer-input').style.display = 'block';
   document.getElementById('not-member-checkbox').checked = false;
@@ -511,13 +513,13 @@ function checkAnswer() {
     if (selectedOption === currentPlant.n) {
       isCorrect = true;
       score++;
-      document.getElementById('question').innerHTML = '<span class="correct">f5f7 Poprawna odpowiedz!</span> ' + currentPlant.n;
+      document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
       updateAnswerOptions();
     } else if (selectedOption) {
-      document.getElementById('question').innerHTML = '<span class="wrong">f534 Sprobuj ponownie</span> ' + currentPlant.n;
+      document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
       updateAnswerOptions();
     } else {
-      document.getElementById('question').innerHTML = '<span class="wrong">f534 Wybierz odpowiedz</span> ' + currentPlant.n;
+      document.getElementById('question').innerHTML = '<span class="wrong">✗ Wybierz odpowiedź</span> ' + currentPlant.n;
       return;
     }
   } else {
@@ -526,9 +528,9 @@ function checkAnswer() {
     if (userAnswer.toLowerCase() === currentPlant.n.toLowerCase()) {
       isCorrect = true;
       score++;
-      document.getElementById('question').innerHTML = '<span class="correct">f5f7 Poprawna odpowiedz!</span> ' + currentPlant.n;
+      document.getElementById('question').innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span> ' + currentPlant.n;
     } else {
-      document.getElementById('question').innerHTML = '<span class="wrong">f534 Sprobuj ponownie</span> ' + currentPlant.n;
+      document.getElementById('question').innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span> ' + currentPlant.n;
     }
   }
 
@@ -561,7 +563,7 @@ function renderPlantsGrid() {
       <div>
         <h3>${plant.n}</h3>
         <p style="font-size:0.875rem;color:#666">${plant.l}</p>
-        <p style="font-size:0.875rem;color:#2563eb;margin-top:0.5rem">Kliknij, aby zobaczyc wiecej</p>
+        <p style="font-size:0.875rem;color:#2563eb;margin-top:0.5rem">Kliknij, aby zobaczyć więcej</p>
       </div>
     `;
     grid.appendChild(card);
@@ -572,12 +574,25 @@ function showPlantDetails(plant, isCorrect = null) {
   document.getElementById('modal-title').textContent = plant.n;
   document.getElementById('modal-latin').textContent = plant.l;
   
+  // Pokaż informację o poprawności odpowiedzi
+  const resultDiv = document.getElementById('answer-result');
+  if (resultDiv) {
+    if (isCorrect === true) {
+      resultDiv.innerHTML = '<span class="correct">✓ Poprawna odpowiedź!</span>';
+      resultDiv.style.display = 'block';
+    } else if (isCorrect === false) {
+      resultDiv.innerHTML = '<span class="wrong">✗ Spróbuj ponownie</span>';
+      resultDiv.style.display = 'block';
+    } else {
+      resultDiv.style.display = 'none';
+    }
+  }
   document.getElementById('modal-description').textContent = plant.d;
   document.getElementById('modal-habitat').textContent = plant.h;
   document.getElementById('modal-bloom').textContent = plant.b;
   document.getElementById('modal-altitude').textContent = plant.a;
   document.getElementById('modal-zones').textContent = plant.z.join(', ');
-  document.getElementById('modal-limestone').textContent = plant.pL ? 'Woli podloze wapienne' : 'Spotykana glownie na granicie i wapieniu';
+  document.getElementById('modal-limestone').textContent = plant.pL ? 'Woli podłoże wapienne' : 'Spotykana głównie na granicie i wapieniu';
   
   // Render gallery with all plant images
   const gallery = document.getElementById('modal-gallery');
@@ -605,6 +620,7 @@ function showPlantDetails(plant, isCorrect = null) {
 
 function closeModal() {
   document.getElementById('plant-modal').style.display = 'none';
+  document.getElementById('answer-result').style.display = 'none';
   // Continue to next plant after closing modal
   setTimeout(() => {
     nextPlant();
