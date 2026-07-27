@@ -203,7 +203,7 @@ function getWikiUrl(filename) {
   // Only local images are supported (in images/ folder)
   // This ensures we don't have issues with external sources
   if (filename.startsWith('images/')) {
-    return filename;
+    return '/' + filename;
   }
   
   // Fallback: if somehow a non-local path is used, return placeholder
