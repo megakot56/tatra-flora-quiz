@@ -11,10 +11,10 @@
     "characteristics": ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"],
     "prefers_limestone": false,
     "images": [
-      "arcydziegiel_litwor_1.jpg",
-      "arcydziegiel_litwor_2.jpg",
-      "arcydziegiel_litwor_3.jpg",
-      "arcydziegiel_litwor_4.jpg"
+      "images/arcydziegiel_litwor_1.jpg",
+      "images/arcydziegiel_litwor_2.jpg",
+      "images/arcydziegiel_litwor_3.jpg",
+      "images/arcydziegiel_litwor_4.jpg"
     ]
   },
   {
@@ -29,10 +29,10 @@
     "characteristics": ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"],
     "prefers_limestone": true,
     "images": [
-      "aster_alpejski_1.jpg",
-      "aster_alpejski_2.jpg",
-      "aster_alpejski_3.jpg",
-      "aster_alpejski_4.jpg"
+      "images/aster_alpejski_1.jpg",
+      "images/aster_alpejski_2.jpg",
+      "images/aster_alpejski_3.jpg",
+      "images/aster_alpejski_4.jpg"
     ]
   },
   {
@@ -47,10 +47,10 @@
     "characteristics": ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Karpat Zachodnich"],
     "prefers_limestone": false,
     "images": [
-      "szafran_spiski_1.jpg",
-      "szafran_spiski_2.jpeg",
-      "szafran_spiski_3.jpeg",
-      "szafran_spiski_4.jpeg"
+      "images/szafran_spiski_1.jpg",
+      "images/szafran_spiski_2.jpeg",
+      "images/szafran_spiski_3.jpeg",
+      "images/szafran_spiski_4.jpeg"
     ]
   },
   {
@@ -65,17 +65,17 @@
     "characteristics": ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"],
     "prefers_limestone": true,
     "images": [
-      "obuwik_pospolity_1.jpg",
-      "obuwik_pospolity_2.jpg",
-      "obuwik_pospolity_3.jpg",
-      "obuwik_pospolity_4.jpg"
+      "images/obuwik_pospolity_1.jpg",
+      "images/obuwik_pospolity_2.jpg",
+      "images/obuwik_pospolity_3.jpg",
+      "images/obuwik_pospolity_4.jpg"
     ]
   },
   {
     "id": 5,
     "name": "Sasanka alpejska",
     "latin": "Pulsatilla alpina",
-    "description": "Bylina z rodziny jaskrowatych, osiągająca 5-20 cm wysokości. Liście odziomkowe dłoniasto podzielone na wąskie odcinki, owłosione. Kwiaty pojedyncze, dzwonkowate, białe do fioletowych, pojawiają się wczesną wiosną. Owocem jest niełupka z puszystym ogonkiem. Rośnie na trawiastych zboczach, w murawach alpejskich i na skalistych terenach. Gatunek charakterystyczny dla piętra alpejskiego i subalpejskiego.",
+    "description": "Bylina z rodziny jaskrowatych, osiągająca 5-20 cm wysokości. Liście odziomkowe dłoniasto podzielone na wąskie odcinki, owłosione. Kwiaty pojedyncze, dzwonkowate, białe do fioletowych, pojawiają się wczesną wiosną. Owocem jest niełupka z puszystym ogonkiem. Rośnie na trawiastych zboczach, w murawach alpejskich i na skalistych terenach.",
     "habitat": "Murawy alpejskie, trawiaste zbocza, tereny skaliste",
     "bloom": "V-VII",
     "altitude": "1200-2500m",
@@ -83,10 +83,10 @@
     "characteristics": ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"],
     "prefers_limestone": false,
     "images": [
-      "sasanka_alpejska_1.jpg",
-      "sasanka_alpejska_2.jpg",
-      "sasanka_alpejska_3.jpg",
-      "sasanka_alpejska_4.jpg"
+      "images/sasanka_alpejska_1.jpg",
+      "images/sasanka_alpejska_2.jpg",
+      "images/sasanka_alpejska_3.jpg",
+      "images/sasanka_alpejska_4.jpg"
     ]
   },
   {
@@ -101,10 +101,10 @@
     "characteristics": ["Liście kolczaste", "Kwiaty różowe", "Bylina wieloletnia", "Odporna na suszę"],
     "prefers_limestone": true,
     "images": [
-      "dziewiecsil_bezlodygowy_1.jpg",
-      "dziewiecsil_bezlodygowy_2.jpg",
-      "dziewiecsil_bezlodygowy_3.jpg",
-      "dziewiecsil_bezlodygowy_4.jpg"
+      "images/dziewiecsil_bezlodygowy_1.jpg",
+      "images/dziewiecsil_bezlodygowy_2.jpg",
+      "images/dziewiecsil_bezlodygowy_3.jpg",
+      "images/dziewiecsil_bezlodygowy_4.jpg"
     ]
   },
   {
@@ -119,10 +119,10 @@
     "characteristics": ["Kwiaty dzwonkowate purpurowo-czerwone", "Roślina cebulowa", "Chroniona", "Wilgociolubna"],
     "prefers_limestone": true,
     "images": [
-      "lilia_zlotoglow_1.jpg",
-      "lilia_zlotoglow_2.jpg",
-      "lilia_zlotoglow_3.jpg",
-      "lilia_zlotoglow_4.jpg"
+      "images/lilia_zlotoglow_1.jpg",
+      "images/lilia_zlotoglow_2.jpg",
+      "images/lilia_zlotoglow_3.jpg",
+      "images/lilia_zlotoglow_4.jpg"
     ]
   }
 ]

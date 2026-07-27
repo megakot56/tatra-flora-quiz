@@ -1,12 +1,14 @@
-// Configuration - Change this to your PythonAnywhere URL
-const API_BASE = http://localhost:5000; // For local testing
-// const API_BASE = https://megakot56.pythonanywhere.com; // For production
+// ============================================
+// TATRA FLORA QUIZ - Pure JavaScript Version
+// ============================================
 
 // State
-let currentQuestion = null;
+let plants = [];
+let currentPlant = null;
 let score = 0;
 let attempts = 0;
 let selectedOption = null;
+let isChecking = false;
 
 // DOM Elements
 const quizMode = document.getElementById("quiz-mode");
@@ -35,50 +37,109 @@ const modalAltitude = document.getElementById("modal-altitude");
 const modalZones = document.getElementById("modal-zones");
 const modalLimestone = document.getElementById("modal-limestone");
 const modalCharacteristicsList = document.getElementById("modal-characteristics-list");
-
-// Close modal button
 const closeModalBtn = document.querySelector(".close-modal");
 
-// Show loading
+// Related plants map for better options
+const relatedPlantsMap = {
+  "Arcydziegiel litwor": ["Aster alpejski", "Sasanka alpejska", "Obuwik pospolity"],
+  "Aster alpejski": ["Arcydziegiel litwor", "Sasanka alpejska", "Szafran spiski"],
+  "Szafran spiski": ["Aster alpejski", "Sasanka alpejska", "Arcydziegiel litwor"],
+  "Obuwik pospolity": ["Arcydziegiel litwor", "Aster alpejski", "Sasanka alpejska"],
+  "Sasanka alpejska": ["Aster alpejski", "Arcydziegiel litwor", "Szafran spiski"],
+  "Dziewięćsił bezłodygowy": ["Aster alpejski", "Sasanka alpejska", "Lilia złotogłów"],
+  "Lilia złotogłów": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Sasanka alpejska"]
+};
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
 function showLoading() {
     loadingEl.classList.add("active");
 }
 
-// Hide loading
 function hideLoading() {
     loadingEl.classList.remove("active");
 }
 
-// Fetch from API
-async function fetchAPI(endpoint) {
+function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+}
+
+// ============================================
+// LOAD DATA
+// ============================================
+
+async function loadPlants() {
     showLoading();
     try {
-        const response = await fetch(`${API_BASE}${endpoint}`);
-        if (!response.ok) throw new Error("API error");
-        return await response.json();
-    } catch (error) {
-        console.error("API Error:", error);
+        const response = await fetch("plants.json");
+        if (!response.ok) throw new Error("Failed to load plants data");
+        plants = await response.json();
         hideLoading();
-        alert("Błąd połączenia z serwerem. Spróbuj później.");
-        return null;
+        return plants;
+    } catch (error) {
+        console.error("Error loading plants:", error);
+        hideLoading();
+        alert("Błąd ładowania danych roślin. Spróbuj odświeżyć stronę.");
+        return [];
     }
 }
 
-// Load quiz question
-async function loadQuizQuestion() {
-    showLoading();
-    const data = await fetchAPI("/api/quiz");
-    hideLoading();
+// ============================================
+// QUIZ FUNCTIONS
+// ============================================
+
+function getRandomPlant() {
+    return plants[Math.floor(Math.random() * plants.length)];
+}
+
+function getQuizOptions(correctPlant) {
+    const correctName = correctPlant.name;
+    const allPlants = plants.filter(p => p.name !== correctName);
     
-    if (!data) return;
+    // Get related plants first
+    const relatedPlants = relatedPlantsMap[correctName] || [];
+    const wrongOptions = [];
     
-    currentQuestion = data;
+    // Try to get related plants
+    for (const relatedName of relatedPlants) {
+        const relatedPlant = allPlants.find(p => p.name === relatedName);
+        if (relatedPlant && wrongOptions.length < 3) {
+            wrongOptions.push(relatedPlant);
+        }
+    }
+    
+    // Fill remaining with random plants
+    while (wrongOptions.length < 3 && allPlants.length > 0) {
+        const randomPlant = allPlants[Math.floor(Math.random() * allPlants.length)];
+        if (!wrongOptions.includes(randomPlant)) {
+            wrongOptions.push(randomPlant);
+        }
+    }
+    
+    // Create options array and shuffle
+    const options = [correctPlant, ...wrongOptions];
+    return shuffleArray(options);
+}
+
+function renderQuizQuestion() {
+    if (plants.length === 0) return;
+    
+    currentPlant = getRandomPlant();
     selectedOption = null;
+    isChecking = false;
     
-    // Set plant image
-    const imageUrl = `${API_BASE}/static/images/${data.correct_plant.current_image}`;
-    plantImage.src = imageUrl;
-    plantImage.alt = data.correct_plant.name;
+    // Select random image
+    const randomImageIndex = Math.floor(Math.random() * currentPlant.images.length);
+    const imagePath = currentPlant.images[randomImageIndex];
+    plantImage.src = imagePath;
+    plantImage.alt = currentPlant.name;
     
     // Set question
     questionEl.textContent = "Jaka to roślina?";
@@ -87,8 +148,9 @@ async function loadQuizQuestion() {
     feedbackEl.classList.remove("correct", "wrong");
     feedbackEl.style.display = "none";
     
-    // Render options
-    renderOptions(data.options);
+    // Get options
+    const options = getQuizOptions(currentPlant);
+    renderOptions(options);
     
     // Enable buttons
     checkBtn.style.display = "inline-block";
@@ -101,45 +163,47 @@ async function loadQuizQuestion() {
     });
 }
 
-// Render options
 function renderOptions(options) {
     optionsContainer.innerHTML = "";
     
-    options.forEach((option, index) => {
+    options.forEach((plant, index) => {
         const optionEl = document.createElement("div");
         optionEl.className = "option";
-        optionEl.textContent = option.name;
-        optionEl.dataset.id = option.id;
-        optionEl.dataset.correct = option.is_correct;
+        optionEl.textContent = plant.name;
+        optionEl.dataset.id = plant.id;
+        optionEl.dataset.name = plant.name;
+        optionEl.dataset.isCorrect = (plant.name === currentPlant.name).toString();
         
         optionEl.addEventListener("click", () => {
+            if (isChecking) return;
+            
             // Remove selected from all
             document.querySelectorAll(".option").forEach(opt => {
                 opt.classList.remove("selected");
             });
+            
             // Add selected to clicked
             optionEl.classList.add("selected");
-            selectedOption = option.id;
+            selectedOption = plant.id;
         });
         
         optionsContainer.appendChild(optionEl);
     });
 }
 
-// Check answer
-async function checkAnswer() {
-    if (!selectedOption) {
-        alert("Wybierz odpowiedź!");
-        return;
-    }
+function checkAnswer() {
+    if (!selectedOption || isChecking) return;
     
-    const isCorrect = selectedOption == currentQuestion.correct_answer_id;
-    
-    // Update score
+    isChecking = true;
     attempts++;
+    
+    const selectedPlant = plants.find(p => p.id == selectedOption);
+    const isCorrect = selectedPlant && selectedPlant.name === currentPlant.name;
+    
     if (isCorrect) {
         score++;
     }
+    
     scoreEl.textContent = `${score}/${attempts}`;
     
     // Show feedback
@@ -152,7 +216,7 @@ async function checkAnswer() {
         opt.classList.add("disabled");
         opt.style.cursor = "not-allowed";
         
-        if (opt.dataset.correct === "true") {
+        if (opt.dataset.isCorrect === "true") {
             opt.classList.add("correct");
         } else if (opt.dataset.id == selectedOption) {
             opt.classList.add("wrong");
@@ -163,13 +227,45 @@ async function checkAnswer() {
     checkBtn.style.display = "none";
     nextBtn.style.display = "inline-block";
     
-    // Show plant details in modal after a delay
+    // Show plant details in modal
     setTimeout(() => {
-        showPlantDetails(currentQuestion.correct_plant);
+        showPlantDetails(currentPlant);
     }, 500);
 }
 
-// Show plant details in modal
+// ============================================
+// STUDY MODE FUNCTIONS
+// ============================================
+
+function renderPlantsGrid() {
+    if (plants.length === 0) return;
+    
+    plantsGrid.innerHTML = "";
+    
+    plants.forEach(plant => {
+        const firstImage = plant.images[0];
+        
+        const tile = document.createElement("div");
+        tile.className = "plant-tile";
+        
+        tile.innerHTML = `
+            <img src="${firstImage}" alt="${plant.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2212%22%3ENo img%3C/text%3E%3C/svg%3E'">
+            <div class="plant-tile-info">
+                <h3>${plant.name}</h3>
+                <p class="latin-name">${plant.latin}</p>
+                <p style="color: #2563eb; font-size: 0.875rem; margin-top: 0.5rem;">Kliknij, aby zobaczyć więcej</p>
+            </div>
+        `;
+        
+        tile.addEventListener("click", () => showPlantDetails(plant));
+        plantsGrid.appendChild(tile);
+    });
+}
+
+// ============================================
+// MODAL FUNCTIONS
+// ============================================
+
 function showPlantDetails(plant) {
     modalTitle.textContent = plant.name;
     modalLatin.textContent = plant.latin;
@@ -182,9 +278,9 @@ function showPlantDetails(plant) {
     
     // Render gallery
     modalGallery.innerHTML = "";
-    plant.images.forEach(img => {
+    plant.images.forEach(imgPath => {
         const imgEl = document.createElement("img");
-        imgEl.src = `${API_BASE}/static/images/${img}`;
+        imgEl.src = imgPath;
         imgEl.alt = plant.name;
         imgEl.onerror = () => {
             imgEl.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ddd' width='100' height='100'/%3E%3Ctext x='50%' y='50%' text-anchor='middle' dy='.3em' fill='%23999' font-size='12'%3ENo img%3C/text%3E%3C/svg%3E";
@@ -203,59 +299,32 @@ function showPlantDetails(plant) {
     modal.classList.add("active");
 }
 
-// Close modal
 function closeModal() {
     modal.classList.remove("active");
 }
 
-// Load all plants for study mode
-async function loadPlantsForStudy() {
-    showLoading();
-    const plants = await fetchAPI("/api/plants");
-    hideLoading();
-    
-    if (!plants) return;
-    
-    plantsGrid.innerHTML = "";
-    
-    plants.forEach(plant => {
-        const tile = document.createElement("div");
-        tile.className = "plant-tile";
-        
-        const firstImage = plant.images[0];
-        const imgUrl = `${API_BASE}/static/images/${firstImage}`;
-        
-        tile.innerHTML = `
-            <img src="${imgUrl}" alt="${plant.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2212%22%3ENo img%3C/text%3E%3C/svg%3E'">
-            <div class="plant-tile-info">
-                <h3>${plant.name}</h3>
-                <p class="latin-name">${plant.latin}</p>
-                <p style="color: #2563eb; font-size: 0.875rem; margin-top: 0.5rem;">Kliknij, aby zobaczyć więcej</p>
-            </div>
-        `;
-        
-        tile.addEventListener("click", () => showPlantDetails(plant));
-        plantsGrid.appendChild(tile);
-    });
-}
+// ============================================
+// MODE SWITCHING
+// ============================================
 
-// Switch to quiz mode
 function showQuizMode() {
     quizMode.classList.add("active");
     studyMode.classList.remove("active");
-    loadQuizQuestion();
+    renderQuizQuestion();
 }
 
-// Switch to study mode
 function showStudyMode() {
     quizMode.classList.remove("active");
     studyMode.classList.add("active");
-    loadPlantsForStudy();
+    renderPlantsGrid();
 }
 
-// Event listeners
+// ============================================
+// EVENT LISTENERS
+// ============================================
+
 checkBtn.addEventListener("click", checkAnswer);
-nextBtn.addEventListener("click", loadQuizQuestion);
+nextBtn.addEventListener("click", renderQuizQuestion);
 studyBtn.addEventListener("click", showStudyMode);
 backToQuizBtn.addEventListener("click", showQuizMode);
 closeModalBtn.addEventListener("click", closeModal);
@@ -267,5 +336,14 @@ modal.addEventListener("click", (e) => {
     }
 });
 
-// Initialize
-showQuizMode();
+// ============================================
+// INITIALIZE
+// ============================================
+
+async function init() {
+    await loadPlants();
+    showQuizMode();
+}
+
+// Start the app
+init();
