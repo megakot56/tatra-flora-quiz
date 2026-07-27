@@ -226,11 +226,6 @@ function checkAnswer() {
     // Show next button
     checkBtn.style.display = "none";
     nextBtn.style.display = "inline-block";
-    
-    // Show plant details in modal
-    setTimeout(() => {
-        showPlantDetails(currentPlant);
-    }, 500);
 }
 
 // ============================================
