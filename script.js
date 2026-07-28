@@ -52,7 +52,8 @@ const relatedPlantsMap = {
   "Obuwik pospolity": ["Arcydziegiel litwor", "Aster alpejski", "Sasanka alpejska"],
   "Sasanka alpejska": ["Aster alpejski", "Arcydziegiel litwor", "Szafran spiski"],
   "Dziewięćsił bezłodygowy": ["Aster alpejski", "Sasanka alpejska", "Lilia złotogłów"],
-  "Lilia złotogłów": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Sasanka alpejska"]
+  "Lilia złotogłów": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Sasanka alpejska"],
+  "Mak tatrzański": ["Sasanka alpejska", "Aster alpejski", "Dziewięćsił bezłodygowy"]
 };
 
 // ============================================
