@@ -37,7 +37,12 @@ const modalAltitude = document.getElementById("modal-altitude");
 const modalZones = document.getElementById("modal-zones");
 const modalLimestone = document.getElementById("modal-limestone");
 const modalCharacteristicsList = document.getElementById("modal-characteristics-list");
-const closeModalBtn = document.querySelector(".close-modal");
+const closeModalBtn = document.querySelector("#plant-modal .close-modal");
+
+// Image modal elements
+const imageModal = document.getElementById("image-modal");
+const fullsizeImage = document.getElementById("fullsize-image");
+const closeImageModalBtn = document.querySelector("#image-modal .close-modal");
 
 // Related plants map for better options
 const relatedPlantsMap = {
@@ -280,6 +285,7 @@ function showPlantDetails(plant) {
         imgEl.onerror = () => {
             imgEl.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ddd' width='100' height='100'/%3E%3Ctext x='50%' y='50%' text-anchor='middle' dy='.3em' fill='%23999' font-size='12'%3ENo img%3C/text%3E%3C/svg%3E";
         };
+        imgEl.addEventListener("click", () => openFullsizeImage(imgPath, plant.name));
         modalGallery.appendChild(imgEl);
     });
     
@@ -296,6 +302,20 @@ function showPlantDetails(plant) {
 
 function closeModal() {
     modal.classList.remove("active");
+}
+
+// ============================================
+// IMAGE MODAL FUNCTIONS
+// ============================================
+
+function openFullsizeImage(src, alt) {
+    fullsizeImage.src = src;
+    fullsizeImage.alt = alt;
+    imageModal.classList.add("active");
+}
+
+function closeImageModal() {
+    imageModal.classList.remove("active");
 }
 
 // ============================================
@@ -323,11 +343,27 @@ nextBtn.addEventListener("click", renderQuizQuestion);
 studyBtn.addEventListener("click", showStudyMode);
 backToQuizBtn.addEventListener("click", showQuizMode);
 closeModalBtn.addEventListener("click", closeModal);
+closeImageModalBtn.addEventListener("click", closeImageModal);
 
 // Close modal on background click
 modal.addEventListener("click", (e) => {
     if (e.target === modal) {
         closeModal();
+    }
+});
+
+// Close image modal on background click
+imageModal.addEventListener("click", (e) => {
+    if (e.target === imageModal) {
+        closeImageModal();
+    }
+});
+
+// Close modals on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeModal();
+        closeImageModal();
     }
 });
 

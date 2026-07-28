@@ -288,6 +288,13 @@ header h1 {
     height: 150px;
     object-fit: cover;
     border-radius: 0.25rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 .modal-details {
@@ -319,6 +326,53 @@ header h1 {
     margin-bottom: 1rem;
 }
 
+/* Image Modal */
+.image-modal {
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+}
+
+.image-modal-content {
+    background: transparent;
+    border-radius: 0.5rem;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+}
+
+.image-modal-content .close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-modal-content .close-modal:hover {
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#fullsize-image {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 0.25rem;
+}
+
 /* Loading */
 .loading {
     position: fixed;
@@ -331,10 +385,6 @@ header h1 {
     justify-content: center;
     align-items: center;
     z-index: 2000;
-}
-
-.loading.active {
-    display: flex;
 }
 
 .spinner {
@@ -369,6 +419,11 @@ header h1 {
     .modal-content {
         padding: 1.5rem;
     }
+    
+    .image-modal-content .close-modal {
+        top: -30px;
+        right: -10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -382,5 +437,9 @@ header h1 {
     
     .plants-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .modal-gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
