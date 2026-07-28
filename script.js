@@ -53,7 +53,8 @@ const relatedPlantsMap = {
   "Sasanka alpejska": ["Aster alpejski", "Arcydziegiel litwor", "Szafran spiski"],
   "Dziewięćsił bezłodygowy": ["Aster alpejski", "Sasanka alpejska", "Lilia złotogłów"],
   "Lilia złotogłów": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Sasanka alpejska"],
-  "Mak tatrzański": ["Sasanka alpejska", "Aster alpejski", "Dziewięćsił bezłodygowy"]
+  "Mak tatrzański": ["Sasanka alpejska", "Aster alpejski", "Dziewięćsił bezłodygowy"],
+  "Warzucha tatrzańska": ["Sasanka alpejska", "Arcydziegiel litwor", "Dziewięćsił bezłodygowy"]
 };
 
 // ============================================

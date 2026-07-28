@@ -7,8 +7,19 @@
     "habitat": "Ziołorośla, utrwalone piargi, brzegi potoków",
     "bloom": "VII-VIII",
     "altitude": "700-2600m",
-    "zones": ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
-    "characteristics": ["Roślina dwuletnia i bylina", "Kwiaty zielonkawo-żółte", "Liście ciemnozielone", "Łodyga bruzdowana"],
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Roślina dwuletnia i bylina",
+      "Kwiaty zielonkawo-żółte",
+      "Liście ciemnozielone",
+      "Łodyga bruzdowana"
+    ],
     "prefers_limestone": false,
     "images": [
       "images/arcydziegiel_litwor_1.jpg",
@@ -25,8 +36,19 @@
     "habitat": "Murawy, na podłożu zasobnym w węglan wapnia",
     "bloom": "VII-VIII",
     "altitude": "700-2600m",
-    "zones": ["regiel dolny", "regiel górny", "kosodrzewina", "hale", "turnie"],
-    "characteristics": ["Bylina z grubym, rozgałęzionym kłączem", "Kwiaty fioletowe z żółtym środkiem", "Roślina wapieniolubna", "Niska, kępkowa"],
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Bylina z grubym, rozgałęzionym kłączem",
+      "Kwiaty fioletowe z żółtym środkiem",
+      "Roślina wapieniolubna",
+      "Niska, kępkowa"
+    ],
     "prefers_limestone": true,
     "images": [
       "images/aster_alpejski_1.jpg",
@@ -43,8 +65,17 @@
     "habitat": "Murawy, trawiaste zbocza, tereny skaliste",
     "bloom": "III-IV",
     "altitude": "800-2000m",
-    "zones": ["regiel dolny", "regiel górny", "kosodrzewina"],
-    "characteristics": ["Roślina cebulowa", "Kwiaty fioletowe z białymi paskami", "Wczesnowiosenny", "Gatunek endemiczny Karpat Zachodnich"],
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Roślina cebulowa",
+      "Kwiaty fioletowe z białymi paskami",
+      "Wczesnowiosenny",
+      "Gatunek endemiczny Karpat Zachodnich"
+    ],
     "prefers_limestone": false,
     "images": [
       "images/szafran_spiski_1.jpg",
@@ -61,8 +92,16 @@
     "habitat": "Cieniste lasy liściaste i mieszane, wilgotne gleby wapienne",
     "bloom": "V-VI",
     "altitude": "500-1800m",
-    "zones": ["regiel dolny", "regiel górny"],
-    "characteristics": ["Kwiat w kształcie pantofelka", "Roślina chroniona", "Wapieniolubna", "Siedlisko cieniste i wilgotne"],
+    "zones": [
+      "regiel dolny",
+      "regiel górny"
+    ],
+    "characteristics": [
+      "Kwiat w kształcie pantofelka",
+      "Roślina chroniona",
+      "Wapieniolubna",
+      "Siedlisko cieniste i wilgotne"
+    ],
     "prefers_limestone": true,
     "images": [
       "images/obuwik_pospolity_1.jpg",
@@ -79,8 +118,18 @@
     "habitat": "Murawy alpejskie, trawiaste zbocza, tereny skaliste",
     "bloom": "V-VII",
     "altitude": "1200-2500m",
-    "zones": ["regiel górny", "kosodrzewina", "hale", "turnie"],
-    "characteristics": ["Bylina z rodziny jaskrowatych", "Kwiaty dzwonkowate białe do fioletowe", "Liście owłosione", "Roślina wiosennokwitnąca"],
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Bylina z rodziny jaskrowatych",
+      "Kwiaty dzwonkowate białe do fioletowe",
+      "Liście owłosione",
+      "Roślina wiosennokwitnąca"
+    ],
     "prefers_limestone": false,
     "images": [
       "images/sasanka_alpejska_1.jpg",
@@ -97,8 +146,17 @@
     "habitat": "Murawy, ziołorośla, skaliste zbocza",
     "bloom": "VII-IX",
     "altitude": "1000-2300m",
-    "zones": ["regiel górny", "kosodrzewina", "hale"],
-    "characteristics": ["Liście kolczaste", "Kwiaty rówowe", "Bylina wieloletnia", "Odporna na suszę"],
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Liście kolczaste",
+      "Kwiaty rówowe",
+      "Bylina wieloletnia",
+      "Odporna na suszę"
+    ],
     "prefers_limestone": true,
     "images": [
       "images/dziewiecsil_bezlodygowy_1.jpg",
@@ -115,8 +173,16 @@
     "habitat": "Cieniste lasy liściaste, zarośla, wilgotne żwiry",
     "bloom": "VI-VII",
     "altitude": "800-1800m",
-    "zones": ["regiel dolny", "regiel górny"],
-    "characteristics": ["Kwiaty dzwonkowate purpurowo-czerwone", "Roślina cebulowa", "Chroniona", "Wilgociolubna"],
+    "zones": [
+      "regiel dolny",
+      "regiel górny"
+    ],
+    "characteristics": [
+      "Kwiaty dzwonkowate purpurowo-czerwone",
+      "Roślina cebulowa",
+      "Chroniona",
+      "Wilgociolubna"
+    ],
     "prefers_limestone": true,
     "images": [
       "images/lilia_zlotoglow_1.jpg",
@@ -133,14 +199,51 @@
     "habitat": "Murawy alpejskie, skaliste zbocza, piargi",
     "bloom": "VII-VIII",
     "altitude": "1500-2500m",
-    "zones": ["regiel górny", "kosodrzewina", "hale", "turnie"],
-    "characteristics": ["Kwiaty białe z żółtym środkiem", "Roślina endemiczna Tatr", "Chroniona", "Bylina górska"],
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Kwiaty białe z żółtym środkiem",
+      "Roślina endemiczna Tatr",
+      "Chroniona",
+      "Bylina górska"
+    ],
     "prefers_limestone": true,
     "images": [
       "images/mak_tatrzanski_1.jpg",
       "images/mak_tatrzanski_2.jpg",
       "images/mak_tatrzanski_3.jpg",
       "images/mak_tatrzanski_4.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Warzucha tatrzańska",
+    "latin": "Cochlearia tatrae",
+    "description": "Niska roślina dwuletnia lub bylina z rodziny kapustowatych, osiągająca 5-20 cm wysokości. Liście odziomkowe sercowate do nerkowatych, zebrane w rozetę. Łodyga kwiatowa wzniesiona z niewielkimi liśćmi. Kwiaty białe, zebrane w groniaste kwiatostany. Rośnie na wilgotnych skalistych zboczach, w źródliskach i na brzegach potoków. Gatunek endemiczny dla Tatr Zachodnich, wapieniolubny.",
+    "habitat": "Wilgotne skaliste zbocza, źródliska, brzegi potoków",
+    "bloom": "VI-VIII",
+    "altitude": "1000-2200m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Liście sercowate do nerkowatych",
+      "Kwiaty białe w gronach",
+      "Roślina endemiczna Tatr Zachodnich",
+      "Wapieniolubna"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/warzucha_tatrzanska_1.jpg",
+      "images/warzucha_tatrzanska_2.jpg",
+      "images/warzucha_tatrzanska_3.jpg",
+      "images/warzucha_tatrzanska_4.jpg"
     ]
   }
 ]
