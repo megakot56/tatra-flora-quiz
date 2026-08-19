@@ -61,6 +61,7 @@
     "id": 3,
     "name": "Szafran spiski",
     "latin": "Crocus scepusiensis",
+    "aliases": ["Krokus"],
     "description": "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
     "habitat": "Murawy, trawiaste zbocza, tereny skaliste",
     "bloom": "III-IV",

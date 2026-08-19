@@ -78,6 +78,38 @@ function shuffleArray(array) {
     return newArray;
 }
 
+/** Normalize a plant name for comparison (case-insensitive, ignore diacritics/whitespace) */
+function normalizeName(str) {
+    if (!str) return "";
+    return str
+        .toLowerCase()
+        .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
+/** All accepted names for a plant (primary name + aliases) */
+function getAcceptedNames(plant) {
+    const names = [plant.name];
+    if (Array.isArray(plant.aliases)) {
+        names.push(...plant.aliases);
+    }
+    return names;
+}
+
+/** Check whether an answer string matches a plant's name or any of its aliases */
+function isAcceptedName(plant, answer) {
+    const normalizedAnswer = normalizeName(answer);
+    return getAcceptedNames(plant).some(name => normalizeName(name) === normalizedAnswer);
+}
+
+/** Check whether two plant objects refer to the same plant (by id, or by name/alias) */
+function isSamePlant(a, b) {
+    if (!a || !b) return false;
+    if (a.id != null && b.id != null && a.id === b.id) return true;
+    return getAcceptedNames(a).some(name => isAcceptedName(b, name));
+}
+
 // ============================================
 // LOAD DATA
 // ============================================
@@ -107,16 +139,15 @@ function getRandomPlant() {
 }
 
 function getQuizOptions(correctPlant) {
-    const correctName = correctPlant.name;
-    const allPlants = plants.filter(p => p.name !== correctName);
+    const allPlants = plants.filter(p => !isSamePlant(p, correctPlant));
     
     // Get related plants first
-    const relatedPlants = relatedPlantsMap[correctName] || [];
+    const relatedPlants = relatedPlantsMap[correctPlant.name] || [];
     const wrongOptions = [];
     
     // Try to get related plants
     for (const relatedName of relatedPlants) {
-        const relatedPlant = allPlants.find(p => p.name === relatedName);
+        const relatedPlant = allPlants.find(p => isAcceptedName(p, relatedName));
         if (relatedPlant && wrongOptions.length < 3) {
             wrongOptions.push(relatedPlant);
         }
@@ -179,7 +210,7 @@ function renderOptions(options) {
         optionEl.textContent = plant.name;
         optionEl.dataset.id = plant.id;
         optionEl.dataset.name = plant.name;
-        optionEl.dataset.isCorrect = (plant.name === currentPlant.name).toString();
+        optionEl.dataset.isCorrect = isSamePlant(plant, currentPlant).toString();
         
         optionEl.addEventListener("click", () => {
             if (isChecking) return;
@@ -205,7 +236,7 @@ function checkAnswer() {
     attempts++;
     
     const selectedPlant = plants.find(p => p.id == selectedOption);
-    const isCorrect = selectedPlant && selectedPlant.name === currentPlant.name;
+    const isCorrect = selectedPlant && isSamePlant(selectedPlant, currentPlant);
     
     if (isCorrect) {
         score++;
@@ -246,6 +277,9 @@ function renderPlantsGrid() {
     
     plants.forEach(plant => {
         const firstImage = plant.images[0];
+        const aliasesText = Array.isArray(plant.aliases) && plant.aliases.length
+            ? ` <span style="color:#64748b;font-weight:normal;">(${plant.aliases.join(", ")})</span>`
+            : "";
         
         const tile = document.createElement("div");
         tile.className = "plant-tile";
@@ -253,7 +287,7 @@ function renderPlantsGrid() {
         tile.innerHTML = `
             <img src="${firstImage}" alt="${plant.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2212%22%3ENo img%3C/text%3E%3C/svg%3E'">
             <div class="plant-tile-info">
-                <h3>${plant.name}</h3>
+                <h3>${plant.name}${aliasesText}</h3>
                 <p class="latin-name">${plant.latin}</p>
                 <p style="color: #2563eb; font-size: 0.875rem; margin-top: 0.5rem;">Kliknij, aby zobaczyć więcej</p>
             </div>
@@ -270,7 +304,10 @@ function renderPlantsGrid() {
 
 function showPlantDetails(plant) {
     modalTitle.textContent = plant.name;
-    modalLatin.textContent = plant.latin;
+    const aliasesNote = Array.isArray(plant.aliases) && plant.aliases.length
+        ? ` (także: ${plant.aliases.join(", ")})`
+        : "";
+    modalLatin.textContent = plant.latin + aliasesNote;
     modalDescription.textContent = plant.description;
     modalHabitat.textContent = plant.habitat;
     modalBloom.textContent = plant.bloom;
