@@ -61,7 +61,9 @@
     "id": 3,
     "name": "Szafran spiski",
     "latin": "Crocus scepusiensis",
-    "aliases": ["Krokus"],
+    "aliases": [
+      "Krokus"
+    ],
     "description": "Niska roślina cebulowa osiągająca 5-15 cm wysokości. Liście wąskie, trawiaste, wyrastające bezpośrednio z cebuli. Kwiaty pojedyncze, fioletowe z białymi paskami, z żółtym gardłem, pojawiają się wczesną wiosną. Rośnie na trawiastych zboczach, w murawach i na skalistych terenach. Gatunek endemiczny dla Tatr Zachodnich.",
     "habitat": "Murawy, trawiaste zbocza, tereny skaliste",
     "bloom": "III-IV",
@@ -245,6 +247,118 @@
       "images/warzucha_tatrzanska_2.jpg",
       "images/warzucha_tatrzanska_3.jpg",
       "images/warzucha_tatrzanska_4.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Goryczka kropkowana",
+    "latin": "Gentiana punctata",
+    "description": "Bylina osiągająca 20–60 cm wysokości. Łodyga wzniesiona, liście eliptyczne, naprzeciwległe, o wyraźnym unerwieniu. Kwiaty dzwonkowate, bladożółte, wewnątrz gęsto nakrapiane ciemnymi kropkami — stąd nazwa gatunkowa. Rośnie na halach, w murawach wysokogórskich i na piargach, głównie na podłożu krystalicznym. Charakterystyczna roślina piętra halnego Tatr, objęta ochroną.",
+    "habitat": "Hale, murawy wysokogórskie, piargi, ziołorośla",
+    "bloom": "VII-VIII",
+    "altitude": "1400-2500m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Kwiaty żółte z ciemnymi kropkami",
+      "Bylina wysokogórska",
+      "Roślina chroniona",
+      "Preferuje podłoże granitowe"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/goryczka_kropkowana_1.jpg",
+      "images/goryczka_kropkowana_2.jpg",
+      "images/goryczka_kropkowana_3.jpg",
+      "images/goryczka_kropkowana_4.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Szarotka alpejska",
+    "latin": "Leontopodium alpinum",
+    "aliases": [
+      "Edelweiss"
+    ],
+    "description": "Niska bylina (5–20 cm) o srebrzysto owłosionych liściach lancetowatych. To, co wygląda jak „kwiat”, to koszyczki otoczone wełnistymi, gwiaździstymi przysadkami. Rośnie na nasłonecznionych, wapiennych półkach skalnych i w murawach naskalnych. W polskich Tatrach rzadka i ściśle chroniona — jeden z najbardziej rozpoznawalnych symboli flory wysokogórskiej.",
+    "habitat": "Murawy naskalne, wapienne półki skalne, turnie",
+    "bloom": "VII-IX",
+    "altitude": "1500-2300m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Srebrzyste, wełniste przysadki",
+      "Liście filcowato owłosione",
+      "Roślina wapieniolubna",
+      "Ściśle chroniona, rzadka w Tatrach"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/szarotka_alpejska_1.jpg",
+      "images/szarotka_alpejska_2.jpg",
+      "images/szarotka_alpejska_3.jpg",
+      "images/szarotka_alpejska_4.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Pierwiosnek łyszczak",
+    "latin": "Primula auricula",
+    "description": "Bylina 5–25 cm wysokości z mięsistymi, szarozielonymi liśćmi zebranymi w rozetę, często pokrytymi białym, mączystym nalotem. Kwiaty złocistożółte, pachnące, zebrane w baldach na szczycie łodygi. Typowa roślina wapiennych skał Tatr Zachodnich — rośnie w szczelinach i na półkach skalnych. Gatunek chroniony.",
+    "habitat": "Wapienne skały, szczeliny i półki skalne",
+    "bloom": "IV-VI",
+    "altitude": "900-2200m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Kwiaty złocistożółte, pachnące",
+      "Liście mięsiste z mączystym nalotem",
+      "Wapieniolubna",
+      "Wiosenny gatunek skalny"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/pierwiosnek_lyszczak_1.jpg",
+      "images/pierwiosnek_lyszczak_2.jpg",
+      "images/pierwiosnek_lyszczak_3.jpg",
+      "images/pierwiosnek_lyszczak_4.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Dzwonek alpejski",
+    "latin": "Campanula alpina",
+    "description": "Niska, gęsto owłosiona bylina (5–15 cm) z rodziny dzwonkowatych. Kwiaty dzwonkowate, niebieskofioletowe, zwisające, osadzone na krótkich szypułkach. Liście lancetowate, pokryte szarym kutnerem. Rośnie na halach, w murawach alpejskich i na piargach, głównie na podłożu granitowym. Gatunek charakterystyczny dla wysokich Tatr.",
+    "habitat": "Hale, murawy alpejskie, piargi",
+    "bloom": "VII-VIII",
+    "altitude": "1500-2300m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Kwiaty niebieskofioletowe, zwisające",
+      "Cała roślina gęsto owłosiona",
+      "Niska bylina halna",
+      "Preferuje podłoże granitowe"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/dzwonek_alpejski_1.jpg",
+      "images/dzwonek_alpejski_2.jpg",
+      "images/dzwonek_alpejski_3.jpg",
+      "images/dzwonek_alpejski_4.jpg"
     ]
   }
 ]

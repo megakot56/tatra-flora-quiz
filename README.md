@@ -11,8 +11,9 @@ tatra-flora-quiz/
 ├── index.html          # Strona główna
 ├── style.css           # Stylowanie
 ├── script.js           # Cała logika quizu
-├── plants.json         # Dane 7 roślin
-├── images/             # 28 obrazków roślin
+├── plants.json         # Dane roślin
+├── images/             # zdjęcia roślin (4 na gatunek)
+├── IMAGE_CREDITS.md    # autorzy i licencje zdjęć z Wikimedia Commons
 └── README.md
 ```
 
@@ -42,7 +43,7 @@ Po prostu otwórz plik `index.html` w przeglądarce.
 
 ## 📊 Dane roślin
 
-Obecnie w bazie znajdują się 7 roślin:
+Obecnie w bazie znajdują się **13 roślin**:
 
 | ID | Nazwa | Nazwa łacińska |
 |----|-------|----------------|
@@ -53,6 +54,14 @@ Obecnie w bazie znajdują się 7 roślin:
 | 5 | Sasanka alpejska | Pulsatilla alpina |
 | 6 | Dziewięćsił bezłodygowy | Carlina acaulis |
 | 7 | Lilia złotogłów | Lilium martagon |
+| 8 | Mak tatrzański | Papaver tatricum |
+| 9 | Warzucha tatrzańska | Cochlearia tatrae |
+| 10 | Goryczka kropkowana | Gentiana punctata |
+| 11 | Szarotka alpejska | Leontopodium alpinum |
+| 12 | Pierwiosnek łyszczak | Primula auricula |
+| 13 | Dzwonek alpejski | Campanula alpina |
+
+Zdjęcia nowych gatunków: Wikimedia Commons (patrz [IMAGE_CREDITS.md](IMAGE_CREDITS.md)).
 
 ## 📝 Dodawanie nowych roślin
 

@@ -47,14 +47,18 @@ const closeImageModalBtn = document.querySelector("#image-modal .close-modal");
 // Related plants map for better options
 const relatedPlantsMap = {
   "Arcydziegiel litwor": ["Aster alpejski", "Sasanka alpejska", "Obuwik pospolity"],
-  "Aster alpejski": ["Arcydziegiel litwor", "Sasanka alpejska", "Szafran spiski"],
-  "Szafran spiski": ["Aster alpejski", "Sasanka alpejska", "Arcydziegiel litwor"],
+  "Aster alpejski": ["Arcydziegiel litwor", "Sasanka alpejska", "Szarotka alpejska"],
+  "Szafran spiski": ["Aster alpejski", "Sasanka alpejska", "Pierwiosnek łyszczak"],
   "Obuwik pospolity": ["Arcydziegiel litwor", "Aster alpejski", "Sasanka alpejska"],
-  "Sasanka alpejska": ["Aster alpejski", "Arcydziegiel litwor", "Szafran spiski"],
-  "Dziewięćsił bezłodygowy": ["Aster alpejski", "Sasanka alpejska", "Lilia złotogłów"],
+  "Sasanka alpejska": ["Aster alpejski", "Dzwonek alpejski", "Szafran spiski"],
+  "Dziewięćsił bezłodygowy": ["Aster alpejski", "Szarotka alpejska", "Lilia złotogłów"],
   "Lilia złotogłów": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Sasanka alpejska"],
-  "Mak tatrzański": ["Sasanka alpejska", "Aster alpejski", "Dziewięćsił bezłodygowy"],
-  "Warzucha tatrzańska": ["Sasanka alpejska", "Arcydziegiel litwor", "Dziewięćsił bezłodygowy"]
+  "Mak tatrzański": ["Sasanka alpejska", "Dzwonek alpejski", "Goryczka kropkowana"],
+  "Warzucha tatrzańska": ["Pierwiosnek łyszczak", "Goryczka kropkowana", "Dzwonek alpejski"],
+  "Goryczka kropkowana": ["Pierwiosnek łyszczak", "Mak tatrzański", "Warzucha tatrzańska"],
+  "Szarotka alpejska": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Dzwonek alpejski"],
+  "Pierwiosnek łyszczak": ["Goryczka kropkowana", "Szafran spiski", "Warzucha tatrzańska"],
+  "Dzwonek alpejski": ["Sasanka alpejska", "Mak tatrzański", "Szarotka alpejska"]
 };
 
 // ============================================
