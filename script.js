@@ -72,13 +72,9 @@ const relatedPlantsMap = {
 // ============================================
 
 function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, (c) => ({
-        "&": "&",
-        "<": "<",
-        ">": ">",
-        '"': """,
-        "'": "&#39;"
-    }[c]));
+    const el = document.createElement("div");
+    el.textContent = str == null ? "" : String(str);
+    return el.innerHTML;
 }
 
 function redBookBadge(plant) {
