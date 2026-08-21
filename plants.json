@@ -26,7 +26,8 @@
       "images/arcydziegiel_litwor_2.jpg",
       "images/arcydziegiel_litwor_3.jpg",
       "images/arcydziegiel_litwor_4.jpg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 2,
@@ -55,7 +56,8 @@
       "images/aster_alpejski_2.jpg",
       "images/aster_alpejski_3.jpg",
       "images/aster_alpejski_4.jpg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 3,
@@ -85,7 +87,8 @@
       "images/szafran_spiski_2.jpeg",
       "images/szafran_spiski_3.jpeg",
       "images/szafran_spiski_4.jpeg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 4,
@@ -111,7 +114,9 @@
       "images/obuwik_pospolity_2.jpg",
       "images/obuwik_pospolity_3.jpg",
       "images/obuwik_pospolity_4.jpg"
-    ]
+    ],
+    "red_book": true,
+    "red_book_category": "VU"
   },
   {
     "id": 5,
@@ -139,7 +144,8 @@
       "images/sasanka_alpejska_2.jpg",
       "images/sasanka_alpejska_3.jpg",
       "images/sasanka_alpejska_4.jpg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 6,
@@ -166,7 +172,8 @@
       "images/dziewiecsil_bezlodygowy_2.jpg",
       "images/dziewiecsil_bezlodygowy_3.jpg",
       "images/dziewiecsil_bezlodygowy_4.jpg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 7,
@@ -192,7 +199,8 @@
       "images/lilia_zlotoglow_2.jpg",
       "images/lilia_zlotoglow_3.jpg",
       "images/lilia_zlotoglow_4.jpg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 8,
@@ -220,7 +228,9 @@
       "images/mak_tatrzanski_2.jpg",
       "images/mak_tatrzanski_3.jpg",
       "images/mak_tatrzanski_4.jpg"
-    ]
+    ],
+    "red_book": true,
+    "red_book_category": "VU"
   },
   {
     "id": 9,
@@ -247,7 +257,9 @@
       "images/warzucha_tatrzanska_2.jpg",
       "images/warzucha_tatrzanska_3.jpg",
       "images/warzucha_tatrzanska_4.jpg"
-    ]
+    ],
+    "red_book": true,
+    "red_book_category": "EN"
   },
   {
     "id": 10,
@@ -274,7 +286,8 @@
       "images/goryczka_kropkowana_2.jpg",
       "images/goryczka_kropkowana_3.jpg",
       "images/goryczka_kropkowana_4.jpg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 11,
@@ -304,7 +317,8 @@
       "images/szarotka_alpejska_2.jpg",
       "images/szarotka_alpejska_3.jpg",
       "images/szarotka_alpejska_4.jpg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 12,
@@ -332,7 +346,8 @@
       "images/pierwiosnek_lyszczak_2.jpg",
       "images/pierwiosnek_lyszczak_3.jpg",
       "images/pierwiosnek_lyszczak_4.jpg"
-    ]
+    ],
+    "red_book": false
   },
   {
     "id": 13,
@@ -359,6 +374,183 @@
       "images/dzwonek_alpejski_2.jpg",
       "images/dzwonek_alpejski_3.jpg",
       "images/dzwonek_alpejski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 14,
+    "name": "Kosodrzewina",
+    "latin": "Pinus mugo",
+    "aliases": [
+      "Sosna górska",
+      "Kosówka"
+    ],
+    "description": "Krzew lub niskie, wielopniowe drzewo iglaste tworzące w Tatrach osobne piętro roślinności — piętro kosodrzewiny. Pędy wzniesione lub płożące, igły po dwie w pęczku, sztywne i ciemnozielone. Szyszki jajowate, siedzące. Rośnie na zboczach, piargach i graniach, wiąże rumosz i chroni przed lawinami. Gatunek charakterystyczny krajobrazu Tatr, objęty ochroną częściową.",
+    "habitat": "Piętro subalpejskie, zbocza, piargi, granice lasu",
+    "bloom": "V-VI (pyłenie)",
+    "altitude": "1300-2000m",
+    "zones": [
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Krzew lub niskie drzewo iglaste",
+      "Igły po dwie w pęczku",
+      "Tworzy piętro kosodrzewiny",
+      "Ochrona częściowa"
+    ],
+    "prefers_limestone": false,
+    "red_book": false,
+    "images": [
+      "images/kosodrzewina_1.jpg",
+      "images/kosodrzewina_2.jpg",
+      "images/kosodrzewina_3.jpg",
+      "images/kosodrzewina_4.jpg"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Sosna limba",
+    "latin": "Pinus cembra",
+    "aliases": [
+      "Limba"
+    ],
+    "description": "Wysokogórskie drzewo iglaste osiągające w Tatrach zwykle 10–20 m. Igły po pięć w pęczku, miękkie, niebieskozielone. Szyszki jajowate, żywiczne, nie otwierają się na drzewie — nasiona rozsiewają orzechówki. Rośnie w górnym regla i wśród kosodrzewiny, często na granitowych zboczach Tatr Wysokich. Gatunek reliktowy, objęty ochroną częściową.",
+    "habitat": "Górna granica lasu, bory limbowe, zbocza granitowe",
+    "bloom": "V-VII (pyłenie)",
+    "altitude": "1300-1800m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Drzewo iglaste",
+      "Igły po pięć w pęczku",
+      "Szyszki nie otwierają się na drzewie",
+      "Ochrona częściowa"
+    ],
+    "prefers_limestone": false,
+    "red_book": false,
+    "images": [
+      "images/sosna_limba_1.jpg",
+      "images/sosna_limba_2.jpg",
+      "images/sosna_limba_3.jpg",
+      "images/sosna_limba_4.jpg"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Lepiężnik biały",
+    "latin": "Petasites albus",
+    "description": "Okazała bylina z rodziny astrowatych. Wczesną wiosną, jeszcze przed rozwojem liści, pojawiają się wzniesione kwiatostany z kremowobiałymi koszyczkami. Później wyrastają bardzo duże, okrągławe liście o średnicy nawet 50 cm, od spodu szaro owłosione. Rośnie w wilgotnych lasach, na brzegach potoków i w ziołoroślach regla dolnego i górnego.",
+    "habitat": "Wilgotne lasy, brzegi potoków, ziołorośla",
+    "bloom": "III-V",
+    "altitude": "500-1600m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny"
+    ],
+    "characteristics": [
+      "Kwitnie wczesną wiosną przed liśćmi",
+      "Kwiatostany kremowobiałe",
+      "Ogromne okrągławe liście",
+      "Roślina wilgociolubna"
+    ],
+    "prefers_limestone": false,
+    "red_book": false,
+    "images": [
+      "images/lepieznik_bialy_1.jpg",
+      "images/lepieznik_bialy_2.jpg",
+      "images/lepieznik_bialy_3.jpg",
+      "images/lepieznik_bialy_4.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Ciemiężyca zielona",
+    "latin": "Veratrum lobelianum",
+    "aliases": [
+      "Ciemierzyca zielona"
+    ],
+    "description": "Wysoka, trująca bylina (50–150 cm) z fałdowanymi, szerokimi liśćmi obejmującymi łodygę. Kwiaty zielonkawożółte, zebrane w gęstą, wiechowatą kwiatostan na szczycie pędu. Rośnie na wilgotnych halach, w ziołoroślach i przy potokach. Cała roślina jest silnie trująca. Często mylona z młodymi liśćmi ciemiernika, stąd ludowa nazwa.",
+    "habitat": "Wilgotne hale, ziołorośla, brzegi potoków",
+    "bloom": "VI-VIII",
+    "altitude": "700-2000m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Wysoka bylina z fałdowanymi liśćmi",
+      "Kwiaty zielonkawożółte w wiechach",
+      "Roślina silnie trująca",
+      "Wilgociolubna"
+    ],
+    "prefers_limestone": false,
+    "red_book": false,
+    "images": [
+      "images/ciemiezyca_zielona_1.jpg",
+      "images/ciemiezyca_zielona_2.jpg",
+      "images/ciemiezyca_zielona_3.jpg",
+      "images/ciemiezyca_zielona_4.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Tojad mocny",
+    "latin": "Aconitum firmum",
+    "description": "Okazała, silnie trująca bylina z rodziny jaskrowatych, osiągająca 0,5–1,5 m. Kwiaty ciemnofioletowe, hełmiaste — górny płatek tworzy charakterystyczny hełm. Liście dłoniasto podzielone na wąskie odcinki. Rośnie w ziołoroślach wysokogórskich, nad potokami i na wilgotnych halach. Jeden z najbardziej trujących gatunków polskiej flory; w Tatrach gatunek charakterystyczny.",
+    "habitat": "Ziołorośla, brzegi potoków, wilgotne hale",
+    "bloom": "VII-VIII",
+    "altitude": "800-2000m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Kwiaty hełmiaste, ciemnofioletowe",
+      "Liście dłoniasto podzielone",
+      "Bardzo trująca",
+      "Bylina ziołoroślowa"
+    ],
+    "prefers_limestone": false,
+    "red_book": false,
+    "images": [
+      "images/tojad_mocny_1.jpg",
+      "images/tojad_mocny_2.jpg",
+      "images/tojad_mocny_3.jpg",
+      "images/tojad_mocny_4.jpg"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Rojnik górski",
+    "latin": "Sempervivum montanum",
+    "description": "Sukulent z rodziny gruboszowatych tworzący gęste, kuliste rozety z mięsistych, zaostrzonych liści, często czerwono nabiegłych. Kwiatostan wzniesiony, kwiaty gwiaździste, różowoczerwone. Rośnie w szczelinach skał, na piargach i murawach naskalnych, głównie na podłożu krystalicznym. Typowa roślina turni i hal Tatr.",
+    "habitat": "Szczeliny skał, piargi, murawy naskalne",
+    "bloom": "VII-VIII",
+    "altitude": "1400-2500m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Sukulent o kulistych rozetach",
+      "Kwiaty różowoczerwone, gwiaździste",
+      "Roślina naskalna",
+      "Preferuje granit"
+    ],
+    "prefers_limestone": false,
+    "red_book": false,
+    "images": [
+      "images/rojnik_gorski_1.jpg",
+      "images/rojnik_gorski_2.jpg",
+      "images/rojnik_gorski_3.jpg",
+      "images/rojnik_gorski_4.jpg"
     ]
   }
 ]

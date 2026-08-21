@@ -43,23 +43,29 @@ Po prostu otwórz plik `index.html` w przeglądarce.
 
 ## 📊 Dane roślin
 
-Obecnie w bazie znajdują się **13 roślin**:
+Obecnie w bazie znajdują się **19 gatunków**. 📕 = Polska Czerwona Księga Roślin (2014).
 
-| ID | Nazwa | Nazwa łacińska |
-|----|-------|----------------|
-| 1 | Arcydziegiel litwor | Angelica archangelica |
-| 2 | Aster alpejski | Aster alpinus |
-| 3 | Szafran spiski | Crocus scepusiensis |
-| 4 | Obuwik pospolity | Cypripedium calceolus |
-| 5 | Sasanka alpejska | Pulsatilla alpina |
-| 6 | Dziewięćsił bezłodygowy | Carlina acaulis |
-| 7 | Lilia złotogłów | Lilium martagon |
-| 8 | Mak tatrzański | Papaver tatricum |
-| 9 | Warzucha tatrzańska | Cochlearia tatrae |
-| 10 | Goryczka kropkowana | Gentiana punctata |
-| 11 | Szarotka alpejska | Leontopodium alpinum |
-| 12 | Pierwiosnek łyszczak | Primula auricula |
-| 13 | Dzwonek alpejski | Campanula alpina |
+| ID | Nazwa | Nazwa łacińska | PCKR |
+|----|-------|----------------|------|
+| 1 | Arcydziegiel litwor | Angelica archangelica | |
+| 2 | Aster alpejski | Aster alpinus | |
+| 3 | Szafran spiski | Crocus scepusiensis | |
+| 4 | Obuwik pospolity | Cypripedium calceolus | 📕 VU |
+| 5 | Sasanka alpejska | Pulsatilla alpina | |
+| 6 | Dziewięćsił bezłodygowy | Carlina acaulis | |
+| 7 | Lilia złotogłów | Lilium martagon | |
+| 8 | Mak tatrzański | Papaver tatricum | 📕 VU |
+| 9 | Warzucha tatrzańska | Cochlearia tatrae | 📕 EN |
+| 10 | Goryczka kropkowana | Gentiana punctata | |
+| 11 | Szarotka alpejska | Leontopodium alpinum | |
+| 12 | Pierwiosnek łyszczak | Primula auricula | |
+| 13 | Dzwonek alpejski | Campanula alpina | |
+| 14 | Kosodrzewina | Pinus mugo | |
+| 15 | Sosna limba | Pinus cembra | |
+| 16 | Lepiężnik biały | Petasites albus | |
+| 17 | Ciemiężyca zielona | Veratrum lobelianum | |
+| 18 | Tojad mocny | Aconitum firmum | |
+| 19 | Rojnik górski | Sempervivum montanum | |
 
 Zdjęcia nowych gatunków: Wikimedia Commons (patrz [IMAGE_CREDITS.md](IMAGE_CREDITS.md)).
 
@@ -80,6 +86,8 @@ Zdjęcia nowych gatunków: Wikimedia Commons (patrz [IMAGE_CREDITS.md](IMAGE_CRE
   "zones": ["regiel dolny", "regiel górny"],
   "characteristics": ["Cechy charakterystyczne..."],
   "prefers_limestone": true,
+  "red_book": false,
+  "red_book_category": "VU",
   "images": ["images/nazwa_obrazka1.jpg", "images/nazwa_obrazka2.jpg"]
 }
 ```

@@ -443,3 +443,35 @@ header h1 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.red-book {
+    font-size: 0.95em;
+    margin-left: 0.3rem;
+    vertical-align: middle;
+}
+
+.study-legend {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: -1rem 0.5rem 1.25rem;
+}
+
+.alias-note {
+    color: #64748b;
+    font-weight: normal;
+}
+
+.tile-more {
+    color: #2563eb;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.redbook-row {
+    display: none;
+    color: #9f1239;
+}
+
+.option .red-book {
+    display: inline-block;
+}

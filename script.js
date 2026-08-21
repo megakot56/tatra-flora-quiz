@@ -46,24 +46,46 @@ const closeImageModalBtn = document.querySelector("#image-modal .close-modal");
 
 // Related plants map for better options
 const relatedPlantsMap = {
-  "Arcydziegiel litwor": ["Aster alpejski", "Sasanka alpejska", "Obuwik pospolity"],
-  "Aster alpejski": ["Arcydziegiel litwor", "Sasanka alpejska", "Szarotka alpejska"],
-  "Szafran spiski": ["Aster alpejski", "Sasanka alpejska", "Pierwiosnek łyszczak"],
-  "Obuwik pospolity": ["Arcydziegiel litwor", "Aster alpejski", "Sasanka alpejska"],
-  "Sasanka alpejska": ["Aster alpejski", "Dzwonek alpejski", "Szafran spiski"],
-  "Dziewięćsił bezłodygowy": ["Aster alpejski", "Szarotka alpejska", "Lilia złotogłów"],
-  "Lilia złotogłów": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Sasanka alpejska"],
-  "Mak tatrzański": ["Sasanka alpejska", "Dzwonek alpejski", "Goryczka kropkowana"],
-  "Warzucha tatrzańska": ["Pierwiosnek łyszczak", "Goryczka kropkowana", "Dzwonek alpejski"],
-  "Goryczka kropkowana": ["Pierwiosnek łyszczak", "Mak tatrzański", "Warzucha tatrzańska"],
-  "Szarotka alpejska": ["Dziewięćsił bezłodygowy", "Aster alpejski", "Dzwonek alpejski"],
-  "Pierwiosnek łyszczak": ["Goryczka kropkowana", "Szafran spiski", "Warzucha tatrzańska"],
-  "Dzwonek alpejski": ["Sasanka alpejska", "Mak tatrzański", "Szarotka alpejska"]
+  "Arcydziegiel litwor": ["Ciemiężyca zielona", "Tojad mocny", "Lepiężnik biały"],
+  "Aster alpejski": ["Szarotka alpejska", "Rojnik górski", "Dzwonek alpejski"],
+  "Szafran spiski": ["Pierwiosnek łyszczak", "Sasanka alpejska", "Rojnik górski"],
+  "Obuwik pospolity": ["Lilia złotogłów", "Tojad mocny", "Lepiężnik biały"],
+  "Sasanka alpejska": ["Dzwonek alpejski", "Szafran spiski", "Rojnik górski"],
+  "Dziewięćsił bezłodygowy": ["Rojnik górski", "Szarotka alpejska", "Aster alpejski"],
+  "Lilia złotogłów": ["Tojad mocny", "Ciemiężyca zielona", "Obuwik pospolity"],
+  "Mak tatrzański": ["Sasanka alpejska", "Dzwonek alpejski", "Rojnik górski"],
+  "Warzucha tatrzańska": ["Pierwiosnek łyszczak", "Goryczka kropkowana", "Rojnik górski"],
+  "Goryczka kropkowana": ["Ciemiężyca zielona", "Tojad mocny", "Warzucha tatrzańska"],
+  "Szarotka alpejska": ["Dziewięćsił bezłodygowy", "Rojnik górski", "Aster alpejski"],
+  "Pierwiosnek łyszczak": ["Szafran spiski", "Warzucha tatrzańska", "Rojnik górski"],
+  "Dzwonek alpejski": ["Sasanka alpejska", "Rojnik górski", "Tojad mocny"],
+  "Kosodrzewina": ["Sosna limba", "Rojnik górski", "Goryczka kropkowana"],
+  "Sosna limba": ["Kosodrzewina", "Goryczka kropkowana", "Dzwonek alpejski"],
+  "Lepiężnik biały": ["Ciemiężyca zielona", "Arcydziegiel litwor", "Tojad mocny"],
+  "Ciemiężyca zielona": ["Tojad mocny", "Lepiężnik biały", "Lilia złotogłów"],
+  "Tojad mocny": ["Ciemiężyca zielona", "Lilia złotogłów", "Lepiężnik biały"],
+  "Rojnik górski": ["Dziewięćsił bezłodygowy", "Szarotka alpejska", "Dzwonek alpejski"]
 };
 
 // ============================================
 // UTILITY FUNCTIONS
 // ============================================
+
+function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (c) => ({
+        "&": "&",
+        "<": "<",
+        ">": ">",
+        '"': """,
+        "'": "&#39;"
+    }[c]));
+}
+
+function redBookBadge(plant) {
+    if (!plant || !plant.red_book) return "";
+    const cat = plant.red_book_category ? ` • ${plant.red_book_category}` : "";
+    return `<span class="red-book" title="Polska Czerwona Księga Roślin${cat}" aria-label="Czerwona Księga Roślin">📕</span>`;
+}
 
 function showLoading() {
     loadingEl.classList.add("active");
@@ -211,7 +233,7 @@ function renderOptions(options) {
     options.forEach((plant, index) => {
         const optionEl = document.createElement("div");
         optionEl.className = "option";
-        optionEl.textContent = plant.name;
+        optionEl.innerHTML = `${escapeHtml(plant.name)}${redBookBadge(plant)}`;
         optionEl.dataset.id = plant.id;
         optionEl.dataset.name = plant.name;
         optionEl.dataset.isCorrect = isSamePlant(plant, currentPlant).toString();
@@ -282,18 +304,18 @@ function renderPlantsGrid() {
     plants.forEach(plant => {
         const firstImage = plant.images[0];
         const aliasesText = Array.isArray(plant.aliases) && plant.aliases.length
-            ? ` <span style="color:#64748b;font-weight:normal;">(${plant.aliases.join(", ")})</span>`
+            ? ` <span class="alias-note">(${escapeHtml(plant.aliases.join(", "))})</span>`
             : "";
         
         const tile = document.createElement("div");
         tile.className = "plant-tile";
         
         tile.innerHTML = `
-            <img src="${firstImage}" alt="${plant.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2212%22%3ENo img%3C/text%3E%3C/svg%3E'">
+            <img src="${firstImage}" alt="${escapeHtml(plant.name)}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2212%22%3ENo img%3C/text%3E%3C/svg%3E'">
             <div class="plant-tile-info">
-                <h3>${plant.name}${aliasesText}</h3>
-                <p class="latin-name">${plant.latin}</p>
-                <p style="color: #2563eb; font-size: 0.875rem; margin-top: 0.5rem;">Kliknij, aby zobaczyć więcej</p>
+                <h3>${escapeHtml(plant.name)}${redBookBadge(plant)}${aliasesText}</h3>
+                <p class="latin-name">${escapeHtml(plant.latin)}</p>
+                <p class="tile-more">Kliknij, aby zobaczyć więcej</p>
             </div>
         `;
         
@@ -307,7 +329,7 @@ function renderPlantsGrid() {
 // ============================================
 
 function showPlantDetails(plant) {
-    modalTitle.textContent = plant.name;
+    modalTitle.innerHTML = `${escapeHtml(plant.name)}${redBookBadge(plant)}`;
     const aliasesNote = Array.isArray(plant.aliases) && plant.aliases.length
         ? ` (także: ${plant.aliases.join(", ")})`
         : "";
@@ -318,6 +340,16 @@ function showPlantDetails(plant) {
     modalAltitude.textContent = plant.altitude;
     modalZones.textContent = plant.zones.join(", ");
     modalLimestone.textContent = plant.prefers_limestone ? "Woli podłoże wapienne" : "Spotykana głównie na granicie i wapieniu";
+    const redRow = document.getElementById("modal-redbook-row");
+    const redSpan = document.getElementById("modal-redbook");
+    if (plant.red_book) {
+        const cat = plant.red_book_category ? ` (${plant.red_book_category})` : "";
+        redSpan.textContent = `tak${cat} — Polska Czerwona Księga Roślin`;
+        redRow.style.display = "block";
+    } else {
+        redRow.style.display = "none";
+        redSpan.textContent = "";
+    }
     
     // Render gallery
     modalGallery.innerHTML = "";
