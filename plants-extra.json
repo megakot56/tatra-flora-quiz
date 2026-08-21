@@ -1,0 +1,36 @@
+[
+  {
+    "id": 11,
+    "name": "Szarotka alpejska",
+    "latin": "Leontopodium alpinum",
+    "description": "Ikoniczna roślina wysokogórska o srebrzysto owłosionych liściach i charakterystycznych, białych, filcowatych podsadkach otaczających koszyczki kwiatowe. W Tatrach rośnie przede wszystkim na skalistych, nasłonecznionych siedliskach, szczególnie na podłożu wapiennym.",
+    "habitat": "Murawy wysokogórskie, skały, piargi i wapienne półki skalne",
+    "bloom": "VII-IX",
+    "altitude": "1500-2200m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Srebrzystobiała, filcowata powierzchnia rośliny",
+      "Charakterystyczne białe podsadki wokół koszyczków",
+      "Roślina wysokogórska",
+      "Wybitnie wapieniolubna"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Leontopodium_alpinum_Szarotka_alpejska_01.jpg"
+    ],
+    "red_book": false,
+    "protected": true,
+    "image_credits": [
+      {
+        "file": "Leontopodium alpinum Szarotka alpejska 01.jpg",
+        "author": "Agnieszka Kwiecień (Nova)",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Leontopodium_alpinum_Szarotka_alpejska_01.jpg"
+      }
+    ]
+  }
+]
