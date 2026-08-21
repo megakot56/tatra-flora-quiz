@@ -8,57 +8,29 @@
 </head>
 <body>
     <div id="app">
-        <!-- Quiz Mode -->
         <div id="quiz-mode" class="mode active">
-            <header>
-                <h1>🌿 Quiz: Flora Tatr</h1>
-                <div class="score-display">
-                    <span id="score">0/0</span>
+            <header><h1>🌿 Quiz: Flora Tatr</h1><div class="score-display"><span id="score">0/0</span></div></header>
+            <div class="quiz-container"><div class="plant-card">
+                <div class="plant-image-container"><img id="plant-image" src="" alt="Roślina"></div>
+                <h2 id="question">Jaka to roślina?</h2>
+                <div class="options-container" id="options-container"></div>
+                <div class="feedback" id="feedback"></div>
+                <div class="controls">
+                    <button id="check-btn" class="btn btn-primary">Sprawdź</button>
+                    <button id="next-btn" class="btn btn-secondary" style="display:none">Następne</button>
+                    <button id="study-btn" class="btn btn-secondary">Przewodnik</button>
                 </div>
-            </header>
-            
-            <div class="quiz-container">
-                <div class="plant-card">
-                    <div class="plant-image-container">
-                        <img id="plant-image" src="" alt="Roślina">
-                    </div>
-                    <h2 id="question">Jaka to roślina?</h2>
-                    
-                    <div class="options-container" id="options-container">
-                        <!-- Options will be inserted here by JS -->
-                    </div>
-                    
-                    <div class="feedback" id="feedback"></div>
-                    
-                    <div class="controls">
-                        <button id="check-btn" class="btn btn-primary">Sprawdź</button>
-                        <button id="next-btn" class="btn btn-secondary" style="display: none;">Następne</button>
-                        <button id="study-btn" class="btn btn-secondary">Przewodnik</button>
-                    </div>
-                </div>
-            </div>
+            </div></div>
         </div>
-        
-        <!-- Study Mode -->
         <div id="study-mode" class="mode">
-            <header>
-                <h1>📚 Przewodnik po florze Tatr</h1>
-                <button id="back-to-quiz" class="btn btn-primary">Wróć do quizu</button>
-            </header>
+            <header><h1>📚 Przewodnik po florze Tatr</h1><button id="back-to-quiz" class="btn btn-primary">Wróć do quizu</button></header>
             <p class="study-legend">📕 gatunek z Polskiej Czerwonej Księgi Roślin</p>
-            <div class="plants-grid" id="plants-grid">
-                <!-- Plants will be inserted here by JS -->
-            </div>
+            <div class="plants-grid" id="plants-grid"></div>
         </div>
-        
-        <!-- Plant Modal -->
         <div id="plant-modal" class="modal">
-            <div class="modal-content">
-                <button class="close-modal">&times;</button>
-                <h2 id="modal-title"></h2>
-                <p id="modal-latin" class="latin-name"></p>
-                <div class="modal-gallery" id="modal-gallery"></div>
-                <p id="modal-description"></p>
+            <div class="modal-content"><button class="close-modal">&times;</button>
+                <h2 id="modal-title"></h2><p id="modal-latin" class="latin-name"></p>
+                <div class="modal-gallery" id="modal-gallery"></div><p id="modal-description"></p>
                 <div class="modal-details">
                     <div><strong>Siedlisko:</strong> <span id="modal-habitat"></span></div>
                     <div><strong>Okres kwitnienia:</strong> <span id="modal-bloom"></span></div>
@@ -67,28 +39,30 @@
                     <div><strong>Podłoże:</strong> <span id="modal-limestone"></span></div>
                     <div id="modal-redbook-row" class="redbook-row"><strong>Czerwona Księga:</strong> <span id="modal-redbook"></span></div>
                 </div>
-                <div class="modal-characteristics">
-                    <h4>Cechy:</h4>
-                    <ul id="modal-characteristics-list"></ul>
-                </div>
+                <div class="modal-characteristics"><h4>Cechy:</h4><ul id="modal-characteristics-list"></ul></div>
             </div>
         </div>
-        
-        <!-- Image Modal -->
-        <div id="image-modal" class="modal image-modal">
-            <div class="image-modal-content">
-                <button class="close-modal">&times;</button>
-                <img id="fullsize-image" src="" alt="">
-            </div>
-        </div>
-        
-        <!-- Loading -->
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
-            <p>Ładowanie...</p>
-        </div>
+        <div id="image-modal" class="modal image-modal"><div class="image-modal-content"><button class="close-modal">&times;</button><img id="fullsize-image" src="" alt=""></div></div>
+        <div id="loading" class="loading"><div class="spinner"></div><p>Ładowanie...</p></div>
     </div>
-    
+    <script>
+      (function () {
+        const originalFetch = window.fetch;
+        window.fetch = async function (input, init) {
+          const url = typeof input === 'string' ? input : input.url;
+          if (url === 'plants.json' || url.endsWith('/plants.json')) {
+            const [baseResponse, extraResponse] = await Promise.all([
+              originalFetch.call(this, input, init), originalFetch.call(this, 'plants-extra.json', init)
+            ]);
+            if (!baseResponse.ok) return baseResponse;
+            const base = await baseResponse.json();
+            const extra = extraResponse.ok ? await extraResponse.json() : [];
+            return new Response(JSON.stringify(base.concat(extra)), {status:200, headers:{'Content-Type':'application/json'}});
+          }
+          return originalFetch.call(this, input, init);
+        };
+      })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
