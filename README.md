@@ -33,17 +33,14 @@ Po prostu otwórz plik `index.html` w przeglądarce.
 
 ### Na GitHub Pages
 1. W repozytorium GitHub:
-   - Przejdź do **Settings → Pages**
+   - Przejdź do Settings → Pages
    - Wybierz branch: `main`
    - Wybierz folder: `/` (root)
-   - Kliknij **Save**
-
-2. Strona będzie dostępna pod:
-   `https://twoj_nick.github.io/tatra-flora-quiz/`
+   - Kliknij Save
 
 ## 📊 Dane roślin
 
-Obecnie w bazie znajdują się **19 gatunków**. 📕 = Polska Czerwona Księga Roślin (2014).
+Obecnie w bazie znajdują się **22 gatunki**. 📕 = Polska Czerwona Księga Roślin (2014).
 
 | ID | Nazwa | Nazwa łacińska | PCKR |
 |----|-------|----------------|------|
@@ -66,32 +63,16 @@ Obecnie w bazie znajdują się **19 gatunków**. 📕 = Polska Czerwona Księga 
 | 17 | Ciemiężyca zielona | Veratrum lobelianum | |
 | 18 | Tojad mocny | Aconitum firmum | |
 | 19 | Rojnik górski | Sempervivum montanum | |
+| 20 | Goryczka wiosenna typowa | Gentiana verna subsp. verna | |
+| 21 | Lepnica bezłodygowa | Silene acaulis | |
+| 22 | Kuklik górski | Geum montanum | |
 
 Zdjęcia nowych gatunków: Wikimedia Commons (patrz [IMAGE_CREDITS.md](IMAGE_CREDITS.md)).
 
 ## 📝 Dodawanie nowych roślin
 
 1. Dodaj obrazy do folderu `images/`
-2. Dodaj wpis do pliku `plants.json`:
-
-```json
-{
-  "id": 8,
-  "name": "Nazwa rośliny",
-  "latin": "Nazwa łacińska",
-  "description": "Opis rośliny...",
-  "habitat": "Siedlisko",
-  "bloom": "Okres kwitnienia (np. V-VII)",
-  "altitude": "Wysokość występowania (np. 1000-2000m)",
-  "zones": ["regiel dolny", "regiel górny"],
-  "characteristics": ["Cechy charakterystyczne..."],
-  "prefers_limestone": true,
-  "red_book": false,
-  "red_book_category": "VU",
-  "images": ["images/nazwa_obrazka1.jpg", "images/nazwa_obrazka2.jpg"]
-}
-```
-
+2. Dodaj wpis do pliku `plants.json`
 3. Opcjonalnie dodaj do `relatedPlantsMap` w `script.js` powiązane rośliny
 
 ## 🎨 Technologie
