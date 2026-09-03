@@ -68,7 +68,7 @@ Baza zawiera obecnie **50 gatunków**. 📕 = Polska Czerwona Księga Roślin.
 | 49 | Borówka czarna | *Vaccinium myrtillus* |
 | 50 | Wrzos zwyczajny | *Calluna vulgaris* |
 
-Nowe zdjęcia są pobierane z Wikimedia Commons; dla gatunków 23–50 dodano po 4 odnośniki do zdjęć.
+Wszystkie 50 gatunków ma po 4 zdjęcia **zapisane w folderze `images/`** — quiz nie zależy od Wikimedia ani innych stron zewnętrznych.
 
 ## 🚀 Uruchomienie
 
@@ -91,3 +91,8 @@ HTML5 · CSS3 · Vanilla JavaScript · JSON
 ## 📄 Licencja
 
 MIT
+
+
+## Zdjęcia lokalne
+
+Folder `images/` zawiera 200 zdjęć (4 na gatunek). Ścieżki w `plants.json` wskazują na te pliki, więc strona działa offline i na GitHub Pages bez hotlinków.

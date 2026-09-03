@@ -1,52 +1,1431 @@
 [
-{"id":1,"name":"Arcydziegiel litwor","latin":"Angelica archangelica","description":"Okazała bylina lub roślina dwuletnia dorastająca do 2,5 m. Ma grubą, bruzdowaną łodygę, duże pierzaste liście i zielonkawożółte baldachy. Rośnie w wilgotnych ziołoroślach i nad potokami.","habitat":"Ziołorośla, brzegi potoków, wilgotne piargi","bloom":"VII-VIII","altitude":"700-2600 m","zones":["regiel dolny","regiel górny","kosodrzewina","hale","turnie"],"characteristics":["Duże pierzaste liście","Zielonkawożółte baldachy","Gruba bruzdowana łodyga","Roślina wilgociolubna"],"prefers_limestone":false,"images":["images/arcydziegiel_litwor_1.jpg","images/arcydziegiel_litwor_2.jpg","images/arcydziegiel_litwor_3.jpg","images/arcydziegiel_litwor_4.jpg"],"red_book":false},
-{"id":2,"name":"Aster alpejski","latin":"Aster alpinus","description":"Niska bylina o fioletowych kwiatach z żółtym środkiem. Rośnie na skalnych półkach, w szczelinach skał i murawach, szczególnie na podłożu wapiennym.","habitat":"Murawy i szczeliny skał wapiennych","bloom":"VII-VIII","altitude":"1000-2600 m","zones":["regiel górny","kosodrzewina","hale","turnie"],"characteristics":["Fioletowe kwiaty","Żółty środek koszyczka","Niska kępkowa bylina","Wapieniolubna"],"prefers_limestone":true,"images":["images/aster_alpejski_1.jpg","images/aster_alpejski_2.jpg","images/aster_alpejski_3.jpg","images/aster_alpejski_4.jpg"],"red_book":false},
-{"id":3,"name":"Szafran spiski","latin":"Crocus scepusiensis","aliases":["Krokus"],"description":"Niska roślina cebulowa kwitnąca bardzo wczesną wiosną. Fioletowe kwiaty pojawiają się na trawiastych zboczach i polanach. Jeden z najbardziej charakterystycznych symboli wiosennego Podhala i Tatr.","habitat":"Murawy, łąki i trawiaste zbocza","bloom":"III-IV","altitude":"800-2000 m","zones":["regiel dolny","regiel górny","kosodrzewina"],"characteristics":["Fioletowy kwiat","Wczesnowiosenne kwitnienie","Roślina cebulowa","Liście trawiaste"],"prefers_limestone":false,"images":["images/szafran_spiski_1.jpg","images/szafran_spiski_2.jpeg","images/szafran_spiski_3.jpeg","images/szafran_spiski_4.jpeg"],"red_book":false},
-{"id":4,"name":"Obuwik pospolity","latin":"Cypripedium calceolus","description":"Storczyk o charakterystycznym żółtym warżce przypominającym pantofelek. Rośnie w cienistych lasach i zaroślach, najczęściej na podłożu wapiennym.","habitat":"Cieniste lasy i zarośla na wapieniu","bloom":"V-VI","altitude":"500-1800 m","zones":["regiel dolny","regiel górny"],"characteristics":["Żółty pantofelkowaty warżka","Storczyk","Wapieniolubny","Rzadki i chroniony"],"prefers_limestone":true,"images":["images/obuwik_pospolity_1.jpg","images/obuwik_pospolity_2.jpg","images/obuwik_pospolity_3.jpg","images/obuwik_pospolity_4.jpg"],"red_book":true,"red_book_category":"VU"},
-{"id":5,"name":"Sasanka alpejska","latin":"Pulsatilla alpina","description":"Owłosiona bylina o dużych białych kwiatach i silnie podzielonych liściach. Po kwitnieniu tworzy charakterystyczne puszyste owocostany. Występuje w murawach wysokogórskich i na skalistych zboczach.","habitat":"Murawy wysokogórskie, trawiaste zbocza, skały","bloom":"V-VII","altitude":"1200-2500 m","zones":["regiel górny","kosodrzewina","hale","turnie"],"characteristics":["Białe kwiaty","Owłosiona","Puszyste owocostany","Bylina wysokogórska"],"prefers_limestone":false,"images":["images/sasanka_alpejska_1.jpg","images/sasanka_alpejska_2.jpg","images/sasanka_alpejska_3.jpg","images/sasanka_alpejska_4.jpg"],"red_book":false},
-{"id":6,"name":"Dziewięćsił bezłodygowy","latin":"Carlina acaulis","description":"Niska bylina tworząca rozetę silnie kolczastych liści. Koszyczek kwiatowy jest duży i otoczony jasnymi okrywami. Spotykany na suchych murawach i nasłonecznionych zboczach.","habitat":"Murawy i suche skaliste zbocza","bloom":"VII-IX","altitude":"1000-2300 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Kolczaste liście","Duży koszyczek","Rozeta przyziemna","Wapieniolubny"],"prefers_limestone":true,"images":["images/dziewiecsil_bezlodygowy_1.jpg","images/dziewiecsil_bezlodygowy_2.jpg","images/dziewiecsil_bezlodygowy_3.jpg","images/dziewiecsil_bezlodygowy_4.jpg"],"red_book":false},
-{"id":7,"name":"Lilia złotogłów","latin":"Lilium martagon","description":"Okazała bylina cebulowa o zwisających różowopurpurowych kwiatach z odgiętymi płatkami. Rośnie w lasach, zaroślach i wysokich traworoślach.","habitat":"Lasy, zarośla i ziołorośla","bloom":"VI-VII","altitude":"800-1800 m","zones":["regiel dolny","regiel górny"],"characteristics":["Zwisające kwiaty","Płatki silnie odgięte","Cebula","Liście w okółkach"],"prefers_limestone":true,"images":["images/lilia_zlotoglow_1.jpg","images/lilia_zlotoglow_2.jpg","images/lilia_zlotoglow_3.jpg","images/lilia_zlotoglow_4.jpg"],"red_book":false},
-{"id":8,"name":"Mak tatrzański","latin":"Papaver tatricum","description":"Niska bylina o delikatnych białych kwiatach. Rośnie w szczelinach skał, na piargach i murawach wysokogórskich. Jest jednym z charakterystycznych gatunków flory Tatr.","habitat":"Piargi, skały i murawy wysokogórskie","bloom":"VII-VIII","altitude":"1500-2500 m","zones":["regiel górny","kosodrzewina","hale","turnie"],"characteristics":["Białe kwiaty","Delikatne płatki","Flora wysokogórska","Gatunek chroniony"],"prefers_limestone":true,"images":["images/mak_tatrzanski_1.jpg","images/mak_tatrzanski_2.jpg","images/mak_tatrzanski_3.jpg","images/mak_tatrzanski_4.jpg"],"red_book":true,"red_book_category":"VU"},
-{"id":9,"name":"Warzucha tatrzańska","latin":"Cochlearia tatrae","description":"Niska bylina lub roślina dwuletnia o mięsistych liściach zebranych w rozetę. Białe kwiaty tworzą grona. Występuje na wilgotnych skałach, źródliskach i brzegach potoków.","habitat":"Wilgotne skały, źródliska, brzegi potoków","bloom":"VI-VIII","altitude":"1000-2200 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Mięsiste liście","Białe kwiaty","Wilgociolubna","Gatunek tatrzański"],"prefers_limestone":true,"images":["images/warzucha_tatrzanska_1.jpg","images/warzucha_tatrzanska_2.jpg","images/warzucha_tatrzanska_3.jpg","images/warzucha_tatrzanska_4.jpg"],"red_book":true,"red_book_category":"EN"},
-{"id":10,"name":"Goryczka kropkowana","latin":"Gentiana punctata","description":"Wysoka bylina o bladożółtych, dzwonkowatych kwiatach gęsto nakrapianych ciemnymi kropkami. Typowa dla wysokogórskich muraw i hal.","habitat":"Hale, murawy wysokogórskie, piargi","bloom":"VII-VIII","altitude":"1400-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Żółte kwiaty w kropki","Wysoka bylina","Wysokogórska","Preferuje podłoże krystaliczne"],"prefers_limestone":false,"images":["images/goryczka_kropkowana_1.jpg","images/goryczka_kropkowana_2.jpg","images/goryczka_kropkowana_3.jpg","images/goryczka_kropkowana_4.jpg"],"red_book":false},
-{"id":11,"name":"Szarotka alpejska","latin":"Leontopodium alpinum","aliases":["Edelweiss"],"description":"Niska bylina pokryta srebrzystym kutnerem. Charakterystyczny wygląd nadają jej gwiaździste, wełniste przysadki otaczające koszyczki. Związana głównie z wapiennymi skałami i murawami.","habitat":"Wapienne półki skalne i murawy naskalne","bloom":"VII-IX","altitude":"1500-2300 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Srebrzyste owłosienie","Gwiaździste przysadki","Wapieniolubna","Rzadka w Tatrach"],"prefers_limestone":true,"images":["images/szarotka_alpejska_1.jpg","images/szarotka_alpejska_2.jpg","images/szarotka_alpejska_3.jpg","images/szarotka_alpejska_4.jpg"],"red_book":false},
-{"id":12,"name":"Pierwiosnek łyszczak","latin":"Primula auricula","description":"Bylina o mięsistych szarozielonych liściach i złocistożółtych, pachnących kwiatach. Rośnie w szczelinach i na półkach skał wapiennych.","habitat":"Wapienne skały, szczeliny i półki","bloom":"IV-VI","altitude":"900-2200 m","zones":["regiel górny","kosodrzewina","hale","turnie"],"characteristics":["Mięsiste liście","Mączysty nalot","Żółte pachnące kwiaty","Wapieniolubna"],"prefers_limestone":true,"images":["images/pierwiosnek_lyszczak_1.jpg","images/pierwiosnek_lyszczak_2.jpg","images/pierwiosnek_lyszczak_3.jpg","images/pierwiosnek_lyszczak_4.jpg"],"red_book":false},
-{"id":13,"name":"Dzwonek alpejski","latin":"Campanula alpina","description":"Niska, gęsto owłosiona bylina o zwisających niebieskofioletowych kwiatach. Typowa dla hal, piargów i muraw wysokogórskich.","habitat":"Hale, piargi, murawy alpejskie","bloom":"VII-VIII","altitude":"1500-2300 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Niebieskofioletowe kwiaty","Zwisające kwiaty","Gęste owłosienie","Niska bylina"],"prefers_limestone":false,"images":["images/dzwonek_alpejski_1.jpg","images/dzwonek_alpejski_2.jpg","images/dzwonek_alpejski_3.jpg","images/dzwonek_alpejski_4.jpg"],"red_book":false},
-{"id":14,"name":"Kosodrzewina","latin":"Pinus mugo","aliases":["Sosna górska","Kosówka"],"description":"Wielopniowy krzew iglasty tworzący w Tatrach osobne piętro roślinności. Ma igły po dwie w pęczku i szyszki jajowate. Stabilizuje zbocza i zatrzymuje śnieg.","habitat":"Piętro kosodrzewiny, zbocza i piargi","bloom":"V-VI","altitude":"1300-2000 m","zones":["kosodrzewina","hale"],"characteristics":["Igły po dwie","Wielopniowy krzew","Tworzy piętro kosodrzewiny","Stabilizuje stoki"],"prefers_limestone":false,"images":["images/kosodrzewina_1.jpg","images/kosodrzewina_2.jpg","images/kosodrzewina_3.jpg","images/kosodrzewina_4.jpg"],"red_book":false},
-{"id":15,"name":"Sosna limba","latin":"Pinus cembra","aliases":["Limba"],"description":"Wysokogórskie drzewo iglaste o igłach zebranych po pięć. Szyszki są jajowate, a nasiona rozsiewają m.in. orzechówki. W Tatrach związana szczególnie z górną granicą lasu i piętrem kosodrzewiny.","habitat":"Górna granica lasu i zbocza","bloom":"V-VII","altitude":"1300-1800 m","zones":["regiel górny","kosodrzewina"],"characteristics":["Igły po pięć","Szyszki nierozpadające się na drzewie","Drzewo wysokogórskie","Nasiona roznoszone przez ptaki"],"prefers_limestone":false,"images":["images/sosna_limba_1.jpg","images/sosna_limba_2.jpg","images/sosna_limba_3.jpg","images/sosna_limba_4.jpg"],"red_book":false},
-{"id":16,"name":"Lepiężnik biały","latin":"Petasites albus","description":"Wczesną wiosną pojawiają się kwiatostany, a następnie ogromne, okrągławe liście. Rośnie w wilgotnych lasach, nad potokami i w ziołoroślach.","habitat":"Wilgotne lasy, brzegi potoków, ziołorośla","bloom":"III-V","altitude":"500-1600 m","zones":["regiel dolny","regiel górny"],"characteristics":["Kwitnie przed rozwojem liści","Bardzo duże liście","Białe kwiatostany","Wilgociolubny"],"prefers_limestone":false,"images":["images/lepieznik_bialy_1.jpg","images/lepieznik_bialy_2.jpg","images/lepieznik_bialy_3.jpg","images/lepieznik_bialy_4.jpg"],"red_book":false},
-{"id":17,"name":"Ciemiężyca zielona","latin":"Veratrum lobelianum","aliases":["Ciemierzyca zielona"],"description":"Wysoka, silnie trująca bylina o dużych, szerokich, pofałdowanych liściach i zielonkawych kwiatach w rozgałęzionej wiechy. Rośnie w wilgotnych ziołoroślach.","habitat":"Wilgotne hale, ziołorośla, brzegi potoków","bloom":"VI-VIII","altitude":"700-2000 m","zones":["regiel dolny","regiel górny","kosodrzewina","hale"],"characteristics":["Szerokie pofałdowane liście","Zielonkawe kwiaty","Silnie trująca","Wysoka bylina"],"prefers_limestone":false,"images":["images/ciemiezyca_zielona_1.jpg","images/ciemiezyca_zielona_2.jpg","images/ciemiezyca_zielona_3.jpg","images/ciemiezyca_zielona_4.jpg"],"red_book":false},
-{"id":18,"name":"Tojad mocny","latin":"Aconitum firmum","description":"Okazała, bardzo trująca bylina o dłoniasto podzielonych liściach i charakterystycznych ciemnofioletowych kwiatach przypominających hełmy. Typowa dla wilgotnych ziołorośli.","habitat":"Ziołorośla, wilgotne hale, brzegi potoków","bloom":"VII-VIII","altitude":"800-2000 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Kwiaty hełmiaste","Ciemnofioletowe kwiaty","Liście dłoniasto podzielone","Bardzo trujący"],"prefers_limestone":false,"images":["images/tojad_mocny_1.jpg","images/tojad_mocny_2.jpg","images/tojad_mocny_3.jpg","images/tojad_mocny_4.jpg"],"red_book":false},
-{"id":19,"name":"Rojnik górski","latin":"Sempervivum montanum","description":"Sukulent tworzący zwarte rozety mięsistych liści. Kwiaty są różowoczerwone i gwiaździste. Rośnie w szczelinach skał, na piargach i suchych murawach wysokogórskich.","habitat":"Szczeliny skał, piargi i murawy naskalne","bloom":"VII-VIII","altitude":"1400-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Mięsiste liście","Zwarte rozety","Różowoczerwone kwiaty","Sukulent"],"prefers_limestone":false,"images":["images/rojnik_gorski_1.jpg","images/rojnik_gorski_2.jpg","images/rojnik_gorski_3.jpg","images/rojnik_gorski_4.jpg"],"red_book":false},
-{"id":20,"name":"Goryczka wiosenna typowa","latin":"Gentiana verna subsp. verna","aliases":["Goryczka wiosenna"],"description":"Niska bylina o intensywnie niebieskich, lejkowatych kwiatach. W Tatrach występuje w murawach i na trawiastych upłazach, często na podłożu wapiennym.","habitat":"Murawy i trawiaste upłazy","bloom":"V-VII","altitude":"900-2200 m","zones":["regiel dolny","regiel górny","kosodrzewina","hale"],"characteristics":["Intensywnie niebieska korona","Niska bylina","Wiosenno-letnie kwitnienie","Często na wapieniu"],"prefers_limestone":true,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_verna.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_verna_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_verna_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_verna_3.jpg"],"red_book":false},
-{"id":21,"name":"Lepnica bezłodygowa","latin":"Silene acaulis","description":"Bardzo niska bylina tworząca charakterystyczne zwarte, półkuliste poduszki. Pojedyncze różowe kwiaty wyrastają na krótkich szypułkach. Typowa roślina wysokogórska.","habitat":"Skały, piargi i murawy wysokogórskie","bloom":"VI-VIII","altitude":"1500-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Tworzy poduszki","Różowe kwiaty","Drobne równowąskie liście","Roślina wysokogórska"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Silene_acaulis.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Silene_acaulis_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Silene_acaulis_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Silene_acaulis_3.jpg"],"red_book":false},
-{"id":22,"name":"Kuklik górski","latin":"Geum montanum","description":"Bylina o rozecie przerywano-pierzastych liści i pojedynczych złocistożółtych kwiatach. Po kwitnieniu tworzy charakterystyczny włochaty owocostan. Rośnie na halach i wysokich murawach.","habitat":"Hale, wysokie murawy, pastwiska","bloom":"V-IX","altitude":"1000-2300 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Złocistożółte kwiaty","Duży listek szczytowy","Liście przerywano-pierzaste","Włochaty owocostan"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Geum_montanum_001.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Geum_montanum_002.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Geum_montanum_003.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Geum_montanum_004.jpg"],"red_book":false},
-{"id":23,"name":"Goryczka trojeściowa","latin":"Gentiana asclepiadea","description":"Wysoka bylina o łodydze łukowato wznoszącej się i dużych, niebieskich kwiatach wyrastających w kątach liści. Typowa dla ziołorośli i wilgotnych miejsc w reglu.","habitat":"Ziołorośla, wilgotne polany i obrzeża lasów","bloom":"VIII-IX","altitude":"600-1800 m","zones":["regiel dolny","regiel górny"],"characteristics":["Duże niebieskie kwiaty","Kwiaty w kątach liści","Wysoka bylina","Późne kwitnienie"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_asclepiadea_001.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_asclepiadea_002.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_asclepiadea_003.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_asclepiadea_004.jpg"],"red_book":false},
-{"id":24,"name":"Goryczka Klusjusza","latin":"Gentiana clusii","aliases":["Goryczka krótkołodygowa"],"description":"Duża, intensywnie niebieska goryczka o kielichowatych kwiatach. Jest silnie związana z wapiennymi murawami i skałami. Jedna z najważniejszych goryczek do rozpoznawania podłoża wapiennego.","habitat":"Wapienne murawy, skały i upłazy","bloom":"V-VII","altitude":"900-2200 m","zones":["regiel górny","kosodrzewina","hale","turnie"],"characteristics":["Bardzo duże niebieskie kwiaty","Kielichowata korona","Wapieniolubna","Krótka łodyga"],"prefers_limestone":true,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Clusius%27_gentian_-_Gentiana_clusii_(12521754844).jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Almbachklamm_Enzian.JPG","https://commons.wikimedia.org/wiki/Special:Redirect/file/Alps_Echter_Alpenenzian.JPG","https://commons.wikimedia.org/wiki/Special:Redirect/file/Clusius-Enzian.JPG"],"red_book":false},
-{"id":25,"name":"Goryczka gorzkawa","latin":"Gentianella amarella","description":"Niewysoka roślina o drobnych, fioletowoniebieskich kwiatach. Kwitnie później niż wiele innych goryczek i spotykana jest w murawach oraz na łąkach, także na podłożu wapiennym.","habitat":"Murawy, łąki i trawiaste zbocza","bloom":"VII-IX","altitude":"800-2200 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Drobne fioletowe kwiaty","Późne kwitnienie","Niska roślina","Rodzaj Gentianella"],"prefers_limestone":true,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentianella_amarella.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentianella_amarella,_Autumn_Gentian,_Newborough_Warren,_North_Wales,_August_2012.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentianella_amarella_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentianella_amarella_2.jpg"],"red_book":false},
-{"id":26,"name":"Goryczka przezroczysta","latin":"Gentiana frigida","description":"Niska wysokogórska goryczka o dużych, bladożółtawych kwiatach z zielonkawymi odcieniami. W Tatrach związana z wysokimi murawami i skałami.","habitat":"Murawy wysokogórskie i skały","bloom":"VII-VIII","altitude":"1600-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Bladożółta korona","Wysokogórska","Niska bylina","Późne kwitnienie"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_frigida_a1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_frigida_a2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_frigida_a3.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Gentiana_frigida_T22-1.jpg"],"red_book":false},
-{"id":27,"name":"Dzwonek karpacki","latin":"Campanula carpatica","description":"Niska bylina o dużych, szeroko otwartych niebieskofioletowych kwiatach. W naturze związana przede wszystkim ze skałami i murawami Karpat.","habitat":"Skały i murawy wapienne","bloom":"VI-VIII","altitude":"600-2000 m","zones":["regiel dolny","regiel górny","kosodrzewina"],"characteristics":["Duże dzwonkowate kwiaty","Niebieskofioletowa korona","Niska bylina","Karpacka"],"prefers_limestone":true,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bellflower1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Blue_bells_saying.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Campanula_carpatica_01.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Campanula_carpatica_02.jpg"],"red_book":false},
-{"id":28,"name":"Dzwonek jednostronny","latin":"Campanula uniflora","description":"Drobna bylina wysokogórska o pojedynczym, niebieskofioletowym kwiecie. Rośnie na skałach i w niskich murawach. Jest charakterystyczna dla surowych siedlisk wysokogórskich.","habitat":"Skały, piargi i niskie murawy","bloom":"VII-VIII","altitude":"1500-2500 m","zones":["hale","turnie"],"characteristics":["Pojedynczy kwiat","Drobna bylina","Niebieskofioletowa korona","Wysokogórska"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Arctic_Harebell_-_Campanula_uniflora_(4828792331).jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Arctic_Harebell_-_Campanula_uniflora_(4828809341).jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Campanula_uniflora_(7833383410).jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Campanula_uniflora_2001-07-15.jpg"],"red_book":false},
-{"id":29,"name":"Jaskier alpejski","latin":"Ranunculus alpestris","description":"Niska bylina o białych kwiatach z żółtym środkiem. Występuje na wysokogórskich murawach, skałach i piargach, w tym w Tatrach.","habitat":"Murawy, piargi i szczeliny skał","bloom":"VI-VIII","altitude":"1500-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Białe kwiaty","Żółty środek","Niska bylina","Wysokogórski"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Ranunculus_alpestris.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Ranunculus_alpestris_(2).JPG","https://commons.wikimedia.org/wiki/Special:Redirect/file/Ranunculus_alpestris_(3).JPG","https://commons.wikimedia.org/wiki/Special:Redirect/file/Ranunculus_alpestris_(4).JPG"],"red_book":false},
-{"id":30,"name":"Jaskier platanolistny","latin":"Ranunculus platanifolius","description":"Okazała bylina o dużych, dłoniasto klapowanych liściach i białych kwiatach. Typowa dla wilgotnych ziołorośli i wysokich traworośli.","habitat":"Ziołorośla, wilgotne hale i obrzeża lasów","bloom":"VI-VIII","altitude":"900-2000 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Duże dłoniasto klapowane liście","Białe kwiaty","Wysoka bylina","Wilgociolubny"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Ranunculus_platanifolius.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Ranunculus_platanifolius_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Ranunculus_platanifolius_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Ranunculus_platanifolius_3.jpg"],"red_book":false},
-{"id":31,"name":"Sasanka słowacka","latin":"Pulsatilla slavica","description":"Wczesnowiosenna sasanka o owłosionych liściach i dużych jasnych kwiatach. Jest związana z wapiennymi murawami Karpat Zachodnich i należy do ciekawych gatunków flory tatrzańskiej.","habitat":"Wapienne murawy i trawiaste zbocza","bloom":"IV-V","altitude":"800-1800 m","zones":["regiel górny","kosodrzewina"],"characteristics":["Owłosiona","Duży jasny kwiat","Wiosenne kwitnienie","Wapieniolubna"],"prefers_limestone":true,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/%22Pulsatilla_slavica%22,_after_blooming.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Pulsatilla_slavica.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Pulsatilla_slavica_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Pulsatilla_slavica_2.jpg"],"red_book":false},
-{"id":32,"name":"Jastrzębiec alpejski","latin":"Hieracium alpinum","description":"Wysokogórski jastrzębiec o żółtych koszyczkach i charakterystycznym owłosieniu. Występuje w murawach, na piargach i skałach, szczególnie w wyższych piętrach Tatr.","habitat":"Murawy wysokogórskie, skały i piargi","bloom":"VII-IX","altitude":"1500-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Żółte koszyczki","Owłosiona łodyga","Wysokogórski","Rodzaj Hieracium"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Hieracium_alpinum.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Hieracium_alpinum_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Hieracium_alpinum_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Hieracium_alpinum_3.jpg"],"red_book":false},
-{"id":33,"name":"Kuklik rozesłany","latin":"Geum rivale","description":"Bylina o zwisających, różowawoczerwonych kwiatach i owłosionych działkach kielicha. Rośnie w wilgotnych łąkach, ziołoroślach i przy potokach. Stanowi dobry kontrast dla kuklika górskiego.","habitat":"Wilgotne łąki, brzegi potoków, ziołorośla","bloom":"V-VIII","altitude":"500-1800 m","zones":["regiel dolny","regiel górny","kosodrzewina"],"characteristics":["Zwisające kwiaty","Różowawy kielich","Wilgociolubny","Kuklik niższych pięter"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/(MHNT)_Geum_rivale_-_flower_and_bottoms.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Atlas_roslin_pl_Kuklik_zwisly_2655_7080.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Atlas_roslin_pl_Kuklik_zwisly_2658_7080.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Atlas_roslin_pl_Kuklik_zwisly_2659_7080.jpg"],"red_book":false},
-{"id":34,"name":"Omieg górski","latin":"Doronicum austriacum","description":"Okazała bylina o żółtych koszyczkach przypominających duże stokrotki. Rośnie w wilgotnych ziołoroślach, nad potokami i w wysokich traworoślach.","habitat":"Ziołorośla i wilgotne miejsca nad potokami","bloom":"VI-VIII","altitude":"700-2000 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Duże żółte koszyczki","Wysoka bylina","Wilgociolubny","Ziołoroślowy"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Doronicum_austriacum.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Doronicum_austriacum_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Doronicum_austriacum_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Doronicum_austriacum_3.jpg"],"red_book":false},
-{"id":35,"name":"Czosnek syberyjski","latin":"Allium sibiricum","description":"Wysokogórski czosnek tworzący kępy wąskich liści i kuliste kwiatostany z różowawymi kwiatami. Występuje na halach i wilgotnych murawach.","habitat":"Hale, murawy i wilgotne skały","bloom":"VI-VIII","altitude":"1200-2300 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Kulisty kwiatostan","Różowawe kwiaty","Czosnkowy zapach","Wysokogórski"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Allium_sibiricum.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Allium_sibiricum_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Allium_sibiricum_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Allium_sibiricum_3.jpg"],"red_book":false},
-{"id":36,"name":"Pierwiosnek maleńki","latin":"Primula minima","description":"Drobny pierwiosnek tworzący niskie rozety mięsistych liści. Ma różowe lub purpurowe kwiaty i jest charakterystyczny dla wysokogórskich muraw Tatr.","habitat":"Murawy wysokogórskie i skały","bloom":"VI-VIII","altitude":"1500-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Bardzo mały","Mięsiste liście","Różowe kwiaty","Wysokogórski"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Primula_minima.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Primula_minima_a1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Primula_minima_1.JPG","https://commons.wikimedia.org/wiki/Special:Redirect/file/Primula_minimaG2.JPG"],"red_book":false},
-{"id":37,"name":"Pierwiosnek wyniosły","latin":"Primula elatior","description":"Wiosenna bylina o jasnożółtych kwiatach zebranych w baldach. Rośnie w wilgotnych lasach, łąkach i ziołoroślach niższych pięter.","habitat":"Wilgotne łąki, lasy i ziołorośla","bloom":"IV-VI","altitude":"500-1600 m","zones":["regiel dolny","regiel górny"],"characteristics":["Jasnożółte kwiaty","Kwiatostan baldachowaty","Wiosenne kwitnienie","Wilgociolubny"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Primula_elatior_plant.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/20140313Primula_elatior1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/20140313Primula_elatior2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/20140313Primula_elatior3.jpg"],"red_book":false},
-{"id":38,"name":"Zawilec narcyzowy","latin":"Anemone narcissiflora","description":"Wysokogórska bylina o białych kwiatach zebranych po kilka na szczycie łodygi. Charakterystyczna dla hal i muraw, także w Tatrach Zachodnich.","habitat":"Hale, murawy i trawiaste zbocza","bloom":"VI-VIII","altitude":"1200-2300 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Kilka białych kwiatów","Kwiaty przypominają narcyzy","Wysokogórski","Bylina"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Anemone_narcissiflora_T69.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/1024_Narzissen-Windröschen_(Anemone_narcissiflora)-2094.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Anemonastrum_narcissiflorum_(8414011026).jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Anemonastrum_narcissiflorum_-_Alpen-Berghähnlein.jpg"],"red_book":false},
-{"id":39,"name":"Miłosna górska","latin":"Adenostyles alliariae","description":"Okazała bylina z dużymi liśćmi i wiechą różowawych lub purpurowych koszyczków. Bardzo typowa dla ziołorośli piętra subalpejskiego.","habitat":"Ziołorośla, brzegi potoków i wilgotne hale","bloom":"VII-IX","altitude":"1000-2100 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Duże liście","Różowopurpurowe koszyczki","Ziołoroślowa","Wysoka bylina"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Adenostyles_alliariae_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Adenostyles_alliariae_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Adenostyles_alliariae_3.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Adenostyles_alliariae_4.jpg"],"red_book":false},
-{"id":40,"name":"Modrzyk górski","latin":"Cicerbita alpina","description":"Wysoka bylina o niebieskofioletowych koszyczkach, charakterystyczna dla wilgotnych ziołorośli. W Tatrach często rośnie w sąsiedztwie innych wysokich bylin.","habitat":"Wilgotne ziołorośla i traworośla","bloom":"VII-IX","altitude":"1000-2100 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Niebieskofioletowe kwiaty","Wysoka bylina","Ziołoroślowy","Wilgociolubny"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Alpen-Milchlattich_im_Elendstal.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Alpen-Milchlattich_Scheuereck.JPG","https://commons.wikimedia.org/wiki/Special:Redirect/file/Alpen-Milchlattich.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Alpine_Blue-Sow-Thistle_(Cicerbita_alpina)_-_Eidfjord,_Norway_2021-07-25.jpg"],"red_book":false},
-{"id":41,"name":"Starzec górski","latin":"Senecio subalpinus","description":"Wysoka bylina o żółtych koszyczkach, spotykana w ziołoroślach i w piętrze kosodrzewiny. Należy do charakterystycznych roślin wilgotnych siedlisk górskich.","habitat":"Ziołorośla, wilgotne hale i kosodrzewina","bloom":"VII-IX","altitude":"1000-2200 m","zones":["regiel górny","kosodrzewina","hale"],"characteristics":["Żółte koszyczki","Wysoka bylina","Wilgotne siedliska","Rodzaj Senecio"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Senecio_subalpinus.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Senecio_subalpinus_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Senecio_subalpinus_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Senecio_subalpinus_3.jpg"],"red_book":false},
-{"id":42,"name":"Rdest wężownik","latin":"Bistorta officinalis","description":"Bylina o charakterystycznym kłosowatym, różowym kwiatostanie i wydłużonych liściach. Tworzy często duże płaty na wilgotnych łąkach i halach.","habitat":"Wilgotne łąki, hale i murawy","bloom":"V-VIII","altitude":"500-2000 m","zones":["regiel dolny","regiel górny","kosodrzewina","hale"],"characteristics":["Różowy kłos","Wydłużone liście","Tworzy płaty","Wilgociolubny"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bistorta_officinalis_kz02.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Bistorta_officinalis_kz05.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Bistorta_officinalis_kz06.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Bistorta_officinalis_kz07.jpg"],"red_book":false},
-{"id":43,"name":"Wełnianka pochwowata","latin":"Eriophorum vaginatum","description":"Trawopodobna roślina torfowiskowa tworząca zwarte kępy. Po przekwitnięciu wytwarza charakterystyczne białe, wełniste owocostany.","habitat":"Torfowiska i wilgotne bezwapienne siedliska","bloom":"V-VII","altitude":"800-2000 m","zones":["regiel dolny","regiel górny","kosodrzewina"],"characteristics":["Białe wełniste owocostany","Tworzy kępy","Torfowiskowa","Liście wąskie"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/0482Nikon0267.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Arctic_Cotton_Grass_(Eriophorum_vaginatum).jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Atlas_roslin_pl_Wełnianka_pochwowata_343_6955.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Cotton_Grass_-_Flickr_-_gailhampshire.jpg"],"red_book":false},
-{"id":44,"name":"Sit skucina","latin":"Juncus trifidus","description":"Drobna roślina sitowata o wąskich, trójkanciastych liściach. Jest jedną z charakterystycznych roślin wysokogórskich muraw na skałach krystalicznych.","habitat":"Wysokogórskie murawy i szczeliny skał","bloom":"VII-VIII","altitude":"1500-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Wąskie liście","Liście trójkanciaste","Wysokogórski","Typowy dla ubogich muraw"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Juncus_trifidus.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Juncus_trifidus_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Juncus_trifidus_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Juncus_trifidus_3.jpg"],"red_book":false},
-{"id":45,"name":"Turzyca zawsze zielona","latin":"Carex sempervirens","description":"Trawopodobna bylina tworząca kępki. Jest typowym składnikiem wysokogórskich muraw i hal, szczególnie na ubogich siedliskach.","habitat":"Murawy wysokogórskie i hale","bloom":"VI-VIII","altitude":"1200-2400 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Tworzy kępy","Zimozielona","Trawopodobna","Murawy wysokogórskie"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Carex_sempervirens.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Carex_sempervirens_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Carex_sempervirens_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Carex_sempervirens_3.jpg"],"red_book":false},
-{"id":46,"name":"Kostrzewa pstra","latin":"Festuca versicolor","description":"Trawa wysokogórska tworząca gęste kępy. Występuje w murawach, na piargach i skalnych grzędach, szczególnie w piętrze halnym.","habitat":"Murawy, piargi i skalne grzędy","bloom":"VI-VIII","altitude":"1500-2500 m","zones":["kosodrzewina","hale","turnie"],"characteristics":["Gęste kępy","Trawa wysokogórska","Wąskie liście","Rośnie na skałach"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Festuca_versicolor.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Festuca_versicolor_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Festuca_versicolor_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Festuca_versicolor_3.jpg"],"red_book":false},
-{"id":47,"name":"Wierzbówka kiprzyca","latin":"Chamerion angustifolium","description":"Okazała bylina o wysokiej łodydze i długim gronie różowopurpurowych kwiatów. Pojawia się licznie na zrębach, polanach i siedliskach po zaburzeniach.","habitat":"Polany, zręby, pobocza i miejsca zaburzone","bloom":"VII-IX","altitude":"500-1800 m","zones":["regiel dolny","regiel górny","kosodrzewina"],"characteristics":["Różowopurpurowe kwiaty","Długie grono","Wysoka bylina","Roślina pionierska"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Chamerion_angustifolium.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Chamerion_angustifolium_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Chamerion_angustifolium_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Chamerion_angustifolium_3.jpg"],"red_book":false},
-{"id":48,"name":"Borówka brusznica","latin":"Vaccinium vitis-idaea","description":"Niewielka zimozielona krzewinka o skórzastych liściach, białoróżowych kwiatach i czerwonych owocach. Bardzo częsta w borach i na ubogich murawach.","habitat":"Bory, wrzosowiska i ubogie murawy","bloom":"V-VIII","altitude":"500-2000 m","zones":["regiel dolny","regiel górny","kosodrzewina"],"characteristics":["Zimozielone liście","Czerwone owoce","Białoróżowe kwiaty","Krzewinka"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium_vitis-idaea.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium_vitis-idaea_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium_vitis-idaea_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium_vitis-idaea_3.jpg"],"red_book":false},
-{"id":49,"name":"Borówka czarna","latin":"Vaccinium myrtillus","aliases":["Czarna jagoda"],"description":"Niska krzewinka o zielonych, kanciastych pędach, drobnych liściach i ciemnogranatowych owocach. Jedna z najczęstszych roślin runa borów tatrzańskich.","habitat":"Bory i kwaśne murawy","bloom":"V-VII","altitude":"500-2000 m","zones":["regiel dolny","regiel górny","kosodrzewina"],"characteristics":["Kanciaste zielone pędy","Czarne owoce","Liście opadające na zimę","Krzewinka kwasolubna"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium_myrtillus.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium_myrtillus_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium_myrtillus_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium_myrtillus_3.jpg"],"red_book":false},
-{"id":50,"name":"Wrzos zwyczajny","latin":"Calluna vulgaris","description":"Niska krzewinka o drobnych łuskowatych liściach i licznych różowofioletowych kwiatach. Występuje na kwaśnych, ubogich siedliskach, wrzosowiskach i borach.","habitat":"Wrzosowiska, bory i kwaśne murawy","bloom":"VIII-IX","altitude":"500-1800 m","zones":["regiel dolny","regiel górny","kosodrzewina"],"characteristics":["Drobne łuskowate liście","Różowofioletowe kwiaty","Kwaśne siedliska","Krzewinka"],"prefers_limestone":false,"images":["https://commons.wikimedia.org/wiki/Special:Redirect/file/Calluna_vulgaris.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Calluna_vulgaris_1.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Calluna_vulgaris_2.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Calluna_vulgaris_3.jpg"],"red_book":false}
+  {
+    "id": 1,
+    "name": "Arcydziegiel litwor",
+    "latin": "Angelica archangelica",
+    "description": "Okazała bylina lub roślina dwuletnia dorastająca do 2,5 m. Ma grubą, bruzdowaną łodygę, duże pierzaste liście i zielonkawożółte baldachy. Rośnie w wilgotnych ziołoroślach i nad potokami.",
+    "habitat": "Ziołorośla, brzegi potoków, wilgotne piargi",
+    "bloom": "VII-VIII",
+    "altitude": "700-2600 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Duże pierzaste liście",
+      "Zielonkawożółte baldachy",
+      "Gruba bruzdowana łodyga",
+      "Roślina wilgociolubna"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/arcydziegiel_litwor_1.jpg",
+      "images/arcydziegiel_litwor_2.jpg",
+      "images/arcydziegiel_litwor_3.jpg",
+      "images/arcydziegiel_litwor_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 2,
+    "name": "Aster alpejski",
+    "latin": "Aster alpinus",
+    "description": "Niska bylina o fioletowych kwiatach z żółtym środkiem. Rośnie na skalnych półkach, w szczelinach skał i murawach, szczególnie na podłożu wapiennym.",
+    "habitat": "Murawy i szczeliny skał wapiennych",
+    "bloom": "VII-VIII",
+    "altitude": "1000-2600 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Fioletowe kwiaty",
+      "Żółty środek koszyczka",
+      "Niska kępkowa bylina",
+      "Wapieniolubna"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/aster_alpejski_1.jpg",
+      "images/aster_alpejski_2.jpg",
+      "images/aster_alpejski_3.jpg",
+      "images/aster_alpejski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 3,
+    "name": "Szafran spiski",
+    "latin": "Crocus scepusiensis",
+    "aliases": [
+      "Krokus"
+    ],
+    "description": "Niska roślina cebulowa kwitnąca bardzo wczesną wiosną. Fioletowe kwiaty pojawiają się na trawiastych zboczach i polanach. Jeden z najbardziej charakterystycznych symboli wiosennego Podhala i Tatr.",
+    "habitat": "Murawy, łąki i trawiaste zbocza",
+    "bloom": "III-IV",
+    "altitude": "800-2000 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Fioletowy kwiat",
+      "Wczesnowiosenne kwitnienie",
+      "Roślina cebulowa",
+      "Liście trawiaste"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/szafran_spiski_1.jpg",
+      "images/szafran_spiski_2.jpeg",
+      "images/szafran_spiski_3.jpeg",
+      "images/szafran_spiski_4.jpeg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 4,
+    "name": "Obuwik pospolity",
+    "latin": "Cypripedium calceolus",
+    "description": "Storczyk o charakterystycznym żółtym warżce przypominającym pantofelek. Rośnie w cienistych lasach i zaroślach, najczęściej na podłożu wapiennym.",
+    "habitat": "Cieniste lasy i zarośla na wapieniu",
+    "bloom": "V-VI",
+    "altitude": "500-1800 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny"
+    ],
+    "characteristics": [
+      "Żółty pantofelkowaty warżka",
+      "Storczyk",
+      "Wapieniolubny",
+      "Rzadki i chroniony"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/obuwik_pospolity_1.jpg",
+      "images/obuwik_pospolity_2.jpg",
+      "images/obuwik_pospolity_3.jpg",
+      "images/obuwik_pospolity_4.jpg"
+    ],
+    "red_book": true,
+    "red_book_category": "VU"
+  },
+  {
+    "id": 5,
+    "name": "Sasanka alpejska",
+    "latin": "Pulsatilla alpina",
+    "description": "Owłosiona bylina o dużych białych kwiatach i silnie podzielonych liściach. Po kwitnieniu tworzy charakterystyczne puszyste owocostany. Występuje w murawach wysokogórskich i na skalistych zboczach.",
+    "habitat": "Murawy wysokogórskie, trawiaste zbocza, skały",
+    "bloom": "V-VII",
+    "altitude": "1200-2500 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Białe kwiaty",
+      "Owłosiona",
+      "Puszyste owocostany",
+      "Bylina wysokogórska"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/sasanka_alpejska_1.jpg",
+      "images/sasanka_alpejska_2.jpg",
+      "images/sasanka_alpejska_3.jpg",
+      "images/sasanka_alpejska_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 6,
+    "name": "Dziewięćsił bezłodygowy",
+    "latin": "Carlina acaulis",
+    "description": "Niska bylina tworząca rozetę silnie kolczastych liści. Koszyczek kwiatowy jest duży i otoczony jasnymi okrywami. Spotykany na suchych murawach i nasłonecznionych zboczach.",
+    "habitat": "Murawy i suche skaliste zbocza",
+    "bloom": "VII-IX",
+    "altitude": "1000-2300 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Kolczaste liście",
+      "Duży koszyczek",
+      "Rozeta przyziemna",
+      "Wapieniolubny"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/dziewiecsil_bezlodygowy_1.jpg",
+      "images/dziewiecsil_bezlodygowy_2.jpg",
+      "images/dziewiecsil_bezlodygowy_3.jpg",
+      "images/dziewiecsil_bezlodygowy_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 7,
+    "name": "Lilia złotogłów",
+    "latin": "Lilium martagon",
+    "description": "Okazała bylina cebulowa o zwisających różowopurpurowych kwiatach z odgiętymi płatkami. Rośnie w lasach, zaroślach i wysokich traworoślach.",
+    "habitat": "Lasy, zarośla i ziołorośla",
+    "bloom": "VI-VII",
+    "altitude": "800-1800 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny"
+    ],
+    "characteristics": [
+      "Zwisające kwiaty",
+      "Płatki silnie odgięte",
+      "Cebula",
+      "Liście w okółkach"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/lilia_zlotoglow_1.jpg",
+      "images/lilia_zlotoglow_2.jpg",
+      "images/lilia_zlotoglow_3.jpg",
+      "images/lilia_zlotoglow_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 8,
+    "name": "Mak tatrzański",
+    "latin": "Papaver tatricum",
+    "description": "Niska bylina o delikatnych białych kwiatach. Rośnie w szczelinach skał, na piargach i murawach wysokogórskich. Jest jednym z charakterystycznych gatunków flory Tatr.",
+    "habitat": "Piargi, skały i murawy wysokogórskie",
+    "bloom": "VII-VIII",
+    "altitude": "1500-2500 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Białe kwiaty",
+      "Delikatne płatki",
+      "Flora wysokogórska",
+      "Gatunek chroniony"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/mak_tatrzanski_1.jpg",
+      "images/mak_tatrzanski_2.jpg",
+      "images/mak_tatrzanski_3.jpg",
+      "images/mak_tatrzanski_4.jpg"
+    ],
+    "red_book": true,
+    "red_book_category": "VU"
+  },
+  {
+    "id": 9,
+    "name": "Warzucha tatrzańska",
+    "latin": "Cochlearia tatrae",
+    "description": "Niska bylina lub roślina dwuletnia o mięsistych liściach zebranych w rozetę. Białe kwiaty tworzą grona. Występuje na wilgotnych skałach, źródliskach i brzegach potoków.",
+    "habitat": "Wilgotne skały, źródliska, brzegi potoków",
+    "bloom": "VI-VIII",
+    "altitude": "1000-2200 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Mięsiste liście",
+      "Białe kwiaty",
+      "Wilgociolubna",
+      "Gatunek tatrzański"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/warzucha_tatrzanska_1.jpg",
+      "images/warzucha_tatrzanska_2.jpg",
+      "images/warzucha_tatrzanska_3.jpg",
+      "images/warzucha_tatrzanska_4.jpg"
+    ],
+    "red_book": true,
+    "red_book_category": "EN"
+  },
+  {
+    "id": 10,
+    "name": "Goryczka kropkowana",
+    "latin": "Gentiana punctata",
+    "description": "Wysoka bylina o bladożółtych, dzwonkowatych kwiatach gęsto nakrapianych ciemnymi kropkami. Typowa dla wysokogórskich muraw i hal.",
+    "habitat": "Hale, murawy wysokogórskie, piargi",
+    "bloom": "VII-VIII",
+    "altitude": "1400-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Żółte kwiaty w kropki",
+      "Wysoka bylina",
+      "Wysokogórska",
+      "Preferuje podłoże krystaliczne"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/goryczka_kropkowana_1.jpg",
+      "images/goryczka_kropkowana_2.jpg",
+      "images/goryczka_kropkowana_3.jpg",
+      "images/goryczka_kropkowana_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 11,
+    "name": "Szarotka alpejska",
+    "latin": "Leontopodium alpinum",
+    "aliases": [
+      "Edelweiss"
+    ],
+    "description": "Niska bylina pokryta srebrzystym kutnerem. Charakterystyczny wygląd nadają jej gwiaździste, wełniste przysadki otaczające koszyczki. Związana głównie z wapiennymi skałami i murawami.",
+    "habitat": "Wapienne półki skalne i murawy naskalne",
+    "bloom": "VII-IX",
+    "altitude": "1500-2300 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Srebrzyste owłosienie",
+      "Gwiaździste przysadki",
+      "Wapieniolubna",
+      "Rzadka w Tatrach"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/szarotka_alpejska_1.jpg",
+      "images/szarotka_alpejska_2.jpg",
+      "images/szarotka_alpejska_3.jpg",
+      "images/szarotka_alpejska_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 12,
+    "name": "Pierwiosnek łyszczak",
+    "latin": "Primula auricula",
+    "description": "Bylina o mięsistych szarozielonych liściach i złocistożółtych, pachnących kwiatach. Rośnie w szczelinach i na półkach skał wapiennych.",
+    "habitat": "Wapienne skały, szczeliny i półki",
+    "bloom": "IV-VI",
+    "altitude": "900-2200 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Mięsiste liście",
+      "Mączysty nalot",
+      "Żółte pachnące kwiaty",
+      "Wapieniolubna"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/pierwiosnek_lyszczak_1.jpg",
+      "images/pierwiosnek_lyszczak_2.jpg",
+      "images/pierwiosnek_lyszczak_3.jpg",
+      "images/pierwiosnek_lyszczak_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 13,
+    "name": "Dzwonek alpejski",
+    "latin": "Campanula alpina",
+    "description": "Niska, gęsto owłosiona bylina o zwisających niebieskofioletowych kwiatach. Typowa dla hal, piargów i muraw wysokogórskich.",
+    "habitat": "Hale, piargi, murawy alpejskie",
+    "bloom": "VII-VIII",
+    "altitude": "1500-2300 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Niebieskofioletowe kwiaty",
+      "Zwisające kwiaty",
+      "Gęste owłosienie",
+      "Niska bylina"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/dzwonek_alpejski_1.jpg",
+      "images/dzwonek_alpejski_2.jpg",
+      "images/dzwonek_alpejski_3.jpg",
+      "images/dzwonek_alpejski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 14,
+    "name": "Kosodrzewina",
+    "latin": "Pinus mugo",
+    "aliases": [
+      "Sosna górska",
+      "Kosówka"
+    ],
+    "description": "Wielopniowy krzew iglasty tworzący w Tatrach osobne piętro roślinności. Ma igły po dwie w pęczku i szyszki jajowate. Stabilizuje zbocza i zatrzymuje śnieg.",
+    "habitat": "Piętro kosodrzewiny, zbocza i piargi",
+    "bloom": "V-VI",
+    "altitude": "1300-2000 m",
+    "zones": [
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Igły po dwie",
+      "Wielopniowy krzew",
+      "Tworzy piętro kosodrzewiny",
+      "Stabilizuje stoki"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/kosodrzewina_1.jpg",
+      "images/kosodrzewina_2.jpg",
+      "images/kosodrzewina_3.jpg",
+      "images/kosodrzewina_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 15,
+    "name": "Sosna limba",
+    "latin": "Pinus cembra",
+    "aliases": [
+      "Limba"
+    ],
+    "description": "Wysokogórskie drzewo iglaste o igłach zebranych po pięć. Szyszki są jajowate, a nasiona rozsiewają m.in. orzechówki. W Tatrach związana szczególnie z górną granicą lasu i piętrem kosodrzewiny.",
+    "habitat": "Górna granica lasu i zbocza",
+    "bloom": "V-VII",
+    "altitude": "1300-1800 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Igły po pięć",
+      "Szyszki nierozpadające się na drzewie",
+      "Drzewo wysokogórskie",
+      "Nasiona roznoszone przez ptaki"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/sosna_limba_1.jpg",
+      "images/sosna_limba_2.jpg",
+      "images/sosna_limba_3.jpg",
+      "images/sosna_limba_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 16,
+    "name": "Lepiężnik biały",
+    "latin": "Petasites albus",
+    "description": "Wczesną wiosną pojawiają się kwiatostany, a następnie ogromne, okrągławe liście. Rośnie w wilgotnych lasach, nad potokami i w ziołoroślach.",
+    "habitat": "Wilgotne lasy, brzegi potoków, ziołorośla",
+    "bloom": "III-V",
+    "altitude": "500-1600 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny"
+    ],
+    "characteristics": [
+      "Kwitnie przed rozwojem liści",
+      "Bardzo duże liście",
+      "Białe kwiatostany",
+      "Wilgociolubny"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/lepieznik_bialy_1.jpg",
+      "images/lepieznik_bialy_2.jpg",
+      "images/lepieznik_bialy_3.jpg",
+      "images/lepieznik_bialy_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 17,
+    "name": "Ciemiężyca zielona",
+    "latin": "Veratrum lobelianum",
+    "aliases": [
+      "Ciemierzyca zielona"
+    ],
+    "description": "Wysoka, silnie trująca bylina o dużych, szerokich, pofałdowanych liściach i zielonkawych kwiatach w rozgałęzionej wiechy. Rośnie w wilgotnych ziołoroślach.",
+    "habitat": "Wilgotne hale, ziołorośla, brzegi potoków",
+    "bloom": "VI-VIII",
+    "altitude": "700-2000 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Szerokie pofałdowane liście",
+      "Zielonkawe kwiaty",
+      "Silnie trująca",
+      "Wysoka bylina"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/ciemiezyca_zielona_1.jpg",
+      "images/ciemiezyca_zielona_2.jpg",
+      "images/ciemiezyca_zielona_3.jpg",
+      "images/ciemiezyca_zielona_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 18,
+    "name": "Tojad mocny",
+    "latin": "Aconitum firmum",
+    "description": "Okazała, bardzo trująca bylina o dłoniasto podzielonych liściach i charakterystycznych ciemnofioletowych kwiatach przypominających hełmy. Typowa dla wilgotnych ziołorośli.",
+    "habitat": "Ziołorośla, wilgotne hale, brzegi potoków",
+    "bloom": "VII-VIII",
+    "altitude": "800-2000 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Kwiaty hełmiaste",
+      "Ciemnofioletowe kwiaty",
+      "Liście dłoniasto podzielone",
+      "Bardzo trujący"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/tojad_mocny_1.jpg",
+      "images/tojad_mocny_2.jpg",
+      "images/tojad_mocny_3.jpg",
+      "images/tojad_mocny_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 19,
+    "name": "Rojnik górski",
+    "latin": "Sempervivum montanum",
+    "description": "Sukulent tworzący zwarte rozety mięsistych liści. Kwiaty są różowoczerwone i gwiaździste. Rośnie w szczelinach skał, na piargach i suchych murawach wysokogórskich.",
+    "habitat": "Szczeliny skał, piargi i murawy naskalne",
+    "bloom": "VII-VIII",
+    "altitude": "1400-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Mięsiste liście",
+      "Zwarte rozety",
+      "Różowoczerwone kwiaty",
+      "Sukulent"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/rojnik_gorski_1.jpg",
+      "images/rojnik_gorski_2.jpg",
+      "images/rojnik_gorski_3.jpg",
+      "images/rojnik_gorski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 20,
+    "name": "Goryczka wiosenna typowa",
+    "latin": "Gentiana verna subsp. verna",
+    "aliases": [
+      "Goryczka wiosenna"
+    ],
+    "description": "Niska bylina o intensywnie niebieskich, lejkowatych kwiatach. W Tatrach występuje w murawach i na trawiastych upłazach, często na podłożu wapiennym.",
+    "habitat": "Murawy i trawiaste upłazy",
+    "bloom": "V-VII",
+    "altitude": "900-2200 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Intensywnie niebieska korona",
+      "Niska bylina",
+      "Wiosenno-letnie kwitnienie",
+      "Często na wapieniu"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/goryczka_wiosenna_typowa_1.jpg",
+      "images/goryczka_wiosenna_typowa_2.jpg",
+      "images/goryczka_wiosenna_typowa_3.jpg",
+      "images/goryczka_wiosenna_typowa_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 21,
+    "name": "Lepnica bezłodygowa",
+    "latin": "Silene acaulis",
+    "description": "Bardzo niska bylina tworząca charakterystyczne zwarte, półkuliste poduszki. Pojedyncze różowe kwiaty wyrastają na krótkich szypułkach. Typowa roślina wysokogórska.",
+    "habitat": "Skały, piargi i murawy wysokogórskie",
+    "bloom": "VI-VIII",
+    "altitude": "1500-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Tworzy poduszki",
+      "Różowe kwiaty",
+      "Drobne równowąskie liście",
+      "Roślina wysokogórska"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/lepnica_bezlodygowa_1.jpg",
+      "images/lepnica_bezlodygowa_2.jpg",
+      "images/lepnica_bezlodygowa_3.jpg",
+      "images/lepnica_bezlodygowa_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 22,
+    "name": "Kuklik górski",
+    "latin": "Geum montanum",
+    "description": "Bylina o rozecie przerywano-pierzastych liści i pojedynczych złocistożółtych kwiatach. Po kwitnieniu tworzy charakterystyczny włochaty owocostan. Rośnie na halach i wysokich murawach.",
+    "habitat": "Hale, wysokie murawy, pastwiska",
+    "bloom": "V-IX",
+    "altitude": "1000-2300 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Złocistożółte kwiaty",
+      "Duży listek szczytowy",
+      "Liście przerywano-pierzaste",
+      "Włochaty owocostan"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/kuklik_gorski_1.jpg",
+      "images/kuklik_gorski_2.jpg",
+      "images/kuklik_gorski_3.jpg",
+      "images/kuklik_gorski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 23,
+    "name": "Goryczka trojeściowa",
+    "latin": "Gentiana asclepiadea",
+    "description": "Wysoka bylina o łodydze łukowato wznoszącej się i dużych, niebieskich kwiatach wyrastających w kątach liści. Typowa dla ziołorośli i wilgotnych miejsc w reglu.",
+    "habitat": "Ziołorośla, wilgotne polany i obrzeża lasów",
+    "bloom": "VIII-IX",
+    "altitude": "600-1800 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny"
+    ],
+    "characteristics": [
+      "Duże niebieskie kwiaty",
+      "Kwiaty w kątach liści",
+      "Wysoka bylina",
+      "Późne kwitnienie"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/goryczka_trojesciowa_1.jpg",
+      "images/goryczka_trojesciowa_2.jpg",
+      "images/goryczka_trojesciowa_3.jpg",
+      "images/goryczka_trojesciowa_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 24,
+    "name": "Goryczka Klusjusza",
+    "latin": "Gentiana clusii",
+    "aliases": [
+      "Goryczka krótkołodygowa"
+    ],
+    "description": "Duża, intensywnie niebieska goryczka o kielichowatych kwiatach. Jest silnie związana z wapiennymi murawami i skałami. Jedna z najważniejszych goryczek do rozpoznawania podłoża wapiennego.",
+    "habitat": "Wapienne murawy, skały i upłazy",
+    "bloom": "V-VII",
+    "altitude": "900-2200 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Bardzo duże niebieskie kwiaty",
+      "Kielichowata korona",
+      "Wapieniolubna",
+      "Krótka łodyga"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/goryczka_klusjusza_1.jpg",
+      "images/goryczka_klusjusza_2.jpg",
+      "images/goryczka_klusjusza_3.jpg",
+      "images/goryczka_klusjusza_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 25,
+    "name": "Goryczka gorzkawa",
+    "latin": "Gentianella amarella",
+    "description": "Niewysoka roślina o drobnych, fioletowoniebieskich kwiatach. Kwitnie później niż wiele innych goryczek i spotykana jest w murawach oraz na łąkach, także na podłożu wapiennym.",
+    "habitat": "Murawy, łąki i trawiaste zbocza",
+    "bloom": "VII-IX",
+    "altitude": "800-2200 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Drobne fioletowe kwiaty",
+      "Późne kwitnienie",
+      "Niska roślina",
+      "Rodzaj Gentianella"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/goryczka_gorzkawa_1.jpg",
+      "images/goryczka_gorzkawa_2.jpg",
+      "images/goryczka_gorzkawa_3.jpg",
+      "images/goryczka_gorzkawa_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 26,
+    "name": "Goryczka przezroczysta",
+    "latin": "Gentiana frigida",
+    "description": "Niska wysokogórska goryczka o dużych, bladożółtawych kwiatach z zielonkawymi odcieniami. W Tatrach związana z wysokimi murawami i skałami.",
+    "habitat": "Murawy wysokogórskie i skały",
+    "bloom": "VII-VIII",
+    "altitude": "1600-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Bladożółta korona",
+      "Wysokogórska",
+      "Niska bylina",
+      "Późne kwitnienie"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/goryczka_przezroczysta_1.jpg",
+      "images/goryczka_przezroczysta_2.jpg",
+      "images/goryczka_przezroczysta_3.jpg",
+      "images/goryczka_przezroczysta_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 27,
+    "name": "Dzwonek karpacki",
+    "latin": "Campanula carpatica",
+    "description": "Niska bylina o dużych, szeroko otwartych niebieskofioletowych kwiatach. W naturze związana przede wszystkim ze skałami i murawami Karpat.",
+    "habitat": "Skały i murawy wapienne",
+    "bloom": "VI-VIII",
+    "altitude": "600-2000 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Duże dzwonkowate kwiaty",
+      "Niebieskofioletowa korona",
+      "Niska bylina",
+      "Karpacka"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/dzwonek_karpacki_1.jpg",
+      "images/dzwonek_karpacki_2.jpg",
+      "images/dzwonek_karpacki_3.jpg",
+      "images/dzwonek_karpacki_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 28,
+    "name": "Dzwonek jednostronny",
+    "latin": "Campanula uniflora",
+    "description": "Drobna bylina wysokogórska o pojedynczym, niebieskofioletowym kwiecie. Rośnie na skałach i w niskich murawach. Jest charakterystyczna dla surowych siedlisk wysokogórskich.",
+    "habitat": "Skały, piargi i niskie murawy",
+    "bloom": "VII-VIII",
+    "altitude": "1500-2500 m",
+    "zones": [
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Pojedynczy kwiat",
+      "Drobna bylina",
+      "Niebieskofioletowa korona",
+      "Wysokogórska"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/dzwonek_jednostronny_1.jpg",
+      "images/dzwonek_jednostronny_2.jpg",
+      "images/dzwonek_jednostronny_3.jpg",
+      "images/dzwonek_jednostronny_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 29,
+    "name": "Jaskier alpejski",
+    "latin": "Ranunculus alpestris",
+    "description": "Niska bylina o białych kwiatach z żółtym środkiem. Występuje na wysokogórskich murawach, skałach i piargach, w tym w Tatrach.",
+    "habitat": "Murawy, piargi i szczeliny skał",
+    "bloom": "VI-VIII",
+    "altitude": "1500-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Białe kwiaty",
+      "Żółty środek",
+      "Niska bylina",
+      "Wysokogórski"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/jaskier_alpejski_1.jpg",
+      "images/jaskier_alpejski_2.jpg",
+      "images/jaskier_alpejski_3.jpg",
+      "images/jaskier_alpejski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 30,
+    "name": "Jaskier platanolistny",
+    "latin": "Ranunculus platanifolius",
+    "description": "Okazała bylina o dużych, dłoniasto klapowanych liściach i białych kwiatach. Typowa dla wilgotnych ziołorośli i wysokich traworośli.",
+    "habitat": "Ziołorośla, wilgotne hale i obrzeża lasów",
+    "bloom": "VI-VIII",
+    "altitude": "900-2000 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Duże dłoniasto klapowane liście",
+      "Białe kwiaty",
+      "Wysoka bylina",
+      "Wilgociolubny"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/jaskier_platanolistny_1.jpg",
+      "images/jaskier_platanolistny_2.jpg",
+      "images/jaskier_platanolistny_3.jpg",
+      "images/jaskier_platanolistny_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 31,
+    "name": "Sasanka słowacka",
+    "latin": "Pulsatilla slavica",
+    "description": "Wczesnowiosenna sasanka o owłosionych liściach i dużych jasnych kwiatach. Jest związana z wapiennymi murawami Karpat Zachodnich i należy do ciekawych gatunków flory tatrzańskiej.",
+    "habitat": "Wapienne murawy i trawiaste zbocza",
+    "bloom": "IV-V",
+    "altitude": "800-1800 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Owłosiona",
+      "Duży jasny kwiat",
+      "Wiosenne kwitnienie",
+      "Wapieniolubna"
+    ],
+    "prefers_limestone": true,
+    "images": [
+      "images/sasanka_slowacka_1.jpg",
+      "images/sasanka_slowacka_2.jpg",
+      "images/sasanka_slowacka_3.jpg",
+      "images/sasanka_slowacka_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 32,
+    "name": "Jastrzębiec alpejski",
+    "latin": "Hieracium alpinum",
+    "description": "Wysokogórski jastrzębiec o żółtych koszyczkach i charakterystycznym owłosieniu. Występuje w murawach, na piargach i skałach, szczególnie w wyższych piętrach Tatr.",
+    "habitat": "Murawy wysokogórskie, skały i piargi",
+    "bloom": "VII-IX",
+    "altitude": "1500-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Żółte koszyczki",
+      "Owłosiona łodyga",
+      "Wysokogórski",
+      "Rodzaj Hieracium"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/jastrzebiec_alpejski_1.jpg",
+      "images/jastrzebiec_alpejski_2.jpg",
+      "images/jastrzebiec_alpejski_3.jpg",
+      "images/jastrzebiec_alpejski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 33,
+    "name": "Kuklik rozesłany",
+    "latin": "Geum rivale",
+    "description": "Bylina o zwisających, różowawoczerwonych kwiatach i owłosionych działkach kielicha. Rośnie w wilgotnych łąkach, ziołoroślach i przy potokach. Stanowi dobry kontrast dla kuklika górskiego.",
+    "habitat": "Wilgotne łąki, brzegi potoków, ziołorośla",
+    "bloom": "V-VIII",
+    "altitude": "500-1800 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Zwisające kwiaty",
+      "Różowawy kielich",
+      "Wilgociolubny",
+      "Kuklik niższych pięter"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/kuklik_rozeslany_1.jpg",
+      "images/kuklik_rozeslany_2.jpg",
+      "images/kuklik_rozeslany_3.jpg",
+      "images/kuklik_rozeslany_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 34,
+    "name": "Omieg górski",
+    "latin": "Doronicum austriacum",
+    "description": "Okazała bylina o żółtych koszyczkach przypominających duże stokrotki. Rośnie w wilgotnych ziołoroślach, nad potokami i w wysokich traworoślach.",
+    "habitat": "Ziołorośla i wilgotne miejsca nad potokami",
+    "bloom": "VI-VIII",
+    "altitude": "700-2000 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Duże żółte koszyczki",
+      "Wysoka bylina",
+      "Wilgociolubny",
+      "Ziołoroślowy"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/omieg_gorski_1.jpg",
+      "images/omieg_gorski_2.jpg",
+      "images/omieg_gorski_3.jpg",
+      "images/omieg_gorski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 35,
+    "name": "Czosnek syberyjski",
+    "latin": "Allium sibiricum",
+    "description": "Wysokogórski czosnek tworzący kępy wąskich liści i kuliste kwiatostany z różowawymi kwiatami. Występuje na halach i wilgotnych murawach.",
+    "habitat": "Hale, murawy i wilgotne skały",
+    "bloom": "VI-VIII",
+    "altitude": "1200-2300 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Kulisty kwiatostan",
+      "Różowawe kwiaty",
+      "Czosnkowy zapach",
+      "Wysokogórski"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/czosnek_syberyjski_1.jpg",
+      "images/czosnek_syberyjski_2.jpg",
+      "images/czosnek_syberyjski_3.jpg",
+      "images/czosnek_syberyjski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 36,
+    "name": "Pierwiosnek maleńki",
+    "latin": "Primula minima",
+    "description": "Drobny pierwiosnek tworzący niskie rozety mięsistych liści. Ma różowe lub purpurowe kwiaty i jest charakterystyczny dla wysokogórskich muraw Tatr.",
+    "habitat": "Murawy wysokogórskie i skały",
+    "bloom": "VI-VIII",
+    "altitude": "1500-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Bardzo mały",
+      "Mięsiste liście",
+      "Różowe kwiaty",
+      "Wysokogórski"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/pierwiosnek_malenki_1.jpg",
+      "images/pierwiosnek_malenki_2.jpg",
+      "images/pierwiosnek_malenki_3.jpg",
+      "images/pierwiosnek_malenki_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 37,
+    "name": "Pierwiosnek wyniosły",
+    "latin": "Primula elatior",
+    "description": "Wiosenna bylina o jasnożółtych kwiatach zebranych w baldach. Rośnie w wilgotnych lasach, łąkach i ziołoroślach niższych pięter.",
+    "habitat": "Wilgotne łąki, lasy i ziołorośla",
+    "bloom": "IV-VI",
+    "altitude": "500-1600 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny"
+    ],
+    "characteristics": [
+      "Jasnożółte kwiaty",
+      "Kwiatostan baldachowaty",
+      "Wiosenne kwitnienie",
+      "Wilgociolubny"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/pierwiosnek_wyniosly_1.jpg",
+      "images/pierwiosnek_wyniosly_2.jpg",
+      "images/pierwiosnek_wyniosly_3.jpg",
+      "images/pierwiosnek_wyniosly_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 38,
+    "name": "Zawilec narcyzowy",
+    "latin": "Anemone narcissiflora",
+    "description": "Wysokogórska bylina o białych kwiatach zebranych po kilka na szczycie łodygi. Charakterystyczna dla hal i muraw, także w Tatrach Zachodnich.",
+    "habitat": "Hale, murawy i trawiaste zbocza",
+    "bloom": "VI-VIII",
+    "altitude": "1200-2300 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Kilka białych kwiatów",
+      "Kwiaty przypominają narcyzy",
+      "Wysokogórski",
+      "Bylina"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/zawilec_narcyzowy_1.jpg",
+      "images/zawilec_narcyzowy_2.jpg",
+      "images/zawilec_narcyzowy_3.jpg",
+      "images/zawilec_narcyzowy_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 39,
+    "name": "Miłosna górska",
+    "latin": "Adenostyles alliariae",
+    "description": "Okazała bylina z dużymi liśćmi i wiechą różowawych lub purpurowych koszyczków. Bardzo typowa dla ziołorośli piętra subalpejskiego.",
+    "habitat": "Ziołorośla, brzegi potoków i wilgotne hale",
+    "bloom": "VII-IX",
+    "altitude": "1000-2100 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Duże liście",
+      "Różowopurpurowe koszyczki",
+      "Ziołoroślowa",
+      "Wysoka bylina"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/milosna_gorska_1.jpg",
+      "images/milosna_gorska_2.jpg",
+      "images/milosna_gorska_3.jpg",
+      "images/milosna_gorska_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 40,
+    "name": "Modrzyk górski",
+    "latin": "Cicerbita alpina",
+    "description": "Wysoka bylina o niebieskofioletowych koszyczkach, charakterystyczna dla wilgotnych ziołorośli. W Tatrach często rośnie w sąsiedztwie innych wysokich bylin.",
+    "habitat": "Wilgotne ziołorośla i traworośla",
+    "bloom": "VII-IX",
+    "altitude": "1000-2100 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Niebieskofioletowe kwiaty",
+      "Wysoka bylina",
+      "Ziołoroślowy",
+      "Wilgociolubny"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/modrzyk_gorski_1.jpg",
+      "images/modrzyk_gorski_2.jpg",
+      "images/modrzyk_gorski_3.jpg",
+      "images/modrzyk_gorski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 41,
+    "name": "Starzec górski",
+    "latin": "Senecio subalpinus",
+    "description": "Wysoka bylina o żółtych koszyczkach, spotykana w ziołoroślach i w piętrze kosodrzewiny. Należy do charakterystycznych roślin wilgotnych siedlisk górskich.",
+    "habitat": "Ziołorośla, wilgotne hale i kosodrzewina",
+    "bloom": "VII-IX",
+    "altitude": "1000-2200 m",
+    "zones": [
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Żółte koszyczki",
+      "Wysoka bylina",
+      "Wilgotne siedliska",
+      "Rodzaj Senecio"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/starzec_gorski_1.jpg",
+      "images/starzec_gorski_2.jpg",
+      "images/starzec_gorski_3.jpg",
+      "images/starzec_gorski_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 42,
+    "name": "Rdest wężownik",
+    "latin": "Bistorta officinalis",
+    "description": "Bylina o charakterystycznym kłosowatym, różowym kwiatostanie i wydłużonych liściach. Tworzy często duże płaty na wilgotnych łąkach i halach.",
+    "habitat": "Wilgotne łąki, hale i murawy",
+    "bloom": "V-VIII",
+    "altitude": "500-2000 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina",
+      "hale"
+    ],
+    "characteristics": [
+      "Różowy kłos",
+      "Wydłużone liście",
+      "Tworzy płaty",
+      "Wilgociolubny"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/rdest_wezownik_1.jpg",
+      "images/rdest_wezownik_2.jpg",
+      "images/rdest_wezownik_3.jpg",
+      "images/rdest_wezownik_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 43,
+    "name": "Wełnianka pochwowata",
+    "latin": "Eriophorum vaginatum",
+    "description": "Trawopodobna roślina torfowiskowa tworząca zwarte kępy. Po przekwitnięciu wytwarza charakterystyczne białe, wełniste owocostany.",
+    "habitat": "Torfowiska i wilgotne bezwapienne siedliska",
+    "bloom": "V-VII",
+    "altitude": "800-2000 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Białe wełniste owocostany",
+      "Tworzy kępy",
+      "Torfowiskowa",
+      "Liście wąskie"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/welnianka_pochwowata_1.jpg",
+      "images/welnianka_pochwowata_2.jpg",
+      "images/welnianka_pochwowata_3.jpg",
+      "images/welnianka_pochwowata_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 44,
+    "name": "Sit skucina",
+    "latin": "Juncus trifidus",
+    "description": "Drobna roślina sitowata o wąskich, trójkanciastych liściach. Jest jedną z charakterystycznych roślin wysokogórskich muraw na skałach krystalicznych.",
+    "habitat": "Wysokogórskie murawy i szczeliny skał",
+    "bloom": "VII-VIII",
+    "altitude": "1500-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Wąskie liście",
+      "Liście trójkanciaste",
+      "Wysokogórski",
+      "Typowy dla ubogich muraw"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/sit_skucina_1.jpg",
+      "images/sit_skucina_2.jpg",
+      "images/sit_skucina_3.jpg",
+      "images/sit_skucina_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 45,
+    "name": "Turzyca zawsze zielona",
+    "latin": "Carex sempervirens",
+    "description": "Trawopodobna bylina tworząca kępki. Jest typowym składnikiem wysokogórskich muraw i hal, szczególnie na ubogich siedliskach.",
+    "habitat": "Murawy wysokogórskie i hale",
+    "bloom": "VI-VIII",
+    "altitude": "1200-2400 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Tworzy kępy",
+      "Zimozielona",
+      "Trawopodobna",
+      "Murawy wysokogórskie"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/turzyca_zawsze_zielona_1.jpg",
+      "images/turzyca_zawsze_zielona_2.jpg",
+      "images/turzyca_zawsze_zielona_3.jpg",
+      "images/turzyca_zawsze_zielona_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 46,
+    "name": "Kostrzewa pstra",
+    "latin": "Festuca versicolor",
+    "description": "Trawa wysokogórska tworząca gęste kępy. Występuje w murawach, na piargach i skalnych grzędach, szczególnie w piętrze halnym.",
+    "habitat": "Murawy, piargi i skalne grzędy",
+    "bloom": "VI-VIII",
+    "altitude": "1500-2500 m",
+    "zones": [
+      "kosodrzewina",
+      "hale",
+      "turnie"
+    ],
+    "characteristics": [
+      "Gęste kępy",
+      "Trawa wysokogórska",
+      "Wąskie liście",
+      "Rośnie na skałach"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/kostrzewa_pstra_1.jpg",
+      "images/kostrzewa_pstra_2.jpg",
+      "images/kostrzewa_pstra_3.jpg",
+      "images/kostrzewa_pstra_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 47,
+    "name": "Wierzbówka kiprzyca",
+    "latin": "Chamerion angustifolium",
+    "description": "Okazała bylina o wysokiej łodydze i długim gronie różowopurpurowych kwiatów. Pojawia się licznie na zrębach, polanach i siedliskach po zaburzeniach.",
+    "habitat": "Polany, zręby, pobocza i miejsca zaburzone",
+    "bloom": "VII-IX",
+    "altitude": "500-1800 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Różowopurpurowe kwiaty",
+      "Długie grono",
+      "Wysoka bylina",
+      "Roślina pionierska"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/wierzbowka_kiprzyca_1.jpg",
+      "images/wierzbowka_kiprzyca_2.jpg",
+      "images/wierzbowka_kiprzyca_3.jpg",
+      "images/wierzbowka_kiprzyca_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 48,
+    "name": "Borówka brusznica",
+    "latin": "Vaccinium vitis-idaea",
+    "description": "Niewielka zimozielona krzewinka o skórzastych liściach, białoróżowych kwiatach i czerwonych owocach. Bardzo częsta w borach i na ubogich murawach.",
+    "habitat": "Bory, wrzosowiska i ubogie murawy",
+    "bloom": "V-VIII",
+    "altitude": "500-2000 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Zimozielone liście",
+      "Czerwone owoce",
+      "Białoróżowe kwiaty",
+      "Krzewinka"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/borowka_brusznica_1.jpg",
+      "images/borowka_brusznica_2.jpg",
+      "images/borowka_brusznica_3.jpg",
+      "images/borowka_brusznica_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 49,
+    "name": "Borówka czarna",
+    "latin": "Vaccinium myrtillus",
+    "aliases": [
+      "Czarna jagoda"
+    ],
+    "description": "Niska krzewinka o zielonych, kanciastych pędach, drobnych liściach i ciemnogranatowych owocach. Jedna z najczęstszych roślin runa borów tatrzańskich.",
+    "habitat": "Bory i kwaśne murawy",
+    "bloom": "V-VII",
+    "altitude": "500-2000 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Kanciaste zielone pędy",
+      "Czarne owoce",
+      "Liście opadające na zimę",
+      "Krzewinka kwasolubna"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/borowka_czarna_1.jpg",
+      "images/borowka_czarna_2.jpg",
+      "images/borowka_czarna_3.jpg",
+      "images/borowka_czarna_4.jpg"
+    ],
+    "red_book": false
+  },
+  {
+    "id": 50,
+    "name": "Wrzos zwyczajny",
+    "latin": "Calluna vulgaris",
+    "description": "Niska krzewinka o drobnych łuskowatych liściach i licznych różowofioletowych kwiatach. Występuje na kwaśnych, ubogich siedliskach, wrzosowiskach i borach.",
+    "habitat": "Wrzosowiska, bory i kwaśne murawy",
+    "bloom": "VIII-IX",
+    "altitude": "500-1800 m",
+    "zones": [
+      "regiel dolny",
+      "regiel górny",
+      "kosodrzewina"
+    ],
+    "characteristics": [
+      "Drobne łuskowate liście",
+      "Różowofioletowe kwiaty",
+      "Kwaśne siedliska",
+      "Krzewinka"
+    ],
+    "prefers_limestone": false,
+    "images": [
+      "images/wrzos_zwyczajny_1.jpg",
+      "images/wrzos_zwyczajny_2.jpg",
+      "images/wrzos_zwyczajny_3.jpg",
+      "images/wrzos_zwyczajny_4.jpg"
+    ],
+    "red_book": false
+  }
 ]

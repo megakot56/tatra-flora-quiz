@@ -45,24 +45,6 @@
         <div id="image-modal" class="modal image-modal"><div class="image-modal-content"><button class="close-modal">&times;</button><img id="fullsize-image" src="" alt=""></div></div>
         <div id="loading" class="loading"><div class="spinner"></div><p>Ładowanie...</p></div>
     </div>
-    <script>
-      (function () {
-        const originalFetch = window.fetch;
-        window.fetch = async function (input, init) {
-          const url = typeof input === 'string' ? input : input.url;
-          if (url === 'plants.json' || url.endsWith('/plants.json')) {
-            const [baseResponse, extraResponse] = await Promise.all([
-              originalFetch.call(this, input, init), originalFetch.call(this, 'plants-extra.json', init)
-            ]);
-            if (!baseResponse.ok) return baseResponse;
-            const base = await baseResponse.json();
-            const extra = extraResponse.ok ? await extraResponse.json() : [];
-            return new Response(JSON.stringify(base.concat(extra)), {status:200, headers:{'Content-Type':'application/json'}});
-          }
-          return originalFetch.call(this, input, init);
-        };
-      })();
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
